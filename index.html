@@ -1,0 +1,1698 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fff4f1" />
+    <title>Good Mood to Go</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #34221f;
+        --soft-ink: #755d58;
+        --paper: #fffdfa;
+        --peach: #ffd9c7;
+        --rose: #ff7fa3;
+        --mint: #aeeedb;
+        --sky: #bddfff;
+        --honey: #ffcf5a;
+        --lavender: #d7c7ff;
+        --berry: #8f4c6f;
+        --line: rgba(52, 34, 31, 0.14);
+        --shadow: 0 20px 60px rgba(101, 56, 49, 0.18);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        font-family:
+          ui-rounded, "SF Pro Rounded", "Aptos", "Segoe UI", system-ui,
+          sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 16% 18%, rgba(255, 207, 90, 0.6), transparent 26%),
+          radial-gradient(circle at 84% 16%, rgba(174, 238, 219, 0.72), transparent 28%),
+          radial-gradient(circle at 72% 86%, rgba(215, 199, 255, 0.72), transparent 30%),
+          linear-gradient(135deg, #fff1e8 0%, #ffe2ee 34%, #e4f5ff 68%, #fff6cf 100%);
+        display: grid;
+        place-items: center;
+        padding: 22px;
+        overflow-x: hidden;
+      }
+
+      .heart-field {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        overflow: hidden;
+        pointer-events: none;
+      }
+
+      .heart-field span {
+        position: absolute;
+        bottom: -42px;
+        color: rgba(143, 76, 111, 0.24);
+        font-size: var(--size);
+        line-height: 1;
+        opacity: 0;
+        animation: driftHeart var(--speed) linear infinite;
+        animation-delay: var(--delay);
+      }
+
+      .heart-field span:nth-child(1) {
+        left: 8%;
+        --size: 18px;
+        --speed: 14s;
+        --delay: -2s;
+      }
+
+      .heart-field span:nth-child(2) {
+        left: 22%;
+        --size: 12px;
+        --speed: 18s;
+        --delay: -8s;
+      }
+
+      .heart-field span:nth-child(3) {
+        left: 48%;
+        --size: 16px;
+        --speed: 16s;
+        --delay: -5s;
+      }
+
+      .heart-field span:nth-child(4) {
+        left: 72%;
+        --size: 14px;
+        --speed: 20s;
+        --delay: -10s;
+      }
+
+      .heart-field span:nth-child(5) {
+        left: 88%;
+        --size: 20px;
+        --speed: 17s;
+        --delay: -3s;
+      }
+
+      .heart-field span:nth-child(6) {
+        left: 34%;
+        --size: 10px;
+        --speed: 22s;
+        --delay: -13s;
+      }
+
+      .music-widget {
+        position: fixed;
+        left: 14px;
+        top: 14px;
+        z-index: 3;
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        align-items: start;
+        gap: 8px;
+        width: min(calc(100vw - 28px), 360px);
+        pointer-events: none;
+      }
+
+      .music-toggle {
+        width: 44px;
+        height: 44px;
+        border: 1px solid rgba(143, 76, 111, 0.16);
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.78);
+        color: var(--berry);
+        font: inherit;
+        font-size: 23px;
+        font-weight: 900;
+        box-shadow: 0 10px 24px rgba(143, 76, 111, 0.14);
+        cursor: pointer;
+        pointer-events: auto;
+        transition: transform 180ms ease, background 220ms ease, color 220ms ease;
+      }
+
+      .music-toggle:active {
+        transform: translateY(2px) scale(0.98);
+      }
+
+      .music-widget.is-playing .music-toggle {
+        border-color: rgba(255, 120, 150, 0.3);
+        background: linear-gradient(135deg, #ff7896, #ffd45c 55%, #aeeedb);
+        color: #fff;
+        animation: musicPulse 1.9s ease-in-out infinite;
+      }
+
+      .music-panel {
+        max-width: 0;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        pointer-events: none;
+        transform: translateY(4px);
+        transition:
+          max-width 420ms ease,
+          max-height 420ms ease,
+          opacity 260ms ease,
+          transform 420ms cubic-bezier(0.2, 0.8, 0.25, 1);
+      }
+
+      .music-widget.is-expanded .music-panel {
+        max-width: 300px;
+        max-height: 188px;
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .music-line {
+        min-height: 38px;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding: 8px 10px;
+        border: 1px solid rgba(143, 76, 111, 0.14);
+        border-radius: 15px;
+        background: rgba(255, 255, 255, 0.82);
+        color: var(--ink);
+        box-shadow: 0 10px 24px rgba(143, 76, 111, 0.1);
+      }
+
+      .music-status {
+        flex: 0 0 auto;
+        color: #ff658d;
+        font-size: 12px;
+        font-weight: 950;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .music-title {
+        min-width: 0;
+        overflow: hidden;
+        color: var(--soft-ink);
+        font-size: 12px;
+        font-weight: 850;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .music-wave {
+        display: flex;
+        align-items: end;
+        gap: 3px;
+        height: 18px;
+        margin: 7px 0 0 10px;
+      }
+
+      .music-wave span {
+        width: 4px;
+        height: 8px;
+        border-radius: 999px;
+        background: #ff7896;
+        opacity: 0.72;
+        animation: waveBeat 920ms ease-in-out infinite;
+      }
+
+      .music-wave span:nth-child(2) {
+        height: 14px;
+        animation-delay: 110ms;
+      }
+
+      .music-wave span:nth-child(3) {
+        height: 10px;
+        animation-delay: 220ms;
+      }
+
+      .music-wave span:nth-child(4) {
+        height: 16px;
+        animation-delay: 330ms;
+      }
+
+      .music-widget:not(.is-playing) .music-wave span {
+        animation-play-state: paused;
+        opacity: 0.28;
+      }
+
+      .song-picker {
+        display: grid;
+        grid-template-columns: 1fr 1fr auto;
+        gap: 6px;
+        margin-top: 8px;
+      }
+
+      .song-choice,
+      .song-lock {
+        min-height: 32px;
+        border: 1px solid rgba(143, 76, 111, 0.14);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.78);
+        color: var(--soft-ink);
+        font: inherit;
+        font-size: 11px;
+        font-weight: 900;
+        cursor: pointer;
+      }
+
+      .song-choice.is-active,
+      .song-lock.is-locked {
+        border-color: rgba(255, 120, 150, 0.28);
+        background: rgba(255, 232, 240, 0.92);
+        color: #9c3f61;
+      }
+
+      .song-lock {
+        width: 38px;
+        font-size: 15px;
+      }
+
+      .phone {
+        width: min(100%, 430px);
+        min-height: min(760px, calc(100vh - 44px));
+        border: 1px solid rgba(255, 255, 255, 0.72);
+        background:
+          linear-gradient(180deg, rgba(255, 253, 250, 0.92), rgba(255, 247, 250, 0.86)),
+          rgba(255, 253, 250, 0.86);
+        border-radius: 28px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        backdrop-filter: blur(18px);
+        position: relative;
+        z-index: 1;
+      }
+
+      header {
+        padding: 30px 22px 18px;
+        text-align: center;
+      }
+
+      .eyebrow {
+        margin: 0 0 8px;
+        color: var(--berry);
+        font-size: 13px;
+        font-weight: 750;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0 auto;
+        font-size: clamp(32px, 10vw, 46px);
+        line-height: 1;
+        letter-spacing: 0;
+        text-shadow: 0 4px 0 rgba(255, 207, 90, 0.28);
+        max-width: 10ch;
+      }
+
+      h1 span {
+        display: block;
+      }
+
+      main {
+        padding: 0 22px 22px;
+        display: grid;
+        align-content: center;
+        gap: 18px;
+      }
+
+      .envelope-wrap {
+        position: relative;
+        display: grid;
+        place-items: center;
+        min-height: 250px;
+      }
+
+      .envelope-wrap::before {
+        content: "";
+        position: absolute;
+        width: min(86%, 330px);
+        height: 24px;
+        bottom: 20px;
+        border-radius: 999px;
+        background: rgba(143, 76, 111, 0.13);
+        filter: blur(10px);
+      }
+
+      .envelope {
+        position: relative;
+        width: min(100%, 320px);
+        aspect-ratio: 1.42;
+        border: 0;
+        border-radius: 22px;
+        background:
+          linear-gradient(160deg, rgba(255, 255, 255, 0.34), transparent 38%),
+          linear-gradient(160deg, #ffd6c7, #fff1df 58%, #ffe0ed);
+        box-shadow:
+          0 22px 42px rgba(149, 75, 89, 0.22),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.62);
+        cursor: pointer;
+        transform: translateY(0);
+        transition: transform 240ms ease, box-shadow 240ms ease, opacity 240ms ease;
+      }
+
+      .envelope:active {
+        transform: translateY(3px) scale(0.99);
+      }
+
+      .envelope::before,
+      .envelope::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 18px;
+        pointer-events: none;
+      }
+
+      .envelope::before {
+        background:
+          linear-gradient(145deg, transparent 49.4%, rgba(143, 76, 111, 0.2) 50%, transparent 50.8%),
+          linear-gradient(35deg, transparent 49.4%, rgba(143, 76, 111, 0.2) 50%, transparent 50.8%),
+          linear-gradient(to top, rgba(255, 127, 163, 0.26), transparent 54%);
+      }
+
+      .envelope::after {
+        clip-path: polygon(0 0, 100% 0, 50% 62%);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.3), transparent 38%),
+          linear-gradient(180deg, #ffbfd4, #ffcfc1);
+        transform-origin: top;
+        transition: transform 980ms cubic-bezier(0.16, 0.86, 0.28, 1.04) 420ms;
+      }
+
+      .seal {
+        position: absolute;
+        left: 50%;
+        top: 54%;
+        z-index: 3;
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        background:
+          radial-gradient(circle at 35% 28%, rgba(255, 255, 255, 0.46), transparent 24%),
+          linear-gradient(145deg, #ff7096, #c95b84);
+        color: #fff;
+        display: grid;
+        place-items: center;
+        font-size: 30px;
+        line-height: 1;
+        box-shadow:
+          0 10px 18px rgba(143, 76, 111, 0.24),
+          inset 0 -3px 0 rgba(52, 34, 31, 0.12);
+        transform: translate(-50%, -50%) rotate(-8deg);
+        transition: transform 420ms ease, opacity 260ms ease;
+      }
+
+      .ribbon {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        border-radius: 22px;
+        background:
+          linear-gradient(to right, transparent calc(50% - 11px), rgba(255, 246, 190, 0.78) calc(50% - 10px), rgba(255, 246, 190, 0.78) calc(50% + 10px), transparent calc(50% + 11px)),
+          linear-gradient(to bottom, transparent calc(50% - 10px), rgba(255, 246, 190, 0.7) calc(50% - 9px), rgba(255, 246, 190, 0.7) calc(50% + 9px), transparent calc(50% + 10px));
+        pointer-events: none;
+        transition: opacity 520ms ease 260ms;
+      }
+
+      .note {
+        position: absolute;
+        left: 8%;
+        right: 8%;
+        bottom: 18%;
+        min-height: 64%;
+        padding: 18px;
+        border-radius: 16px;
+        background:
+          repeating-linear-gradient(
+            to bottom,
+            #fffdfa 0,
+            #fffdfa 28px,
+            rgba(255, 207, 90, 0.28) 29px
+          ),
+          linear-gradient(135deg, rgba(255, 255, 255, 0.5), transparent);
+        border: 1px solid rgba(143, 76, 111, 0.12);
+        box-shadow: 0 12px 30px rgba(52, 34, 31, 0.13);
+        display: grid;
+        place-items: center;
+        text-align: center;
+        font-weight: 850;
+        line-height: 1.2;
+        transform: translateY(56px);
+        opacity: 0;
+        transition:
+          transform 980ms cubic-bezier(0.16, 0.86, 0.28, 1.04) 520ms,
+          opacity 520ms ease 740ms;
+      }
+
+      .envelope.open::after {
+        transform: rotateX(172deg);
+      }
+
+      .envelope.open .note {
+        transform: translateY(-38px);
+        opacity: 1;
+      }
+
+      .envelope.open .seal {
+        opacity: 0;
+        transform: translate(-50%, -50%) rotate(20deg) scale(0.72);
+        transition-delay: 240ms;
+      }
+
+      .envelope.open .ribbon {
+        opacity: 0;
+      }
+
+      .envelope.fly-away {
+        animation: flyAway 680ms ease-in forwards;
+      }
+
+      .envelope.ready {
+        animation: floatIn 720ms cubic-bezier(0.2, 0.8, 0.25, 1) forwards;
+      }
+
+      .envelope.open {
+        animation: unwrap 1280ms ease both;
+      }
+
+      .sparkles {
+        position: absolute;
+        inset: -18px;
+        pointer-events: none;
+      }
+
+      .sparkles span {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        background: var(--honey);
+        opacity: 0;
+        transform: scale(0.4);
+      }
+
+      .envelope.open .sparkles span {
+        animation: pop 1200ms ease 700ms forwards;
+      }
+
+      .sparkles span:nth-child(1) {
+        left: 4%;
+        top: 20%;
+      }
+
+      .sparkles span:nth-child(2) {
+        right: 7%;
+        top: 9%;
+        background: var(--mint);
+        animation-delay: 80ms;
+      }
+
+      .sparkles span:nth-child(3) {
+        left: 16%;
+        bottom: 7%;
+        background: var(--rose);
+        animation-delay: 140ms;
+      }
+
+      .sparkles span:nth-child(4) {
+        right: 18%;
+        bottom: 16%;
+        background: var(--sky);
+        animation-delay: 200ms;
+      }
+
+      @keyframes pop {
+        0% {
+          opacity: 0;
+          transform: translateY(8px) scale(0.4);
+        }
+        55% {
+          opacity: 1;
+          transform: translateY(-10px) scale(1);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-26px) scale(0.5);
+        }
+      }
+
+      @keyframes unwrap {
+        0% {
+          transform: translateY(0) rotate(0deg) scale(1);
+        }
+        18% {
+          transform: translateY(-2px) rotate(-1.8deg) scale(1.015);
+        }
+        36% {
+          transform: translateY(1px) rotate(1.2deg) scale(1.01);
+        }
+        62% {
+          transform: translateY(-4px) rotate(0deg) scale(1.02);
+        }
+        100% {
+          transform: translateY(0) rotate(0deg) scale(1);
+        }
+      }
+
+      @keyframes driftHeart {
+        0% {
+          opacity: 0;
+          transform: translate3d(0, 0, 0) rotate(0deg) scale(0.82);
+        }
+        16% {
+          opacity: 0.62;
+        }
+        82% {
+          opacity: 0.34;
+        }
+        100% {
+          opacity: 0;
+          transform: translate3d(32px, -112vh, 0) rotate(28deg) scale(1.18);
+        }
+      }
+
+      @keyframes musicPulse {
+        0%,
+        100% {
+          transform: translateY(0) scale(1);
+          box-shadow: 0 10px 24px rgba(143, 76, 111, 0.14);
+        }
+        50% {
+          transform: translateY(-2px) scale(1.06);
+          box-shadow: 0 14px 30px rgba(255, 120, 150, 0.28);
+        }
+      }
+
+      @keyframes waveBeat {
+        0%,
+        100% {
+          transform: scaleY(0.62);
+        }
+        50% {
+          transform: scaleY(1.15);
+        }
+      }
+
+      @keyframes flyAway {
+        0% {
+          opacity: 1;
+          transform: translateY(0) rotate(0deg) scale(1);
+        }
+        55% {
+          opacity: 1;
+          transform: translate(28px, -42px) rotate(8deg) scale(0.96);
+        }
+        100% {
+          opacity: 0;
+          transform: translate(180px, -120px) rotate(18deg) scale(0.72);
+        }
+      }
+
+      @keyframes floatIn {
+        0% {
+          opacity: 0;
+          transform: translate(-90px, 34px) rotate(-10deg) scale(0.88);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0) rotate(0deg) scale(1);
+        }
+      }
+
+      .primary {
+        width: 100%;
+        min-height: 56px;
+        border: 0;
+        border-radius: 16px;
+        background: linear-gradient(135deg, #34221f, #8f4c6f);
+        color: #fff;
+        font: inherit;
+        font-size: 17px;
+        font-weight: 850;
+        cursor: pointer;
+        box-shadow: 0 14px 30px rgba(143, 76, 111, 0.24);
+      }
+
+      .primary:active {
+        transform: translateY(2px);
+      }
+
+      .message {
+        display: grid;
+        gap: 12px;
+        animation: riseIn 340ms ease both;
+      }
+
+      .pill-row {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .pill,
+      .card {
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.74);
+        box-shadow: 0 8px 22px rgba(143, 76, 111, 0.08);
+      }
+
+      .pill {
+        min-height: 84px;
+        padding: 14px;
+        display: grid;
+        align-content: center;
+        gap: 5px;
+      }
+
+      .label {
+        color: var(--soft-ink);
+        font-size: 12px;
+        font-weight: 850;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+      }
+
+      .value {
+        font-size: 17px;
+        font-weight: 850;
+        line-height: 1.15;
+      }
+
+      .card {
+        padding: 16px;
+        line-height: 1.45;
+      }
+
+      .card:nth-of-type(2) {
+        background: rgba(234, 255, 248, 0.78);
+      }
+
+      .card:nth-of-type(3) {
+        background: rgba(255, 248, 214, 0.78);
+      }
+
+      .card:nth-of-type(4) {
+        background: rgba(255, 235, 243, 0.86);
+      }
+
+      .card:nth-of-type(5) {
+        background: rgba(236, 249, 255, 0.82);
+      }
+
+      .card:nth-of-type(6) {
+        background: rgba(244, 238, 255, 0.84);
+      }
+
+      .card:nth-of-type(7) {
+        background: rgba(255, 242, 227, 0.86);
+      }
+
+      .card strong {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 15px;
+      }
+
+      .mood {
+        font-size: 20px;
+        font-weight: 900;
+        line-height: 1.22;
+      }
+
+      .tiny {
+        margin: 0;
+        color: var(--soft-ink);
+        font-size: 13px;
+        line-height: 1.4;
+      }
+
+      footer {
+        padding: 0 22px 22px;
+        text-align: center;
+      }
+
+      .credit {
+        position: fixed;
+        right: 10px;
+        bottom: 8px;
+        z-index: 2;
+        color: rgba(52, 34, 31, 0.52);
+        font-size: 10px;
+        font-weight: 750;
+      }
+
+      .snake-note {
+        position: relative;
+        z-index: 1;
+        margin: 0 22px 18px;
+        display: grid;
+        gap: 12px;
+        padding: 13px 14px;
+        border: 1px solid rgba(143, 76, 111, 0.14);
+        border-radius: 18px;
+        background:
+          linear-gradient(135deg, rgba(238, 255, 235, 0.88), rgba(255, 244, 250, 0.78)),
+          rgba(255, 255, 255, 0.72);
+        color: var(--soft-ink);
+        font-size: 12px;
+        font-weight: 800;
+        line-height: 1.35;
+        box-shadow: 0 10px 24px rgba(143, 76, 111, 0.08);
+      }
+
+      .snake-note:not(.is-awake) {
+        gap: 0;
+      }
+
+      .snake-main {
+        display: grid;
+        grid-template-columns: 122px minmax(0, 1fr);
+        gap: 14px;
+        align-items: center;
+      }
+
+      .cute-snake {
+        position: relative;
+        width: 122px;
+        height: 122px;
+        display: grid;
+        place-items: end center;
+        animation: sweetSnakeFloat 5.8s ease-in-out infinite;
+        cursor: pointer;
+      }
+
+      .cute-snake:focus-visible {
+        outline: 3px solid rgba(255, 120, 150, 0.42);
+        outline-offset: 4px;
+        border-radius: 22px;
+      }
+
+      .cute-snake img {
+        display: block;
+        width: 122px;
+        height: 122px;
+        object-fit: contain;
+        filter: drop-shadow(0 10px 12px rgba(52, 34, 31, 0.14));
+        transform-origin: 50% 84%;
+        animation: tinySnakeBreathe 4.4s ease-in-out infinite, tinySnakeLook 7.6s ease-in-out infinite;
+      }
+
+      .cute-snake.happy-wiggle img {
+        animation: tinySnakeHappy 1150ms cubic-bezier(0.2, 0.8, 0.25, 1) both;
+      }
+
+      .cute-snake.happy-wiggle .mini-heart {
+        animation: happyHeartPop 1150ms ease-out forwards;
+      }
+
+      .mini-heart {
+        position: absolute;
+        right: 6px;
+        top: 18px;
+        color: #ff7896;
+        font-size: 15px;
+        opacity: 0;
+        animation: softHeartPop 4.8s ease-in-out infinite;
+      }
+
+      .mini-heart:nth-of-type(2) {
+        right: 22px;
+        top: 2px;
+        font-size: 11px;
+        animation-delay: 1.3s;
+      }
+
+      .snake-chat {
+        position: relative;
+        min-height: 0;
+        padding: 0 11px;
+        border: 1px solid rgba(143, 76, 111, 0.13);
+        border-radius: 16px 16px 16px 5px;
+        background: rgba(255, 255, 255, 0.8);
+        text-align: left;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        pointer-events: none;
+        transform: translateY(8px) scale(0.98);
+        transition:
+          max-height 520ms ease,
+          opacity 360ms ease,
+          transform 520ms cubic-bezier(0.2, 0.8, 0.25, 1);
+      }
+
+      .snake-chat::before {
+        content: "";
+        position: absolute;
+        left: -7px;
+        bottom: 12px;
+        width: 12px;
+        height: 12px;
+        border-left: 1px solid rgba(143, 76, 111, 0.13);
+        border-bottom: 1px solid rgba(143, 76, 111, 0.13);
+        background: rgba(255, 255, 255, 0.8);
+        transform: rotate(45deg);
+      }
+
+      .snake-gifts {
+        display: grid;
+        gap: 8px;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        pointer-events: none;
+        transform: translateY(10px);
+        transition:
+          max-height 620ms ease 220ms,
+          opacity 360ms ease 260ms,
+          transform 620ms cubic-bezier(0.2, 0.8, 0.25, 1) 220ms;
+      }
+
+      .snake-note.is-awake .snake-chat {
+        max-height: 96px;
+        min-height: 48px;
+        padding: 10px 11px;
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0) scale(1);
+      }
+
+      .snake-note.is-awake .snake-gifts {
+        max-height: 220px;
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .snake-scale-card {
+        position: relative;
+        overflow: hidden;
+        padding: 12px 13px;
+        border: 1px solid rgba(81, 128, 68, 0.14);
+        border-radius: 15px;
+        background:
+          radial-gradient(circle at 14px 12px, rgba(255, 255, 255, 0.72) 0 7px, transparent 8px),
+          radial-gradient(circle at 42px 12px, rgba(255, 255, 255, 0.46) 0 7px, transparent 8px),
+          radial-gradient(circle at 70px 12px, rgba(255, 255, 255, 0.55) 0 7px, transparent 8px),
+          linear-gradient(135deg, rgba(234, 255, 224, 0.88), rgba(255, 247, 232, 0.88));
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.62);
+      }
+
+      .snake-scale-card strong {
+        display: block;
+        margin-bottom: 4px;
+        color: #4f7b3b;
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      @keyframes sweetSnakeFloat {
+        0%,
+        100% {
+          transform: translateY(0) rotate(-1.5deg);
+        }
+        50% {
+          transform: translateY(-5px) rotate(1.5deg);
+        }
+      }
+
+      @keyframes tinySnakeBreathe {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.025);
+        }
+      }
+
+      @keyframes tinySnakeLook {
+        0%,
+        100% {
+          filter: drop-shadow(0 10px 12px rgba(52, 34, 31, 0.14));
+        }
+        45% {
+          filter: drop-shadow(0 10px 12px rgba(52, 34, 31, 0.14));
+        }
+        52% {
+          filter: drop-shadow(4px 12px 12px rgba(52, 34, 31, 0.13));
+        }
+        58% {
+          filter: drop-shadow(-3px 12px 12px rgba(52, 34, 31, 0.13));
+        }
+      }
+
+      @keyframes tinySnakeHappy {
+        0% {
+          transform: translateY(0) rotate(0deg) scale(1);
+        }
+        16% {
+          transform: translateY(-8px) rotate(-5deg) scale(1.04);
+        }
+        34% {
+          transform: translateY(2px) rotate(5deg) scale(0.99);
+        }
+        52% {
+          transform: translateY(-6px) rotate(-4deg) scale(1.035);
+        }
+        76% {
+          transform: translateY(1px) rotate(2deg) scale(1.01);
+        }
+        100% {
+          transform: translateY(0) rotate(0deg) scale(1);
+        }
+      }
+
+      @keyframes softHeartPop {
+        0%,
+        58% {
+          opacity: 0;
+          transform: translateY(8px) scale(0.65) rotate(-8deg);
+        }
+        70% {
+          opacity: 1;
+          transform: translateY(-4px) scale(1) rotate(8deg);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-28px) scale(0.72) rotate(18deg);
+        }
+      }
+
+      @keyframes happyHeartPop {
+        0% {
+          opacity: 0;
+          transform: translateY(8px) scale(0.55) rotate(-10deg);
+        }
+        36% {
+          opacity: 1;
+          transform: translateY(-10px) scale(1.1) rotate(8deg);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-42px) scale(0.72) rotate(22deg);
+        }
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      @keyframes riseIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 360px) {
+        body {
+          padding: 12px;
+        }
+
+        .phone {
+          min-height: calc(100vh - 24px);
+          border-radius: 22px;
+        }
+
+        header,
+        main,
+        footer {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+
+        .pill-row {
+          grid-template-columns: 1fr;
+        }
+
+        .snake-note {
+          margin-left: 16px;
+          margin-right: 16px;
+          text-align: center;
+        }
+
+        .snake-main {
+          grid-template-columns: 1fr;
+          justify-items: center;
+        }
+
+        .snake-chat {
+          border-radius: 16px;
+          text-align: center;
+        }
+
+        .snake-chat::before {
+          display: none;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 1ms !important;
+          scroll-behavior: auto !important;
+          transition-duration: 1ms !important;
+        }
+
+        .heart-field {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="music-widget" id="musicWidget">
+      <button class="music-toggle" id="musicToggle" type="button" aria-pressed="false" aria-label="Play music">♪</button>
+      <div class="music-panel" id="musicPanel" aria-hidden="true">
+        <div class="music-line">
+          <span class="music-status" id="musicStatus">Play</span>
+          <span class="music-title" id="musicTitle">Te Levantas</span>
+        </div>
+        <div class="music-wave" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="song-picker" aria-label="Choose song">
+          <button class="song-choice is-active" type="button" data-song-index="0">Te Levantas</button>
+          <button class="song-choice" type="button" data-song-index="1">Little Flame</button>
+          <button class="song-lock" id="songLock" type="button" aria-pressed="false" aria-label="Lock current song">LOCK</button>
+        </div>
+      </div>
+      <audio id="localSong" preload="metadata"></audio>
+    </div>
+    <div class="heart-field" aria-hidden="true">
+      <span>&hearts;</span>
+      <span>&hearts;</span>
+      <span>&hearts;</span>
+      <span>&hearts;</span>
+      <span>&hearts;</span>
+      <span>&hearts;</span>
+    </div>
+    <section class="phone" aria-label="Good Mood to Go">
+      <header>
+        <p class="eyebrow">A pocket-sized smile</p>
+        <h1><span>Good Mood</span><span>to Go</span></h1>
+      </header>
+
+      <main>
+        <div class="envelope-wrap">
+          <button class="envelope" id="openButton" type="button" aria-label="Open a tiny smile">
+            <span class="ribbon" aria-hidden="true"></span>
+            <span class="seal" aria-hidden="true">&hearts;</span>
+            <span class="note" id="noteText"></span>
+            <span class="sparkles" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </button>
+        </div>
+
+        <button class="primary" id="moodButton" type="button">Open a tiny smile</button>
+
+        <section class="message hidden" id="message" aria-live="polite">
+          <div class="pill-row">
+            <article class="pill">
+              <span class="label">Right now</span>
+              <span class="value" id="timeText">Checking the clock...</span>
+            </article>
+            <article class="pill">
+              <span class="label">Outside</span>
+              <span class="value" id="weatherText">Checking the sky...</span>
+            </article>
+          </div>
+
+          <article class="card" id="weatherNote">
+            <strong>Weather note</strong>
+            <span id="weatherDetail">A gentle weather note will appear here.</span>
+          </article>
+
+          <article class="card">
+            <strong>Tiny care check</strong>
+            <span id="careText">Please eat something kind and drink enough water today.</span>
+          </article>
+
+          <article class="card">
+            <strong>Little thing to know</strong>
+            <span id="factText">One tiny fact is on its way.</span>
+          </article>
+
+          <article class="card">
+            <strong>For you</strong>
+            <div class="mood" id="loveText">You are deeply loved.</div>
+          </article>
+
+        </section>
+      </main>
+
+      <div class="snake-note" aria-label="Tiny cute snake note">
+        <div class="snake-main">
+          <div class="cute-snake" id="snakeFriend" role="button" tabindex="0" aria-label="Send a heart from the tiny snake">
+            <img src="assets/cute-snake.png" alt="Cute green snake" />
+            <span class="mini-heart">&hearts;</span>
+            <span class="mini-heart">&hearts;</span>
+          </div>
+          <div class="snake-chat" id="softBubble"></div>
+        </div>
+        <div class="snake-gifts">
+          <div class="snake-scale-card">
+            <strong>Tiny mission</strong>
+            <span id="missionText">Do one tiny kind thing for yourself today.</span>
+          </div>
+          <div class="snake-scale-card">
+            <strong>Little wish</strong>
+            <span id="wishText">May something gentle find you today.</span>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <p class="tiny">Made with love for the sister who makes ordinary days feel warmer.</p>
+      </footer>
+    </section>
+    <div class="credit">Created by Silituz</div>
+
+    <script>
+      const openButton = document.querySelector("#openButton");
+      const moodButton = document.querySelector("#moodButton");
+      const musicWidget = document.querySelector("#musicWidget");
+      const musicToggle = document.querySelector("#musicToggle");
+      const musicPanel = document.querySelector("#musicPanel");
+      const musicTitle = document.querySelector("#musicTitle");
+      const musicStatus = document.querySelector("#musicStatus");
+      const localSong = document.querySelector("#localSong");
+      const songChoices = document.querySelectorAll(".song-choice");
+      const songLock = document.querySelector("#songLock");
+      const noteText = document.querySelector("#noteText");
+      const message = document.querySelector("#message");
+      const timeText = document.querySelector("#timeText");
+      const weatherText = document.querySelector("#weatherText");
+      const weatherDetail = document.querySelector("#weatherDetail");
+      const careText = document.querySelector("#careText");
+      const factText = document.querySelector("#factText");
+      const loveText = document.querySelector("#loveText");
+      const missionText = document.querySelector("#missionText");
+      const wishText = document.querySelector("#wishText");
+      const softBubble = document.querySelector("#softBubble");
+      const snakeNote = document.querySelector(".snake-note");
+      const snakeFriend = document.querySelector("#snakeFriend");
+      let isOpen = false;
+      let isFlying = false;
+      let isMusicPlaying = false;
+      let isMusicPanelOpen = false;
+      let isSongLocked = false;
+      let currentSongIndex = 0;
+      let messageTimer = 0;
+      let snakeTimer = 0;
+      const songs = [
+        { title: "Te Levantas", src: "assets/te-levantas.mp3" },
+        { title: "Peque\u00f1a Llama (Fuego y Luz)", src: "assets/pequena-llama.mp3" }
+      ];
+
+      const tinyFacts = [
+        "A sincere smile can soften the whole room in less than a second.",
+        "The moon moves about 3.8 centimeters away from Earth every year.",
+        "Honey never truly expires when it is stored well.",
+        "The word serendipity means finding something lovely by happy accident.",
+        "Rain has a smell because plant oils and soil bacteria meet the air.",
+        "A day can become better because one person was gentle in it.",
+        "Stars do not just shine. They also remind us that distance can still hold beauty.",
+        "Kind words can lower stress and make someone feel safer.",
+        "Music can bring back a memory faster than almost anything else.",
+        "Small acts of love are still real acts of love.",
+        "A handwritten note can feel warmer because it carries a little bit of time.",
+        "The heart beats around 100,000 times a day, quietly choosing life again and again.",
+        "Some clouds can weigh more than a million pounds and still look soft.",
+        "A warm drink can make people feel more emotionally warm too.",
+        "The smell after rain is called petrichor.",
+        "Warm light in the evening can help the mind feel calmer.",
+        "Your brain can recognize a loved voice in less than a second.",
+        "Writing things down can make worries feel smaller.",
+        "Sunflowers can turn toward the sun while they are growing.",
+        "A tiny pause can change the whole feeling of a hard moment.",
+        "The color pink was named after a flower.",
+        "Deep breaths tell the body that it is allowed to feel safe.",
+        "Some stars you see at night are older than every story you have ever heard.",
+        "A compliment can stay in someone's memory for years.",
+        "Even a two-minute rest can help your nervous system soften."
+      ];
+
+      const qualities = [
+        "You are special because your kindness feels quiet, real, and rare.",
+        "You are important because your heart notices things other people miss.",
+        "You are beautiful in the way you make people feel safe around you.",
+        "You are stronger than you probably give yourself credit for.",
+        "You have a soft light in you, and it matters more than you know.",
+        "You are lovable on easy days, messy days, and every day between.",
+        "You make the world feel a little more gentle just by being in it.",
+        "You are enough today, exactly as you are.",
+        "You carry sweetness, courage, and warmth in your own way.",
+        "You deserve care, softness, food, water, rest, and a very good day.",
+        "You have a beautiful way of making small moments matter.",
+        "You are not hard to love. You are a reason to be grateful.",
+        "Your softness is not weakness. It is one of your quiet powers.",
+        "You bring a kind of warmth that cannot be copied.",
+        "You are allowed to take up space, ask for care, and be held gently.",
+        "You are a lovely part of this world, even on days when you forget it.",
+        "Your laugh is the kind of sound that can rescue a mood.",
+        "You have a heart that deserves patience, not pressure.",
+        "You are someone worth protecting, celebrating, and checking on.",
+        "You do not need to be perfect to be deeply precious.",
+        "You are a little miracle in normal clothes.",
+        "You make ordinary days feel softer.",
+        "You are loved in ways that are bigger than one message can hold.",
+        "You are someone's favorite reason to smile."
+      ];
+
+      const careLines = [
+        "Please eat something kind and drink enough water today.",
+        "Tiny reminder: your body deserves food, water, and patience.",
+        "Before you carry the whole day, please give yourself water and a little snack.",
+        "You matter, so please do the small caring things too: food, water, rest.",
+        "Your smile is precious, and so is your energy. Please eat and drink enough.",
+        "Please do a tiny body check: water, food, shoulders down, jaw soft.",
+        "You are not a machine. Please feed the sweet human carrying you.",
+        "A little water now is a love note to your future self.",
+        "If the day feels heavy, start with one sip and one slow breath.",
+        "Please take your vitamins, your water, or your tiny snack if you need them.",
+        "Your body has been holding you all day. Please be kind back to it.",
+        "Even cute people need lunch. Especially cute people.",
+        "Please do not forget yourself while being there for everyone else.",
+        "A soft reminder: rest is productive when your heart is tired."
+      ];
+
+      const tinyMissions = [
+        "Take three slow breaths and unclench your shoulders.",
+        "Send yourself one kind thought without arguing with it.",
+        "Sssip some water like it is a tiny potion for your glow.",
+        "Look at the sky for five seconds and let it hold one worry.",
+        "Put on one song that makes the room feel lighter.",
+        "Stretch your hands, your neck, or your back for a tiny reset.",
+        "Save one sweet sentence from today in your memory.",
+        "Smile at yourself for no reason, just to confuse the day.",
+        "Do one thing slowly on purpose.",
+        "Let one small problem wait while you care for yourself.",
+        "Notice one color around you that feels pretty.",
+        "Give yourself permission to have a softer evening."
+      ];
+
+      const littleWishes = [
+        "May today bring you a tiny surprise that feels made for you.",
+        "May your next drink taste extra refreshing.",
+        "May one person be gentle with you exactly when you need it.",
+        "May your worries shrink enough for you to breathe around them.",
+        "May something make you laugh before the day ends.",
+        "May your heart feel a little lighter than it did five minutes ago.",
+        "May the weather be sssweet to you and your hair.",
+        "May you find a comfortable place to rest your thoughts.",
+        "May your phone battery and your patience both last long enough.",
+        "May a tiny bit of luck sit beside you today.",
+        "May you feel loved without having to earn it.",
+        "May the next hour be softer than the last one."
+      ];
+
+      const softReminders = [
+        "Psst... I have a tiny sssomething for you.",
+        "Hiii... I saved a little smile for you.",
+        "Psst... tiny snake brought you a soft mission.",
+        "I found a little wish and kept it safe for you.",
+        "Sssurprise... this one is just for your heart.",
+        "Tiny snake says: open this gently.",
+        "Psst... I carried this tiny thought all the way here.",
+        "I have a cozy little thing for you.",
+        "Sssweet human, I brought you a tiny bit of care.",
+        "Tiny snake found something soft for today.",
+        "Psst... here is a little pocket-sized kindness.",
+        "I kept this wish warm for you."
+      ];
+
+      const weatherCodes = new Map([
+        [0, "clear sky"],
+        [1, "mostly clear"],
+        [2, "partly cloudy"],
+        [3, "cloudy"],
+        [45, "foggy"],
+        [48, "foggy"],
+        [51, "light drizzle"],
+        [53, "drizzle"],
+        [55, "heavy drizzle"],
+        [56, "freezing drizzle"],
+        [57, "freezing drizzle"],
+        [61, "light rain"],
+        [63, "rain"],
+        [65, "heavy rain"],
+        [66, "freezing rain"],
+        [67, "freezing rain"],
+        [71, "light snow"],
+        [73, "snow"],
+        [75, "heavy snow"],
+        [77, "snow grains"],
+        [80, "light showers"],
+        [81, "showers"],
+        [82, "heavy showers"],
+        [85, "snow showers"],
+        [86, "heavy snow showers"],
+        [95, "thunderstorm"],
+        [96, "thunderstorm with hail"],
+        [99, "thunderstorm with hail"]
+      ]);
+
+      function pick(list) {
+        return list[Math.floor(Math.random() * list.length)];
+      }
+
+      function setMusicUi(isPlaying) {
+        isMusicPlaying = isPlaying;
+        const currentSong = songs[currentSongIndex];
+        musicWidget.classList.toggle("is-playing", isPlaying);
+        musicToggle.setAttribute("aria-pressed", String(isPlaying));
+        musicToggle.setAttribute(
+          "aria-label",
+          isPlaying ? `Pause ${currentSong.title}` : `Play ${currentSong.title}`
+        );
+        musicStatus.textContent = isPlaying ? "Playing" : "Play";
+        musicTitle.textContent = currentSong.title;
+        updateSongControls();
+      }
+
+      function setMusicPanelOpen(isOpen) {
+        isMusicPanelOpen = isOpen;
+        musicWidget.classList.toggle("is-expanded", isOpen);
+        musicPanel.setAttribute("aria-hidden", String(!isOpen));
+      }
+
+      function loadCurrentSong() {
+        const currentSong = songs[currentSongIndex];
+        if (localSong.getAttribute("src") !== currentSong.src) {
+          localSong.src = currentSong.src;
+          localSong.load();
+        }
+        musicTitle.textContent = currentSong.title;
+        updateSongControls();
+      }
+
+      function moveToNextSong() {
+        currentSongIndex = (currentSongIndex + 1) % songs.length;
+        loadCurrentSong();
+      }
+
+      function updateSongControls() {
+        songChoices.forEach((button) => {
+          button.classList.toggle(
+            "is-active",
+            Number(button.dataset.songIndex) === currentSongIndex
+          );
+        });
+        songLock.classList.toggle("is-locked", isSongLocked);
+        songLock.setAttribute("aria-pressed", String(isSongLocked));
+        songLock.textContent = isSongLocked ? "ON" : "LOCK";
+        songLock.setAttribute(
+          "aria-label",
+          isSongLocked ? "Unlock song switching" : "Lock current song"
+        );
+      }
+
+      async function playCurrentSong() {
+        loadCurrentSong();
+        await localSong.play();
+        setMusicPanelOpen(true);
+        setMusicUi(true);
+      }
+
+      async function selectSong(index, shouldLock = true) {
+        const wasPlaying = !localSong.paused;
+        setMusicPanelOpen(true);
+        currentSongIndex = index;
+        isSongLocked = shouldLock;
+        localSong.pause();
+        localSong.currentTime = 0;
+        loadCurrentSong();
+        if (wasPlaying) {
+          try {
+            await playCurrentSong();
+          } catch {
+            setMusicUi(false);
+          }
+        } else {
+          setMusicUi(false);
+        }
+      }
+
+      function switchSongForNewLetter() {
+        if (isSongLocked) return;
+        const wasPlaying = !localSong.paused;
+        moveToNextSong();
+        if (wasPlaying) {
+          localSong.play().then(() => setMusicUi(true)).catch(() => setMusicUi(false));
+        } else {
+          setMusicUi(false);
+        }
+      }
+
+      async function toggleMusic() {
+        if (isMusicPlaying || !localSong.paused || isMusicPanelOpen) {
+          localSong.pause();
+          setMusicPanelOpen(false);
+          setMusicUi(false);
+          return;
+        }
+
+        setMusicPanelOpen(true);
+        try {
+          await playCurrentSong();
+        } catch {
+          setMusicPanelOpen(true);
+          musicStatus.textContent = "Tap again";
+        }
+      }
+
+      function updateSoftReminder() {
+        const reminder = pick(softReminders);
+        softBubble.textContent = reminder;
+        triggerSnakeHappy();
+      }
+
+      function revealSnakeGifts() {
+        updateSoftReminder();
+        snakeNote.classList.add("is-awake");
+      }
+
+      function hideSnakeGifts() {
+        snakeNote.classList.remove("is-awake");
+        softBubble.textContent = "";
+      }
+
+      function triggerSnakeHappy() {
+        snakeFriend.classList.remove("happy-wiggle");
+        void snakeFriend.offsetWidth;
+        snakeFriend.classList.add("happy-wiggle");
+        window.clearTimeout(snakeTimer);
+        snakeTimer = window.setTimeout(() => {
+          snakeFriend.classList.remove("happy-wiggle");
+        }, 1200);
+      }
+
+      function updateTime() {
+        const now = new Date();
+        const weekday = new Intl.DateTimeFormat("en-GB", {
+          weekday: "long"
+        }).format(now);
+        const day = String(now.getDate()).padStart(2, "0");
+        const month = String(now.getMonth() + 1).padStart(2, "0");
+        const year = now.getFullYear();
+        const time = new Intl.DateTimeFormat("en-GB", {
+          hour: "2-digit",
+          minute: "2-digit"
+        }).format(now);
+        timeText.textContent = `Today is ${weekday}, ${day}.${month}.${year}, and it is ${time}.`;
+      }
+
+      function summarizeWeather(code) {
+        return weatherCodes.get(code) ?? "a mysterious sky";
+      }
+
+      function weatherWarning(current, hourly) {
+        const now = new Date();
+        const nextHours = hourly.time
+          .map((time, index) => ({ time: new Date(time), index }))
+          .filter(({ time }) => time >= now)
+          .slice(0, 6);
+
+        const stormSoon = nextHours.some(({ index }) => hourly.weather_code[index] >= 95);
+        const heavyRainSoon = nextHours.some(({ index }) =>
+          [65, 66, 67, 82].includes(hourly.weather_code[index])
+        );
+        const highWindSoon = nextHours.some(({ index }) => hourly.wind_speed_10m[index] >= 50);
+        const rainLikely = nextHours.some(
+          ({ index }) => (hourly.precipitation_probability[index] ?? 0) >= 80
+        );
+
+        if (stormSoon || current.weather_code >= 95) {
+          return "Thunder may be nearby soon. Please stay cozy, keep your phone charged, eat something, and drink enough water.";
+        }
+
+        if (heavyRainSoon || highWindSoon) {
+          return "The weather could get rough soon. Please stay safe, keep water close, and do not skip food today.";
+        }
+
+        if (rainLikely) {
+          return "Rain looks likely later. Please take something warm with you and keep yourself cared for.";
+        }
+
+        return "No strong weather warning showed up here. Still, please eat something kind and drink enough water.";
+      }
+
+      async function loadWeather() {
+        if (!("geolocation" in navigator)) {
+          weatherText.textContent = "location unavailable";
+          weatherDetail.textContent =
+            "Weather needs location access, but this phone did not offer it.";
+          return;
+        }
+
+        weatherText.textContent = "asking the sky...";
+        weatherDetail.textContent = "Waiting for location so the weather note can be local.";
+
+        navigator.geolocation.getCurrentPosition(
+          async ({ coords }) => {
+            try {
+              const params = new URLSearchParams({
+                latitude: coords.latitude.toFixed(4),
+                longitude: coords.longitude.toFixed(4),
+                current: "temperature_2m,weather_code,wind_speed_10m",
+                hourly: "weather_code,precipitation_probability,wind_speed_10m",
+                forecast_days: "1",
+                timezone: "auto"
+              });
+              const response = await fetch(`https://api.open-meteo.com/v1/forecast?${params}`);
+              const data = await response.json();
+              const current = data.current;
+              const temp = Math.round(current.temperature_2m);
+              const summary = summarizeWeather(current.weather_code);
+
+              weatherText.textContent = `${temp}\u00B0C, ${summary}`;
+              weatherDetail.textContent = weatherWarning(current, data.hourly);
+            } catch {
+              weatherText.textContent = "weather shy today";
+              weatherDetail.textContent =
+                "The weather note could not load, but the care note still counts: food, water, and softness.";
+            }
+          },
+          () => {
+            weatherText.textContent = "location not shared";
+            weatherDetail.textContent =
+              "No worries. Without location, this still sends love: please eat, drink water, and stay safe.";
+          },
+          { enableHighAccuracy: false, timeout: 9000, maximumAge: 600000 }
+        );
+      }
+
+      function openSmile() {
+        if (isOpen || isFlying) return;
+        isOpen = true;
+        switchSongForNewLetter();
+        openButton.classList.add("open");
+        openButton.classList.remove("ready");
+        openButton.setAttribute("aria-label", "Opened tiny smile");
+        message.classList.add("hidden");
+        noteText.textContent = "A little love note for you.";
+        moodButton.textContent = "Close";
+        updateTime();
+        careText.textContent = pick(careLines);
+        factText.textContent = pick(tinyFacts);
+        loveText.textContent = pick(qualities);
+        missionText.textContent = pick(tinyMissions);
+        wishText.textContent = pick(littleWishes);
+        revealSnakeGifts();
+        loadWeather();
+        window.clearTimeout(messageTimer);
+        messageTimer = window.setTimeout(() => {
+          if (isOpen) message.classList.remove("hidden");
+        }, 1180);
+      }
+
+      function closeSmile() {
+        if (!isOpen || isFlying) return;
+        isFlying = true;
+        isOpen = false;
+        window.clearTimeout(messageTimer);
+        message.classList.add("hidden");
+        hideSnakeGifts();
+        moodButton.textContent = "Open another tiny smile";
+        openButton.classList.remove("open");
+        openButton.classList.add("fly-away");
+        openButton.setAttribute("aria-label", "A tiny smile is flying away");
+
+        window.setTimeout(() => {
+          openButton.classList.remove("fly-away");
+          openButton.classList.add("ready");
+          noteText.textContent = "";
+          openButton.setAttribute("aria-label", "Open another tiny smile");
+          isFlying = false;
+        }, 700);
+      }
+
+      function handleMainButton() {
+        if (isOpen) {
+          closeSmile();
+        } else {
+          openSmile();
+        }
+      }
+
+      function closeMusicPanelFromOutside(event) {
+        if (!isMusicPanelOpen) return;
+        if (musicWidget.contains(event.target)) return;
+        setMusicPanelOpen(false);
+      }
+
+      openButton.addEventListener("click", openSmile);
+      moodButton.addEventListener("click", handleMainButton);
+      musicToggle.addEventListener("click", toggleMusic);
+      document.addEventListener("click", closeMusicPanelFromOutside);
+      songChoices.forEach((button) => {
+        button.addEventListener("click", () => selectSong(Number(button.dataset.songIndex), true));
+      });
+      songLock.addEventListener("click", () => {
+        isSongLocked = !isSongLocked;
+        updateSongControls();
+      });
+      localSong.addEventListener("play", () => setMusicUi(true));
+      localSong.addEventListener("pause", () => setMusicUi(false));
+      localSong.addEventListener("ended", () => {
+        if (!isSongLocked) {
+          moveToNextSong();
+        } else {
+          localSong.currentTime = 0;
+        }
+        localSong.play().catch(() => setMusicUi(false));
+      });
+      snakeFriend.addEventListener("click", triggerSnakeHappy);
+      snakeFriend.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          triggerSnakeHappy();
+        }
+      });
+      updateTime();
+      loadCurrentSong();
+      updateSongControls();
+      setInterval(updateTime, 30000);
+    </script>
+  </body>
+</html>
