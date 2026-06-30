@@ -779,7 +779,3031 @@
       .unit-option.is-active {
         background: var(--berry);
         color: #fff;
-        box-shadow: 0 4px 10px rgba(143, 76, 111, 0.2…25265 tokens truncated…e >= 50) {
+        box-shadow: 0 4px 10px rgba(143, 76, 111, 0.2);
+      }
+
+      .card {
+        padding: 16px;
+        line-height: 1.45;
+      }
+
+      .card:nth-of-type(2) {
+        background: rgba(234, 255, 248, 0.78);
+      }
+
+      .card:nth-of-type(3) {
+        background: rgba(255, 248, 214, 0.78);
+      }
+
+      .card:nth-of-type(4) {
+        background: rgba(255, 235, 243, 0.86);
+      }
+
+      .card:nth-of-type(5) {
+        background: rgba(236, 249, 255, 0.82);
+      }
+
+      .card:nth-of-type(6) {
+        background: rgba(244, 238, 255, 0.84);
+      }
+
+      .card:nth-of-type(7) {
+        background: rgba(255, 242, 227, 0.86);
+      }
+
+      .weather-card {
+        background: rgba(236, 249, 255, 0.86) !important;
+      }
+
+      .fuel-card {
+        background: rgba(255, 248, 214, 0.82) !important;
+      }
+
+      .for-you-card {
+        background: rgba(255, 235, 243, 0.88) !important;
+      }
+
+      .main-story-card {
+        background: rgba(234, 255, 248, 0.82) !important;
+      }
+
+      .care-card {
+        background: rgba(244, 238, 255, 0.84) !important;
+      }
+
+      .fact-card {
+        background: rgba(255, 242, 227, 0.86) !important;
+      }
+
+      .weather-stack {
+        display: grid;
+        gap: 0;
+        padding: 0 16px 16px;
+      }
+
+      .info-card {
+        padding: 0;
+        overflow: hidden;
+      }
+
+      .info-card-head {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        align-items: center;
+        gap: 11px;
+        padding: 15px 16px 13px;
+      }
+
+      .info-symbol {
+        width: 40px;
+        height: 40px;
+        border-radius: 13px;
+        font-size: 18px;
+      }
+
+      .weather-symbol {
+        background: linear-gradient(145deg, #8fcce4, #6eaac6);
+      }
+
+      .fuel-symbol {
+        background: linear-gradient(145deg, #ecc66b, #d6a341);
+      }
+
+      .info-heading-copy {
+        display: grid;
+        gap: 2px;
+        min-width: 0;
+      }
+
+      .info-kicker {
+        color: var(--soft-ink);
+        font-size: 10px;
+        font-weight: 850;
+        line-height: 1.2;
+        text-transform: uppercase;
+      }
+
+      .info-title {
+        margin: 0;
+        font-size: 16px;
+        line-height: 1.2;
+      }
+
+      .weather-part {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        align-items: start;
+        gap: 10px;
+        padding: 12px 0;
+      }
+
+      .weather-part + .weather-part {
+        border-top: 1px solid rgba(80, 139, 165, 0.16);
+      }
+
+      .weather-copy {
+        display: grid;
+        gap: 3px;
+        min-width: 0;
+        color: var(--soft-ink);
+        font-size: 13px;
+        line-height: 1.46;
+      }
+
+      .weather-copy strong {
+        margin: 0;
+        color: var(--ink);
+        font-size: 13px;
+      }
+
+      .weather-mini-symbol {
+        width: 25px;
+        height: 25px;
+        margin-top: 1px;
+        border-radius: 9px;
+        background: #f2bb62;
+        font-size: 12px;
+        font-weight: 950;
+      }
+
+      .weather-note-symbol {
+        background: #79b8cf;
+      }
+
+      .weather-disclaimer,
+      .fuel-smallprint {
+        color: var(--soft-ink);
+        font-size: 10px;
+        font-weight: 700;
+        line-height: 1.35;
+      }
+
+      .weather-disclaimer {
+        margin-left: 35px;
+        padding-top: 10px;
+        border-top: 1px dashed rgba(80, 139, 165, 0.16);
+      }
+
+      .fuel-heading {
+        margin: 0;
+      }
+
+      .fuel-heading strong {
+        margin: 0;
+      }
+
+      .fuel-content {
+        display: grid;
+        gap: 13px;
+        padding: 0 16px 16px;
+      }
+
+      .fuel-toolbar {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(132px, auto);
+        align-items: center;
+        gap: 10px;
+        padding: 10px 0;
+        border-top: 1px solid rgba(173, 127, 38, 0.14);
+        border-bottom: 1px solid rgba(173, 127, 38, 0.14);
+      }
+
+      .fuel-label {
+        color: var(--soft-ink);
+        font-size: 11px;
+        font-weight: 850;
+      }
+
+      .fuel-select {
+        width: 100%;
+        max-width: 164px;
+        min-height: 34px;
+        padding: 5px 30px 5px 10px;
+        border: 1px solid rgba(143, 76, 111, 0.2);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.8);
+        color: var(--ink);
+        font: inherit;
+        font-size: 12px;
+        font-weight: 850;
+      }
+
+      .fuel-price {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 22px;
+        font-weight: 950;
+        line-height: 1.15;
+      }
+
+      .fuel-note {
+        display: block;
+        color: var(--soft-ink);
+        font-size: 12px;
+        line-height: 1.4;
+      }
+
+      .fuel-smallprint a {
+        color: var(--berry);
+        font-weight: 900;
+      }
+
+      .fuel-smallprint {
+        padding-top: 10px;
+        border-top: 1px dashed rgba(173, 127, 38, 0.18);
+      }
+
+      .section-divider {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 11px;
+        margin: 12px 2px 5px;
+        color: var(--berry);
+        font-size: 14px;
+        font-weight: 900;
+        text-align: center;
+      }
+
+      .section-divider::before,
+      .section-divider::after {
+        content: "";
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(143, 76, 111, 0.23));
+      }
+
+      .section-divider::after {
+        background: linear-gradient(90deg, rgba(143, 76, 111, 0.23), transparent);
+      }
+
+      .divider-heart {
+        margin-right: 6px;
+        color: #ef7698;
+        font-size: 18px;
+      }
+
+      .card strong {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 15px;
+      }
+
+      .info-card .info-title {
+        margin: 0;
+        font-size: 16px;
+      }
+
+      .info-card .weather-copy strong {
+        margin: 0;
+        font-size: 13px;
+      }
+
+      .mood {
+        font-size: 20px;
+        font-weight: 900;
+        line-height: 1.22;
+      }
+
+      .tiny {
+        margin: 0;
+        color: var(--soft-ink);
+        font-size: 13px;
+        line-height: 1.4;
+      }
+
+      footer {
+        padding: 0 22px 22px;
+        text-align: center;
+      }
+
+      .credit {
+        position: fixed;
+        right: 10px;
+        bottom: 8px;
+        z-index: 2;
+        color: rgba(52, 34, 31, 0.52);
+        font-size: 10px;
+        font-weight: 750;
+      }
+
+      .snake-note {
+        position: relative;
+        z-index: 1;
+        margin: 0 22px 18px;
+        display: grid;
+        gap: 12px;
+        padding: 13px 14px;
+        border: 1px solid rgba(143, 76, 111, 0.14);
+        border-radius: 18px;
+        background:
+          linear-gradient(135deg, rgba(238, 255, 235, 0.88), rgba(255, 244, 250, 0.78)),
+          rgba(255, 255, 255, 0.72);
+        color: var(--soft-ink);
+        font-size: 12px;
+        font-weight: 800;
+        line-height: 1.35;
+        box-shadow: 0 10px 24px rgba(143, 76, 111, 0.08);
+      }
+
+      .snake-note:not(.is-awake) {
+        gap: 0;
+      }
+
+      .snake-main {
+        display: grid;
+        grid-template-columns: 122px minmax(0, 1fr);
+        gap: 14px;
+        align-items: center;
+      }
+
+      .cute-snake {
+        position: relative;
+        width: 122px;
+        height: 122px;
+        display: grid;
+        place-items: end center;
+        animation: sweetSnakeFloat 5.8s ease-in-out infinite;
+        cursor: pointer;
+      }
+
+      .cute-snake:focus-visible {
+        outline: 3px solid rgba(255, 120, 150, 0.42);
+        outline-offset: 4px;
+        border-radius: 22px;
+      }
+
+      .cute-snake img {
+        display: block;
+        width: 122px;
+        height: 122px;
+        object-fit: contain;
+        filter: drop-shadow(0 10px 12px rgba(52, 34, 31, 0.14));
+        transform-origin: 50% 84%;
+        animation: tinySnakeBreathe 4.4s ease-in-out infinite, tinySnakeLook 7.6s ease-in-out infinite;
+      }
+
+      .cute-snake.happy-wiggle img {
+        animation: tinySnakeHappy 1150ms cubic-bezier(0.2, 0.8, 0.25, 1) both;
+      }
+
+      .cute-snake.happy-wiggle .mini-heart {
+        animation: happyHeartPop 1150ms ease-out forwards;
+      }
+
+      .mini-heart {
+        position: absolute;
+        right: 6px;
+        top: 18px;
+        color: #ff7896;
+        font-size: 15px;
+        opacity: 0;
+        animation: softHeartPop 4.8s ease-in-out infinite;
+      }
+
+      .mini-heart:nth-of-type(2) {
+        right: 22px;
+        top: 2px;
+        font-size: 11px;
+        animation-delay: 1.3s;
+      }
+
+      .snake-chat {
+        position: relative;
+        min-height: 0;
+        padding: 0 11px;
+        border: 1px solid rgba(143, 76, 111, 0.13);
+        border-radius: 16px 16px 16px 5px;
+        background: rgba(255, 255, 255, 0.8);
+        text-align: left;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        pointer-events: none;
+        transform: translateY(8px) scale(0.98);
+        transition:
+          max-height 520ms ease,
+          opacity 360ms ease,
+          transform 520ms cubic-bezier(0.2, 0.8, 0.25, 1);
+      }
+
+      .snake-chat::before {
+        content: "";
+        position: absolute;
+        left: -7px;
+        bottom: 12px;
+        width: 12px;
+        height: 12px;
+        border-left: 1px solid rgba(143, 76, 111, 0.13);
+        border-bottom: 1px solid rgba(143, 76, 111, 0.13);
+        background: rgba(255, 255, 255, 0.8);
+        transform: rotate(45deg);
+      }
+
+      .snake-gifts {
+        display: grid;
+        gap: 8px;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        pointer-events: none;
+        transform: translateY(10px);
+        transition:
+          max-height 620ms ease 220ms,
+          opacity 360ms ease 260ms,
+          transform 620ms cubic-bezier(0.2, 0.8, 0.25, 1) 220ms;
+      }
+
+      .snake-note.is-awake .snake-chat {
+        max-height: 96px;
+        min-height: 48px;
+        padding: 10px 11px;
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0) scale(1);
+      }
+
+      .snake-note.is-awake .snake-gifts {
+        max-height: 220px;
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .snake-scale-card {
+        position: relative;
+        overflow: hidden;
+        padding: 12px 13px;
+        border: 1px solid rgba(81, 128, 68, 0.14);
+        border-radius: 15px;
+        background:
+          radial-gradient(circle at 14px 12px, rgba(255, 255, 255, 0.72) 0 7px, transparent 8px),
+          radial-gradient(circle at 42px 12px, rgba(255, 255, 255, 0.46) 0 7px, transparent 8px),
+          radial-gradient(circle at 70px 12px, rgba(255, 255, 255, 0.55) 0 7px, transparent 8px),
+          linear-gradient(135deg, rgba(234, 255, 224, 0.88), rgba(255, 247, 232, 0.88));
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.62);
+      }
+
+      .snake-scale-card strong {
+        display: block;
+        margin-bottom: 4px;
+        color: #4f7b3b;
+        font-size: 12px;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .smile-collection {
+        margin: 0 22px 20px;
+        padding-top: 14px;
+        border-top: 1px solid rgba(143, 76, 111, 0.14);
+      }
+
+      .collection-toggle {
+        width: 100%;
+        min-height: 52px;
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 10px;
+        border: 0;
+        background: transparent;
+        color: var(--ink);
+        font: inherit;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .collection-symbol {
+        width: 38px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: linear-gradient(145deg, #fff1a8, #ffabc1);
+        color: #fff;
+        font-size: 19px;
+        box-shadow: 0 8px 18px rgba(143, 76, 111, 0.14);
+      }
+
+      .snake-collection .collection-symbol {
+        background: linear-gradient(145deg, #bde987, #72bd91);
+      }
+
+      .collection-heading {
+        display: grid;
+        gap: 2px;
+      }
+
+      .collection-heading strong {
+        font-size: 15px;
+      }
+
+      .collection-meta {
+        color: var(--soft-ink);
+        font-size: 11px;
+        font-weight: 800;
+      }
+
+      .collection-arrow {
+        color: var(--berry);
+        font-size: 18px;
+        transition: transform 260ms ease;
+      }
+
+      .smile-collection.is-open .collection-arrow {
+        transform: rotate(180deg);
+      }
+
+      .collection-new {
+        display: none;
+        margin-left: 6px;
+        padding: 3px 7px;
+        border-radius: 999px;
+        background: #ff7896;
+        color: #fff;
+        font-size: 9px;
+        font-weight: 950;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .smile-collection.has-new .collection-new {
+        display: inline-block;
+        animation: newBadge 1.2s ease-in-out infinite;
+      }
+
+      .collection-body {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transform: translateY(-6px);
+        transition:
+          max-height 680ms ease,
+          opacity 300ms ease,
+          transform 420ms cubic-bezier(0.2, 0.8, 0.25, 1);
+      }
+
+      .smile-collection.is-open .collection-body {
+        max-height: 5600px;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .collection-sections {
+        display: grid;
+        gap: 8px;
+        padding-top: 10px;
+      }
+
+      .collection-category {
+        border-bottom: 1px solid rgba(143, 76, 111, 0.1);
+      }
+
+      .category-toggle {
+        width: 100%;
+        min-height: 46px;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 2px;
+        border: 0;
+        background: transparent;
+        color: var(--ink);
+        font: inherit;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .category-name {
+        display: grid;
+        gap: 2px;
+      }
+
+      .category-name strong {
+        font-size: 13px;
+      }
+
+      .category-progress {
+        color: var(--soft-ink);
+        font-size: 10px;
+        font-weight: 800;
+      }
+
+      .category-side {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+
+      .category-new {
+        display: none;
+        padding: 3px 6px;
+        border-radius: 999px;
+        background: #ff7896;
+        color: #fff;
+        font-size: 8px;
+        font-weight: 950;
+        text-transform: uppercase;
+      }
+
+      .collection-category.has-new .category-new {
+        display: inline-block;
+      }
+
+      .category-arrow {
+        color: var(--berry);
+        font-size: 15px;
+        transition: transform 220ms ease;
+      }
+
+      .collection-category.is-open .category-arrow {
+        transform: rotate(180deg);
+      }
+
+      .category-body {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transform: translateY(-4px);
+        transition:
+          max-height 600ms ease,
+          opacity 260ms ease,
+          transform 360ms ease;
+      }
+
+      .collection-category.is-open .category-body {
+        max-height: 4300px;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .collection-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        padding-top: 10px;
+      }
+
+      .collectible-card {
+        position: relative;
+        min-height: 154px;
+        padding: 12px;
+        overflow: hidden;
+        border: 1px solid rgba(143, 76, 111, 0.16);
+        border-radius: 8px;
+        background:
+          radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.86), transparent 20%),
+          linear-gradient(145deg, #fff8de, #ffe8f0 52%, #e9fff8);
+        box-shadow: 0 10px 24px rgba(92, 48, 70, 0.1);
+        display: grid;
+        align-content: space-between;
+        gap: 10px;
+      }
+
+      .collectible-card::after {
+        content: "";
+        position: absolute;
+        inset: -80% -30%;
+        background: linear-gradient(115deg, transparent 42%, rgba(255, 255, 255, 0.72) 50%, transparent 58%);
+        transform: translateX(-55%) rotate(8deg);
+        pointer-events: none;
+      }
+
+      .collectible-card.is-new::after {
+        animation: cardShine 1.1s ease forwards;
+      }
+
+      .collectible-card.tone-mint {
+        background: linear-gradient(145deg, #effff6, #d7f7eb 58%, #fff6d7);
+      }
+
+      .collectible-card.tone-sky {
+        background: linear-gradient(145deg, #eef8ff, #dceeff 58%, #f3eaff);
+      }
+
+      .collectible-card.tone-rose {
+        background: linear-gradient(145deg, #fff3f7, #ffdce7 58%, #fff3d3);
+      }
+
+      .collectible-card.rarity-uncommon {
+        border-color: rgba(79, 145, 111, 0.34);
+      }
+
+      .collectible-card.rarity-rare {
+        border-color: rgba(96, 121, 205, 0.42);
+        box-shadow: 0 10px 26px rgba(96, 121, 205, 0.16);
+      }
+
+      .collectible-card.rarity-super-rare {
+        border-color: rgba(214, 153, 35, 0.58);
+        box-shadow: 0 12px 30px rgba(214, 153, 35, 0.2);
+      }
+
+      .rarity-label {
+        color: var(--berry);
+      }
+
+      .rarity-rare .rarity-label {
+        color: #5674ba;
+      }
+
+      .rarity-super-rare .rarity-label {
+        color: #a46c00;
+      }
+
+      .duplicate-count {
+        padding: 2px 6px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.7);
+        color: var(--berry);
+      }
+
+      .collectible-card.is-locked {
+        place-items: center;
+        align-content: center;
+        color: rgba(117, 93, 88, 0.56);
+        background:
+          repeating-linear-gradient(135deg, rgba(255,255,255,0.46) 0 12px, rgba(255,235,242,0.52) 12px 24px),
+          #f7f1ee;
+        box-shadow: none;
+      }
+
+      .collectible-card.is-locked::after {
+        display: none;
+      }
+
+      .locked-mark {
+        font-size: 28px;
+        font-weight: 950;
+      }
+
+      .locked-copy {
+        font-size: 10px;
+        font-weight: 850;
+        text-align: center;
+      }
+
+      .collectible-topline {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        color: var(--berry);
+        font-size: 10px;
+        font-weight: 950;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .collectible-title {
+        margin: 0;
+        font-size: 16px;
+        line-height: 1.1;
+      }
+
+      .collectible-quote {
+        margin: 0;
+        color: var(--soft-ink);
+        font-size: 12px;
+        font-weight: 750;
+        line-height: 1.38;
+      }
+
+      @keyframes cardShine {
+        from {
+          transform: translateX(-55%) rotate(8deg);
+        }
+        to {
+          transform: translateX(58%) rotate(8deg);
+        }
+      }
+
+      @keyframes newBadge {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.08); }
+      }
+
+      @keyframes sweetSnakeFloat {
+        0%,
+        100% {
+          transform: translateY(0) rotate(-1.5deg);
+        }
+        50% {
+          transform: translateY(-5px) rotate(1.5deg);
+        }
+      }
+
+      @keyframes tinySnakeBreathe {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.025);
+        }
+      }
+
+      @keyframes tinySnakeLook {
+        0%,
+        100% {
+          filter: drop-shadow(0 10px 12px rgba(52, 34, 31, 0.14));
+        }
+        45% {
+          filter: drop-shadow(0 10px 12px rgba(52, 34, 31, 0.14));
+        }
+        52% {
+          filter: drop-shadow(4px 12px 12px rgba(52, 34, 31, 0.13));
+        }
+        58% {
+          filter: drop-shadow(-3px 12px 12px rgba(52, 34, 31, 0.13));
+        }
+      }
+
+      @keyframes tinySnakeHappy {
+        0% {
+          transform: translateY(0) rotate(0deg) scale(1);
+        }
+        16% {
+          transform: translateY(-8px) rotate(-5deg) scale(1.04);
+        }
+        34% {
+          transform: translateY(2px) rotate(5deg) scale(0.99);
+        }
+        52% {
+          transform: translateY(-6px) rotate(-4deg) scale(1.035);
+        }
+        76% {
+          transform: translateY(1px) rotate(2deg) scale(1.01);
+        }
+        100% {
+          transform: translateY(0) rotate(0deg) scale(1);
+        }
+      }
+
+      @keyframes softHeartPop {
+        0%,
+        58% {
+          opacity: 0;
+          transform: translateY(8px) scale(0.65) rotate(-8deg);
+        }
+        70% {
+          opacity: 1;
+          transform: translateY(-4px) scale(1) rotate(8deg);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-28px) scale(0.72) rotate(18deg);
+        }
+      }
+
+      @keyframes happyHeartPop {
+        0% {
+          opacity: 0;
+          transform: translateY(8px) scale(0.55) rotate(-10deg);
+        }
+        36% {
+          opacity: 1;
+          transform: translateY(-10px) scale(1.1) rotate(8deg);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-42px) scale(0.72) rotate(22deg);
+        }
+      }
+
+      .phone[data-view="letter"] {
+        background:
+          linear-gradient(180deg, rgba(255, 253, 250, 0.95), rgba(255, 243, 249, 0.9)),
+          #fff8fb;
+      }
+
+      .phone[data-view="useful"] {
+        background:
+          linear-gradient(180deg, rgba(245, 253, 255, 0.96), rgba(235, 250, 247, 0.92)),
+          #f3fcff;
+      }
+
+      .phone[data-view="rewards"] {
+        background:
+          linear-gradient(180deg, rgba(255, 252, 237, 0.96), rgba(239, 255, 244, 0.92)),
+          #fbfff2;
+      }
+
+      .view-menu-toggle {
+        position: fixed;
+        top: 14px;
+        right: max(14px, calc((100vw - 430px) / 2 + 14px));
+        z-index: 12;
+        width: 44px;
+        height: 44px;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(143, 76, 111, 0.15);
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.84);
+        color: var(--berry);
+        font: inherit;
+        font-size: 22px;
+        font-weight: 900;
+        line-height: 1;
+        box-shadow: 0 10px 24px rgba(143, 76, 111, 0.13);
+        cursor: pointer;
+        transition: transform 180ms ease, background 220ms ease;
+      }
+
+      .view-menu-toggle:active {
+        transform: translateY(2px) scale(0.98);
+      }
+
+      .view-menu-toggle.is-open {
+        background: #fff1f6;
+        transform: rotate(90deg);
+      }
+
+      .view-nav-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 9;
+        background: rgba(52, 34, 31, 0.22);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 480ms ease;
+      }
+
+      .view-nav-backdrop.is-open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .view-nav {
+        position: fixed;
+        top: 0;
+        right: max(0px, calc((100vw - 430px) / 2));
+        bottom: 0;
+        z-index: 11;
+        width: min(82vw, 304px);
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        gap: 22px;
+        padding: 22px 18px;
+        border-left: 1px solid rgba(143, 76, 111, 0.12);
+        background: rgba(255, 253, 250, 0.97);
+        box-shadow: -18px 0 46px rgba(74, 51, 47, 0.17);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateX(108%);
+        transition:
+          transform 720ms cubic-bezier(0.18, 0.72, 0.2, 1),
+          opacity 460ms ease,
+          visibility 0s linear 720ms;
+      }
+
+      .view-nav.is-open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateX(0);
+        transition-delay: 0s;
+      }
+
+      .view-nav-head,
+      .view-nav-list,
+      .view-nav-foot {
+        opacity: 0;
+        transform: translateX(16px);
+        transition:
+          opacity 340ms ease,
+          transform 480ms cubic-bezier(0.2, 0.76, 0.24, 1);
+      }
+
+      .view-nav.is-open .view-nav-head,
+      .view-nav.is-open .view-nav-list,
+      .view-nav.is-open .view-nav-foot {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .view-nav.is-open .view-nav-head {
+        transition-delay: 150ms;
+      }
+
+      .view-nav.is-open .view-nav-list {
+        transition-delay: 220ms;
+      }
+
+      .view-nav.is-open .view-nav-foot {
+        transition-delay: 290ms;
+      }
+
+      .view-nav-head {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 12px;
+        padding-right: 48px;
+      }
+
+      .view-nav-head strong {
+        font-size: 18px;
+      }
+
+      .view-nav-close {
+        width: 36px;
+        height: 36px;
+        border: 0;
+        border-radius: 50%;
+        background: #f8edf1;
+        color: var(--berry);
+        font: inherit;
+        font-size: 22px;
+        cursor: pointer;
+      }
+
+      .view-nav-list {
+        display: grid;
+        align-content: start;
+        gap: 9px;
+      }
+
+      .view-nav-item {
+        min-height: 58px;
+        display: grid;
+        grid-template-columns: 38px minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 10px;
+        padding: 9px 11px;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        background: transparent;
+        color: var(--ink);
+        font: inherit;
+        font-weight: 900;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .view-nav-item.is-active {
+        border-color: rgba(143, 76, 111, 0.13);
+        background: #fff4f7;
+      }
+
+      .nav-item-icon,
+      .world-icon,
+      .view-intro-icon,
+      .reward-icon {
+        display: grid;
+        place-items: center;
+        color: #fff;
+        box-shadow: 0 8px 18px rgba(70, 51, 48, 0.12);
+      }
+
+      .nav-item-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+      }
+
+      .nav-letter {
+        background: linear-gradient(145deg, #f495b2, #d96f93);
+      }
+
+      .nav-home {
+        background: linear-gradient(145deg, #c7b7ef, #9f83d4);
+      }
+
+      .nav-useful {
+        background: linear-gradient(145deg, #74c8de, #54a5bf);
+      }
+
+      .nav-rewards {
+        background: linear-gradient(145deg, #e6bf57, #81bc76);
+      }
+
+      .nav-arrow {
+        color: var(--soft-ink);
+        font-size: 18px;
+      }
+
+      .view-nav-foot {
+        color: var(--soft-ink);
+        font-size: 11px;
+        line-height: 1.4;
+      }
+
+      .app-stage {
+        min-height: 430px;
+      }
+
+      .app-view {
+        display: none;
+      }
+
+      .app-view.is-active {
+        display: block;
+        animation: viewEnter 460ms cubic-bezier(0.18, 0.78, 0.22, 1) both;
+      }
+
+      .app-view.is-leaving {
+        display: block;
+        pointer-events: none;
+        animation: viewLeave 240ms ease-in both;
+      }
+
+      .home-view.is-active {
+        display: grid;
+        gap: 18px;
+        padding: 8px 22px 30px;
+      }
+
+      .home-view.is-leaving {
+        display: grid;
+      }
+
+      .home-copy {
+        display: grid;
+        gap: 7px;
+        text-align: center;
+      }
+
+      .home-copy h2,
+      .view-intro h2,
+      .reward-banner h2 {
+        margin: 0;
+        font-size: 22px;
+        line-height: 1.16;
+      }
+
+      .home-copy p,
+      .view-intro p,
+      .reward-banner p {
+        margin: 0;
+        color: var(--soft-ink);
+        font-size: 13px;
+        line-height: 1.45;
+      }
+
+      .world-grid {
+        display: grid;
+        gap: 10px;
+      }
+
+      .world-choice {
+        min-height: 88px;
+        display: grid;
+        grid-template-columns: 52px minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 12px;
+        padding: 13px;
+        border: 1px solid rgba(52, 34, 31, 0.11);
+        border-radius: 8px;
+        color: var(--ink);
+        font: inherit;
+        text-align: left;
+        box-shadow: 0 10px 24px rgba(81, 57, 53, 0.08);
+        cursor: pointer;
+        transition: transform 180ms ease, box-shadow 180ms ease;
+      }
+
+      .world-choice:active {
+        transform: translateY(2px);
+      }
+
+      .world-choice-letter {
+        background: linear-gradient(135deg, #fff3f7, #ffe3ec);
+      }
+
+      .world-choice-useful {
+        background: linear-gradient(135deg, #eefbff, #dcf5f1);
+      }
+
+      .world-choice-rewards {
+        background: linear-gradient(135deg, #fff9df, #eaf9df);
+      }
+
+      .world-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 16px;
+        font-size: 22px;
+      }
+
+      .world-choice-copy {
+        display: grid;
+        gap: 3px;
+        min-width: 0;
+      }
+
+      .world-choice-copy strong {
+        font-size: 16px;
+      }
+
+      .world-choice-copy span {
+        color: var(--soft-ink);
+        font-size: 12px;
+        line-height: 1.35;
+      }
+
+      .world-arrow {
+        color: var(--berry);
+        font-size: 24px;
+      }
+
+      .view-intro,
+      .reward-banner {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        align-items: center;
+        gap: 13px;
+        padding: 15px 22px;
+        border-top: 1px solid rgba(52, 34, 31, 0.08);
+        border-bottom: 1px solid rgba(52, 34, 31, 0.08);
+      }
+
+      .letter-intro {
+        background: linear-gradient(90deg, rgba(255, 229, 238, 0.72), rgba(255, 247, 232, 0.5));
+      }
+
+      .useful-intro {
+        background: linear-gradient(90deg, rgba(216, 246, 255, 0.78), rgba(220, 248, 239, 0.58));
+      }
+
+      .reward-banner {
+        background: linear-gradient(90deg, rgba(255, 243, 194, 0.78), rgba(222, 248, 215, 0.66));
+      }
+
+      .view-intro-icon,
+      .reward-icon {
+        width: 46px;
+        height: 46px;
+        border-radius: 15px;
+        font-size: 20px;
+      }
+
+      .view-intro-copy,
+      .reward-banner-copy {
+        display: grid;
+        gap: 3px;
+        min-width: 0;
+      }
+
+      .letter-main,
+      .useful-main {
+        padding-top: 20px;
+        align-content: start;
+      }
+
+      .envelope.arrive {
+        animation: letterArrive 900ms cubic-bezier(0.18, 0.8, 0.24, 1) both;
+      }
+
+      .useful-main .daily-overview {
+        margin: 0;
+      }
+
+      .weather-analysis-symbol {
+        background: #72b78e;
+      }
+
+      .forecast-card {
+        overflow: hidden;
+        border: 1px solid rgba(60, 135, 157, 0.14);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.72);
+        box-shadow: 0 10px 25px rgba(56, 126, 145, 0.08);
+      }
+
+      .hourly-card {
+        overflow: hidden;
+        border: 1px solid rgba(72, 148, 165, 0.14);
+        border-radius: 8px;
+        background: rgba(247, 254, 255, 0.78);
+        box-shadow: 0 10px 25px rgba(56, 126, 145, 0.07);
+      }
+
+      .hourly-toggle {
+        width: 100%;
+        min-height: 64px;
+        display: grid;
+        grid-template-columns: 40px minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 11px;
+        padding: 11px 14px;
+        border: 0;
+        background: transparent;
+        color: var(--ink);
+        font: inherit;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .hourly-toggle-icon {
+        width: 40px;
+        height: 40px;
+        display: grid;
+        place-items: center;
+        border-radius: 13px;
+        background: linear-gradient(145deg, #75c9db, #5aaabf);
+        color: #fff;
+        font-size: 17px;
+        box-shadow: 0 7px 16px rgba(56, 126, 145, 0.14);
+      }
+
+      .hourly-toggle-copy {
+        display: grid;
+        gap: 2px;
+        min-width: 0;
+      }
+
+      .hourly-toggle-copy strong {
+        font-size: 15px;
+      }
+
+      .hourly-toggle-copy span {
+        color: var(--soft-ink);
+        font-size: 11px;
+      }
+
+      .hourly-arrow {
+        color: #4f91a2;
+        font-size: 19px;
+        transition: transform 240ms ease;
+      }
+
+      .hourly-card.is-open .hourly-arrow {
+        transform: rotate(180deg);
+      }
+
+      .hourly-body {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transform: translateY(-5px);
+        transition:
+          max-height 520ms ease,
+          opacity 260ms ease,
+          transform 360ms ease;
+      }
+
+      .hourly-card.is-open .hourly-body {
+        max-height: 250px;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .hourly-strip {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 104px;
+        gap: 8px;
+        overflow-x: auto;
+        padding: 2px 14px 15px;
+        scroll-snap-type: x proximity;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(79, 151, 172, 0.35) transparent;
+      }
+
+      .hourly-hour {
+        min-height: 126px;
+        display: grid;
+        align-content: space-between;
+        gap: 7px;
+        padding: 10px;
+        border: 1px solid rgba(77, 144, 162, 0.12);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.78);
+        scroll-snap-align: start;
+      }
+
+      .hourly-time {
+        color: #487c8b;
+        font-size: 11px;
+        font-weight: 900;
+      }
+
+      .hourly-temperature {
+        font-size: 15px;
+        font-weight: 900;
+      }
+
+      .hourly-detail {
+        color: var(--soft-ink);
+        font-size: 10px;
+        line-height: 1.3;
+      }
+
+      .forecast-head {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        align-items: center;
+        gap: 11px;
+        padding: 15px 16px 12px;
+      }
+
+      .forecast-strip {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 116px;
+        gap: 9px;
+        overflow-x: auto;
+        padding: 2px 16px 16px;
+        scroll-snap-type: x proximity;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(79, 151, 172, 0.35) transparent;
+      }
+
+      .forecast-day {
+        min-height: 140px;
+        display: grid;
+        align-content: space-between;
+        gap: 8px;
+        padding: 11px;
+        border: 1px solid rgba(77, 144, 162, 0.13);
+        border-radius: 8px;
+        background: linear-gradient(160deg, rgba(255, 255, 255, 0.9), rgba(225, 247, 250, 0.78));
+        scroll-snap-align: start;
+      }
+
+      .forecast-day-name {
+        color: #487c8b;
+        font-size: 11px;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .forecast-icon {
+        font-size: 28px;
+        line-height: 1;
+      }
+
+      .forecast-temperatures {
+        font-size: 14px;
+        font-weight: 900;
+      }
+
+      .forecast-detail {
+        color: var(--soft-ink);
+        font-size: 10px;
+        font-weight: 750;
+        line-height: 1.3;
+      }
+
+      .reward-progress {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        padding: 18px 22px;
+      }
+
+      .reward-stat {
+        min-height: 76px;
+        display: grid;
+        align-content: center;
+        gap: 3px;
+        padding: 12px;
+        border-bottom: 2px solid rgba(165, 127, 31, 0.24);
+        background: rgba(255, 255, 255, 0.5);
+        text-align: center;
+      }
+
+      .reward-stat strong {
+        color: #7d6423;
+        font-size: 22px;
+      }
+
+      .reward-stat span {
+        color: var(--soft-ink);
+        font-size: 10px;
+        font-weight: 850;
+        text-transform: uppercase;
+      }
+
+      .rewards-view .smile-collection {
+        margin: 0;
+        padding: 16px 22px;
+        border-top: 1px solid rgba(122, 137, 57, 0.14);
+        border-bottom: 1px solid rgba(122, 137, 57, 0.1);
+        background: rgba(255, 255, 255, 0.28);
+      }
+
+      .rewards-view .snake-collection {
+        background: rgba(232, 252, 226, 0.34);
+      }
+
+      @keyframes viewEnter {
+        from { opacity: 0; transform: translateY(12px) scale(0.992); }
+        to { opacity: 1; transform: translateY(0) scale(1); }
+      }
+
+      @keyframes viewLeave {
+        from { opacity: 1; transform: translateY(0) scale(1); }
+        to { opacity: 0; transform: translateY(-7px) scale(0.995); }
+      }
+
+      @keyframes letterArrive {
+        0% { opacity: 0; transform: translate(115%, -60px) rotate(10deg) scale(0.82); }
+        68% { opacity: 1; transform: translate(-3%, 5px) rotate(-2deg) scale(1.02); }
+        100% { opacity: 1; transform: translate(0, 0) rotate(0) scale(1); }
+      }
+
+      @media (min-width: 570px) {
+        .view-menu-toggle {
+          right: auto;
+          left: calc(50% + 229px);
+        }
+
+        .music-widget {
+          left: auto;
+          right: calc(50% + 229px);
+          width: min(360px, calc(50vw - 229px));
+          grid-template-columns: minmax(0, 1fr) auto;
+        }
+
+        .music-toggle {
+          grid-column: 2;
+          grid-row: 1;
+        }
+
+        .music-panel {
+          grid-column: 1;
+          grid-row: 1;
+          min-width: 0;
+        }
+      }
+
+      @media (max-width: 569px) {
+        .view-menu-toggle {
+          top: 14px;
+          right: 14px;
+          left: auto;
+        }
+
+        .music-widget {
+          top: 14px;
+          left: 14px;
+          width: min(calc(100vw - 84px), 360px);
+        }
+
+        header {
+          padding-top: 76px;
+        }
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      @keyframes riseIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 360px) {
+        body {
+          padding: 12px;
+        }
+
+        .view-menu-toggle {
+          right: 14px;
+          top: 14px;
+        }
+
+        .view-nav {
+          right: 0;
+          width: min(86vw, 304px);
+        }
+
+        .phone {
+          min-height: calc(100vh - 24px);
+          border-radius: 22px;
+        }
+
+        header,
+        main,
+        footer {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+
+        .home-view.is-active {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+
+        .view-intro,
+        .reward-banner {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+
+        .world-choice {
+          grid-template-columns: 46px minmax(0, 1fr) auto;
+          padding: 11px;
+        }
+
+        .world-icon {
+          width: 46px;
+          height: 46px;
+          border-radius: 14px;
+        }
+
+        .pill-row {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 0;
+        }
+
+        .pill {
+          min-height: 106px;
+          padding: 11px;
+        }
+
+        .value {
+          font-size: 14px;
+        }
+
+        .status-icon {
+          width: 26px;
+          height: 26px;
+          border-radius: 9px;
+          font-size: 12px;
+        }
+
+        .pill-heading {
+          gap: 6px;
+        }
+
+        .outside-heading .label {
+          display: none;
+        }
+
+        .fuel-select {
+          max-width: 132px;
+        }
+
+        .forecast-strip {
+          grid-auto-columns: 108px;
+          padding-left: 12px;
+          padding-right: 12px;
+        }
+
+        .hourly-strip {
+          grid-auto-columns: 98px;
+          padding-left: 12px;
+          padding-right: 12px;
+        }
+
+        .reward-progress {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+
+        .snake-note {
+          margin-left: 16px;
+          margin-right: 16px;
+          text-align: center;
+        }
+
+        .snake-main {
+          grid-template-columns: 1fr;
+          justify-items: center;
+        }
+
+        .snake-chat {
+          border-radius: 16px;
+          text-align: center;
+        }
+
+        .snake-chat::before {
+          display: none;
+        }
+
+        .smile-collection {
+          margin-left: 16px;
+          margin-right: 16px;
+        }
+
+        .rewards-view .smile-collection {
+          margin-left: 0;
+          margin-right: 0;
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+
+        .collection-grid {
+          gap: 8px;
+        }
+
+        .collectible-card {
+          min-height: 168px;
+          padding: 10px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 1ms !important;
+          scroll-behavior: auto !important;
+          transition-duration: 1ms !important;
+        }
+
+        .heart-field {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="music-widget" id="musicWidget">
+      <button class="music-toggle" id="musicToggle" type="button" aria-pressed="false" aria-label="Play music">♪</button>
+      <div class="music-panel" id="musicPanel" aria-hidden="true">
+        <div class="music-line">
+          <span class="music-status" id="musicStatus">Play</span>
+          <span class="music-title" id="musicTitle">Te Levantas</span>
+        </div>
+        <div class="music-wave" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="song-picker" aria-label="Choose song">
+          <button class="song-choice is-active" type="button" data-song-index="0">Te Levantas</button>
+          <button class="song-choice" type="button" data-song-index="1">Little Flame</button>
+          <button class="song-lock" id="songLock" type="button" aria-pressed="false" aria-label="Lock current song">LOCK</button>
+        </div>
+      </div>
+      <audio id="localSong" preload="metadata"></audio>
+    </div>
+    <div class="heart-field" aria-hidden="true">
+      <span>&hearts;</span>
+      <span>&hearts;</span>
+      <span>&hearts;</span>
+      <span>&hearts;</span>
+      <span>&hearts;</span>
+      <span>&hearts;</span>
+    </div>
+    <button class="view-menu-toggle" id="viewMenuToggle" type="button" aria-expanded="false" aria-label="Open section menu">&#9776;</button>
+    <div class="view-nav-backdrop" id="viewNavBackdrop"></div>
+    <aside class="view-nav" id="viewNav" aria-hidden="true" aria-label="Choose a section" inert>
+      <div class="view-nav-head">
+        <strong>Your little corners</strong>
+        <button class="view-nav-close" id="viewNavClose" type="button" aria-label="Close section menu">&times;</button>
+      </div>
+      <nav class="view-nav-list" aria-label="Good Mood sections">
+        <button class="view-nav-item" type="button" data-view-target="home">
+          <span class="nav-item-icon nav-home" aria-hidden="true">&#8962;</span>
+          <span>Main Menu</span>
+          <span class="nav-arrow" aria-hidden="true">&#8250;</span>
+        </button>
+        <button class="view-nav-item" type="button" data-view-target="letter">
+          <span class="nav-item-icon nav-letter" aria-hidden="true">&hearts;</span>
+          <span>Letters</span>
+          <span class="nav-arrow" aria-hidden="true">&#8250;</span>
+        </button>
+        <button class="view-nav-item" type="button" data-view-target="useful">
+          <span class="nav-item-icon nav-useful" aria-hidden="true">&#9728;</span>
+          <span>Useful</span>
+          <span class="nav-arrow" aria-hidden="true">&#8250;</span>
+        </button>
+        <button class="view-nav-item" type="button" data-view-target="rewards">
+          <span class="nav-item-icon nav-rewards" aria-hidden="true">&#9733;</span>
+          <span>Rewards</span>
+          <span class="nav-arrow" aria-hidden="true">&#8250;</span>
+        </button>
+      </nav>
+      <p class="view-nav-foot">Three little places, all made with love.</p>
+    </aside>
+
+    <section class="phone" id="appShell" data-view="home" aria-label="Good Mood to Go">
+      <header>
+        <p class="eyebrow">A pocket-sized smile</p>
+        <h1><span>Good Mood</span><span>to Go</span></h1>
+      </header>
+
+      <div class="app-stage">
+        <section class="app-view home-view is-active" id="homeView" data-app-view="home" aria-label="Choose your Good Mood section">
+          <div class="home-copy">
+            <h2>What would feel good right now?</h2>
+            <p>Pick the little corner that fits this moment.</p>
+          </div>
+          <div class="world-grid">
+            <button class="world-choice world-choice-letter" type="button" data-view-target="letter">
+              <span class="world-icon nav-letter" aria-hidden="true">&hearts;</span>
+              <span class="world-choice-copy">
+                <strong>A tiny letter</strong>
+                <span>Something soft is waiting.</span>
+              </span>
+              <span class="world-arrow" aria-hidden="true">&#8250;</span>
+            </button>
+            <button class="world-choice world-choice-useful" type="button" data-view-target="useful">
+              <span class="world-icon nav-useful" aria-hidden="true">&#9728;</span>
+              <span class="world-choice-copy">
+                <strong>Useful today</strong>
+                <span>A calm little look at the world.</span>
+              </span>
+              <span class="world-arrow" aria-hidden="true">&#8250;</span>
+            </button>
+            <button class="world-choice world-choice-rewards" type="button" data-view-target="rewards">
+              <span class="world-icon nav-rewards" aria-hidden="true">&#9733;</span>
+              <span class="world-choice-copy">
+                <strong>Rewards</strong>
+                <span>Your shelf of tiny treasures.</span>
+              </span>
+              <span class="world-arrow" aria-hidden="true">&#8250;</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="app-view letter-view" id="letterView" data-app-view="letter" aria-label="Tiny letters">
+          <div class="view-intro letter-intro">
+            <span class="view-intro-icon nav-letter" aria-hidden="true">&hearts;</span>
+            <span class="view-intro-copy">
+              <h2>Letters for your heart</h2>
+              <p>A quiet little place made especially for you.</p>
+            </span>
+          </div>
+
+          <main class="letter-main">
+        <div class="envelope-wrap">
+          <button class="envelope" id="openButton" type="button" aria-label="Open a tiny smile">
+            <span class="ribbon" aria-hidden="true"></span>
+            <span class="seal" aria-hidden="true">&hearts;</span>
+            <span class="note" id="noteText"></span>
+            <span class="sparkles" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </button>
+        </div>
+
+        <button class="primary" id="moodButton" type="button">Open a tiny smile</button>
+
+        <section class="message hidden" id="message" aria-live="polite">
+          <div class="daily-overview">
+            <div class="pill-row">
+              <article class="pill">
+                <div class="pill-heading">
+                  <span class="status-icon time-icon" aria-hidden="true">&#9200;</span>
+                  <span class="label">Right now</span>
+                </div>
+                <span class="value" id="timeText">Checking the clock...</span>
+              </article>
+              <article class="pill">
+                <div class="outside-heading">
+                  <div class="pill-heading">
+                    <span class="status-icon outside-icon" aria-hidden="true">&#9728;</span>
+                    <span class="label">Outside</span>
+                  </div>
+                  <div class="unit-switch" role="group" aria-label="Temperature unit">
+                    <button class="unit-option is-active" type="button" data-temperature-unit="c" aria-pressed="true">&deg;C</button>
+                    <button class="unit-option" type="button" data-temperature-unit="f" aria-pressed="false">&deg;F</button>
+                  </div>
+                </div>
+                <span class="value" id="weatherText">Checking the sky...</span>
+              </article>
+            </div>
+
+            <article class="card info-card weather-card" id="weatherNote">
+              <div class="info-card-head">
+                <span class="info-symbol weather-symbol" aria-hidden="true">&#9729;</span>
+                <span class="info-heading-copy">
+                  <span class="info-kicker">A little look outside</span>
+                  <strong class="info-title">Weather &amp; warnings</strong>
+                </span>
+              </div>
+              <div class="weather-stack">
+                <div class="weather-part">
+                  <span class="weather-mini-symbol" aria-hidden="true">!</span>
+                  <span class="weather-copy">
+                    <strong>Warnings</strong>
+                    <span id="weatherWarningText">Checking the next few hours...</span>
+                  </span>
+                </div>
+                <div class="weather-part">
+                  <span class="weather-mini-symbol weather-note-symbol" aria-hidden="true">&#10022;</span>
+                  <span class="weather-copy">
+                    <strong>Weather note</strong>
+                    <span id="weatherDetail">A gentle weather note will appear here.</span>
+                  </span>
+                </div>
+                <div class="weather-part">
+                  <span class="weather-mini-symbol weather-analysis-symbol" aria-hidden="true">&#9776;</span>
+                  <span class="weather-copy">
+                    <strong>Today's analysis</strong>
+                    <span id="weatherAnalysis">The day is still gathering its little details.</span>
+                  </span>
+                </div>
+                <span class="weather-disclaimer">Forecast-based notice. Please follow local authorities for official alerts.</span>
+              </div>
+            </article>
+
+            <article class="card info-card fuel-card" id="fuelCard">
+              <div class="info-card-head fuel-heading">
+                <span class="info-symbol fuel-symbol" aria-hidden="true">&#9981;</span>
+                <span class="info-heading-copy">
+                  <span class="info-kicker">Today's useful number</span>
+                  <strong class="info-title">Current energy average</strong>
+                </span>
+              </div>
+              <div class="fuel-content">
+                <div class="fuel-toolbar">
+                  <label class="fuel-label" for="fuelTypeSelect">Energy type</label>
+                  <select class="fuel-select" id="fuelTypeSelect" aria-label="Choose energy type">
+                    <option value="gasoline">Petrol</option>
+                    <option value="diesel">Diesel</option>
+                    <option value="lpg">LPG / Gas</option>
+                    <option value="electric">Electric charging</option>
+                  </select>
+                </div>
+                <div>
+                  <span class="fuel-price" id="fuelPrice">Checking the latest average...</span>
+                  <span class="fuel-note" id="fuelNote">This will show a current country average, not a single station price.</span>
+                </div>
+                <span class="fuel-smallprint" id="fuelMeta"><span id="fuelMetaText">Country average.</span> Data: <a href="https://openvan.camp/" target="_blank" rel="noreferrer">OpenVan.camp</a> (CC BY 4.0)</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="section-divider" aria-hidden="true">
+            <span><span class="divider-heart">&hearts;</span>And now, something for you</span>
+          </div>
+
+          <article class="card for-you-card">
+            <strong>For you</strong>
+            <div class="mood" id="loveText">You are deeply loved.</div>
+          </article>
+
+          <article class="card main-story-card">
+            <strong id="mainStoryTitle">Main story</strong>
+            <div class="mood" id="mainStoryText">A tiny story is waiting inside.</div>
+          </article>
+
+          <article class="card care-card">
+            <strong>Tiny care check</strong>
+            <span id="careText">Please eat something kind and drink enough water today.</span>
+          </article>
+
+          <article class="card fact-card">
+            <strong>Little thing to know</strong>
+            <span id="factText">One tiny fact is on its way.</span>
+          </article>
+        </section>
+      </main>
+
+      <div class="snake-note" aria-label="Tiny cute snake note">
+        <div class="snake-main">
+          <div class="cute-snake" id="snakeFriend" role="button" tabindex="0" aria-label="Send a heart from the tiny snake">
+            <img src="assets/cute-snake.png" alt="Cute green snake" />
+            <span class="mini-heart">&hearts;</span>
+            <span class="mini-heart">&hearts;</span>
+          </div>
+          <div class="snake-chat" id="softBubble"></div>
+        </div>
+        <div class="snake-gifts">
+          <div class="snake-scale-card">
+            <strong>Little wish</strong>
+            <span id="wishText">May something gentle find you today.</span>
+          </div>
+          <div class="snake-scale-card">
+            <strong>Tiny mission</strong>
+            <span id="missionText">Do one tiny kind thing for yourself today.</span>
+          </div>
+        </div>
+      </div>
+
+        </section>
+
+        <section class="app-view useful-view" id="usefulView" data-app-view="useful" aria-label="Useful today">
+          <div class="view-intro useful-intro">
+            <span class="view-intro-icon nav-useful" aria-hidden="true">&#9728;</span>
+            <span class="view-intro-copy">
+              <h2>Useful little things</h2>
+              <p>A softer way to look at the day ahead.</p>
+            </span>
+          </div>
+          <main class="useful-main">
+            <div id="usefulContentMount"></div>
+            <article class="hourly-card" id="hourlyCard" aria-label="Hourly weather forecast">
+              <button class="hourly-toggle" id="hourlyToggle" type="button" aria-expanded="false" aria-controls="hourlyBody">
+                <span class="hourly-toggle-icon" aria-hidden="true">&#9201;</span>
+                <span class="hourly-toggle-copy">
+                  <strong>Hourly forecast</strong>
+                  <span>The next 24 hours</span>
+                </span>
+                <span class="hourly-arrow" aria-hidden="true">&#8964;</span>
+              </button>
+              <div class="hourly-body" id="hourlyBody" aria-hidden="true">
+                <div class="hourly-strip" id="hourlyStrip">
+                  <span class="fuel-note">Waiting for the next few hours...</span>
+                </div>
+              </div>
+            </article>
+            <article class="forecast-card" id="forecastCard" aria-label="14-day weather outlook">
+              <div class="forecast-head">
+                <span class="info-symbol weather-symbol" aria-hidden="true">&#9638;</span>
+                <span class="info-heading-copy">
+                  <span class="info-kicker">A gentle look ahead</span>
+                  <strong class="info-title">14-day outlook</strong>
+                </span>
+              </div>
+              <div class="forecast-strip" id="forecastStrip">
+                <span class="fuel-note">Waiting for the sky...</span>
+              </div>
+            </article>
+          </main>
+        </section>
+
+        <section class="app-view rewards-view" id="rewardsView" data-app-view="rewards" aria-label="Rewards and collections">
+          <div class="reward-banner">
+            <span class="reward-icon nav-rewards" aria-hidden="true">&#9733;</span>
+            <span class="reward-banner-copy">
+              <h2>Your tiny treasure shelf</h2>
+              <p>Every little discovery has a place here.</p>
+            </span>
+          </div>
+          <div class="reward-progress" aria-label="Collection progress">
+            <div class="reward-stat">
+              <strong id="rewardsFound">0</strong>
+              <span>Treasures found</span>
+            </div>
+            <div class="reward-stat">
+              <strong id="rewardsPulls">0</strong>
+              <span>Total pulls</span>
+            </div>
+          </div>
+
+      <section class="smile-collection" id="smileCollection" aria-label="Smile collection">
+        <button class="collection-toggle" id="collectionToggle" type="button" data-collection-group="smile" aria-expanded="false">
+          <span class="collection-symbol" aria-hidden="true">&#9733;</span>
+          <span class="collection-heading">
+            <strong>Smile Collection <span class="collection-new">New cards</span></strong>
+            <span class="collection-meta" id="collectionMeta">Loading collection...</span>
+          </span>
+          <span class="collection-arrow" aria-hidden="true">&#8964;</span>
+        </button>
+        <div class="collection-body" id="collectionBody">
+          <div class="collection-sections" id="collectionSections"></div>
+        </div>
+      </section>
+
+      <section class="smile-collection snake-collection" id="snakeCollection" aria-label="Snake collection">
+        <button class="collection-toggle" id="snakeCollectionToggle" type="button" data-collection-group="snake" aria-expanded="false">
+          <span class="collection-symbol" aria-hidden="true">&#9829;</span>
+          <span class="collection-heading">
+            <strong>Snake Collection <span class="collection-new">New cards</span></strong>
+            <span class="collection-meta" id="snakeCollectionMeta">Loading collection...</span>
+          </span>
+          <span class="collection-arrow" aria-hidden="true">&#8964;</span>
+        </button>
+        <div class="collection-body" id="snakeCollectionBody">
+          <div class="collection-sections" id="snakeCollectionSections"></div>
+        </div>
+      </section>
+
+        </section>
+      </div>
+
+      <footer>
+        <p class="tiny">Made with love for the sister who makes ordinary days feel warmer.</p>
+      </footer>
+    </section>
+    <div class="credit">Created by Silituz</div>
+
+    <script>
+      const usefulContentMount = document.querySelector("#usefulContentMount");
+      const dailyOverview = document.querySelector(".daily-overview");
+      const hourlyCard = document.querySelector("#hourlyCard");
+      const forecastCard = document.querySelector("#forecastCard");
+      const fuelCard = document.querySelector("#fuelCard");
+      if (dailyOverview && usefulContentMount) {
+        if (forecastCard && fuelCard) dailyOverview.insertBefore(forecastCard, fuelCard);
+        if (hourlyCard && forecastCard) dailyOverview.insertBefore(hourlyCard, forecastCard);
+        usefulContentMount.appendChild(dailyOverview);
+      }
+
+      const appShell = document.querySelector("#appShell");
+      const appViews = document.querySelectorAll("[data-app-view]");
+      const viewTargetButtons = document.querySelectorAll("[data-view-target]");
+      const viewMenuToggle = document.querySelector("#viewMenuToggle");
+      const viewNav = document.querySelector("#viewNav");
+      const viewNavBackdrop = document.querySelector("#viewNavBackdrop");
+      const viewNavClose = document.querySelector("#viewNavClose");
+      const openButton = document.querySelector("#openButton");
+      const moodButton = document.querySelector("#moodButton");
+      const musicWidget = document.querySelector("#musicWidget");
+      const musicToggle = document.querySelector("#musicToggle");
+      const musicPanel = document.querySelector("#musicPanel");
+      const musicTitle = document.querySelector("#musicTitle");
+      const musicStatus = document.querySelector("#musicStatus");
+      const localSong = document.querySelector("#localSong");
+      const songChoices = document.querySelectorAll(".song-choice");
+      const songLock = document.querySelector("#songLock");
+      const noteText = document.querySelector("#noteText");
+      const message = document.querySelector("#message");
+      const timeText = document.querySelector("#timeText");
+      const weatherText = document.querySelector("#weatherText");
+      const weatherWarningText = document.querySelector("#weatherWarningText");
+      const weatherDetail = document.querySelector("#weatherDetail");
+      const weatherAnalysis = document.querySelector("#weatherAnalysis");
+      const hourlyToggle = document.querySelector("#hourlyToggle");
+      const hourlyBody = document.querySelector("#hourlyBody");
+      const hourlyStrip = document.querySelector("#hourlyStrip");
+      const forecastStrip = document.querySelector("#forecastStrip");
+      const temperatureUnitButtons = document.querySelectorAll("[data-temperature-unit]");
+      const fuelTypeSelect = document.querySelector("#fuelTypeSelect");
+      const fuelPrice = document.querySelector("#fuelPrice");
+      const fuelNote = document.querySelector("#fuelNote");
+      const fuelMetaText = document.querySelector("#fuelMetaText");
+      const careText = document.querySelector("#careText");
+      const factText = document.querySelector("#factText");
+      const loveText = document.querySelector("#loveText");
+      const mainStoryTitle = document.querySelector("#mainStoryTitle");
+      const mainStoryText = document.querySelector("#mainStoryText");
+      const missionText = document.querySelector("#missionText");
+      const wishText = document.querySelector("#wishText");
+      const softBubble = document.querySelector("#softBubble");
+      const snakeNote = document.querySelector(".snake-note");
+      const snakeFriend = document.querySelector("#snakeFriend");
+      const smileCollection = document.querySelector("#smileCollection");
+      const collectionToggle = document.querySelector("#collectionToggle");
+      const collectionMeta = document.querySelector("#collectionMeta");
+      const collectionSections = document.querySelector("#collectionSections");
+      const snakeCollection = document.querySelector("#snakeCollection");
+      const snakeCollectionToggle = document.querySelector("#snakeCollectionToggle");
+      const snakeCollectionMeta = document.querySelector("#snakeCollectionMeta");
+      const snakeCollectionSections = document.querySelector("#snakeCollectionSections");
+      const rewardsFound = document.querySelector("#rewardsFound");
+      const rewardsPulls = document.querySelector("#rewardsPulls");
+      let isOpen = false;
+      let isFlying = false;
+      let isMusicPlaying = false;
+      let isMusicPanelOpen = false;
+      let isSongLocked = false;
+      let currentSongIndex = 0;
+      let messageTimer = 0;
+      let snakeTimer = 0;
+      let collectionCounts = {};
+      let lastDrawnKeys = new Set();
+      let openCollectionCategory = { smile: "main", snake: "snake" };
+      let temperatureUnit = "c";
+      let currentTemperatureC = null;
+      let currentWeatherSummary = "";
+      let currentHourlyForecast = null;
+      let currentDailyForecast = null;
+      let isHourlyOpen = false;
+      let currentAppView = "home";
+      let isViewNavOpen = false;
+      let isViewSwitching = false;
+      let viewSwitchTimer = 0;
+      const prefersReducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
+      let lastUsefulLoad = 0;
+      let fuelPriceData = null;
+      let fuelCountryCode = "DE";
+      const collectionStorageKey = "good-mood-smile-collection-v2";
+      const legacyCollectionStorageKey = "good-mood-smile-collection-v1";
+      const songs = [
+        { title: "Te Levantas", src: "assets/te-levantas.mp3" },
+        { title: "Peque\u00f1a Llama (Fuego y Luz)", src: "assets/pequena-llama.mp3" }
+      ];
+
+      const collectionGroups = {
+        smile: {
+          root: smileCollection,
+          toggle: collectionToggle,
+          meta: collectionMeta,
+          sections: collectionSections
+        },
+        snake: {
+          root: snakeCollection,
+          toggle: snakeCollectionToggle,
+          meta: snakeCollectionMeta,
+          sections: snakeCollectionSections
+        }
+      };
+
+      const tinyFacts = [
+        "A sincere smile can soften the whole room in less than a second.",
+        "The moon moves about 3.8 centimeters away from Earth every year.",
+        "Honey never truly expires when it is stored well.",
+        "The word serendipity means finding something lovely by happy accident.",
+        "Rain has a smell because plant oils and soil bacteria meet the air.",
+        "A day can become better because one person was gentle in it.",
+        "Stars do not just shine. They also remind us that distance can still hold beauty.",
+        "Kind words can lower stress and make someone feel safer.",
+        "Music can bring back a memory faster than almost anything else.",
+        "Small acts of love are still real acts of love.",
+        "A handwritten note can feel warmer because it carries a little bit of time.",
+        "The heart beats around 100,000 times a day, quietly choosing life again and again.",
+        "Some clouds can weigh more than a million pounds and still look soft.",
+        "A warm drink can make people feel more emotionally warm too.",
+        "The smell after rain is called petrichor.",
+        "Warm light in the evening can help the mind feel calmer.",
+        "Your brain can recognize a loved voice in less than a second.",
+        "Writing things down can make worries feel smaller.",
+        "Sunflowers can turn toward the sun while they are growing.",
+        "A tiny pause can change the whole feeling of a hard moment.",
+        "The color pink was named after a flower.",
+        "Deep breaths tell the body that it is allowed to feel safe.",
+        "Some stars you see at night are older than every story you have ever heard.",
+        "A compliment can stay in someone's memory for years.",
+        "Even a two-minute rest can help your nervous system soften.",
+        "A favorite song can change how the brain experiences a difficult moment.",
+        "Looking at something beautiful can help attention gently reset.",
+        "The human voice carries tiny emotional details that words alone cannot hold.",
+        "Gratitude works best when it is small, specific, and honest.",
+        "A familiar scent can bring back a memory before you can name it.",
+        "Warm colors can make a space feel more welcoming.",
+        "A slow exhale can help the body leave its alert mode.",
+        "Gentle routines can give the mind a sense of safety.",
+        "Celebrating a tiny win makes the brain more likely to notice the next one.",
+        "Being listened to can make a heavy feeling easier to carry.",
+        "A hug can help the body release calming hormones in only a few moments.",
+        "Butterflies taste with tiny sensors on their feet.",
+        "The light from the sun takes a little over eight minutes to reach Earth.",
+        "Repeating a comforting song can help the brain predict safety.",
+        "A genuine laugh can relax muscles for several minutes afterward.",
+        "One peaceful minute is still a real piece of peace."
+      ];
+
+      const qualities = [
+        "You are special because your kindness feels quiet, real, and rare.",
+        "You are important because your heart notices things other people miss.",
+        "You are beautiful in the way you make people feel safe around you.",
+        "You are stronger than you probably give yourself credit for.",
+        "You have a soft light in you, and it matters more than you know.",
+        "You are lovable on easy days, messy days, and every day between.",
+        "You make the world feel a little more gentle just by being in it.",
+        "You are enough today, exactly as you are.",
+        "You carry sweetness, courage, and warmth in your own way.",
+        "You deserve care, softness, food, water, rest, and a very good day.",
+        "You have a beautiful way of making small moments matter.",
+        "You are not hard to love. You are a reason to be grateful.",
+        "Your softness is not weakness. It is one of your quiet powers.",
+        "You bring a kind of warmth that cannot be copied.",
+        "You are allowed to take up space, ask for care, and be held gently.",
+        "You are a lovely part of this world, even on days when you forget it.",
+        "Your laugh is the kind of sound that can rescue a mood.",
+        "You have a heart that deserves patience, not pressure.",
+        "You are someone worth protecting, celebrating, and checking on.",
+        "You do not need to be perfect to be deeply precious.",
+        "You are a little miracle in normal clothes.",
+        "You make ordinary days feel softer.",
+        "You are loved in ways that are bigger than one message can hold.",
+        "You are someone's favorite reason to smile.",
+        "You have survived every day that once felt impossible.",
+        "Your care has more impact than you will ever be able to measure.",
+        "You are worth showing up for, especially on quiet days.",
+        "Your feelings deserve room without needing an apology.",
+        "You bring your own kind of beauty into every place you enter.",
+        "Your heart is not too much. It is simply deeply alive.",
+        "You are allowed to be proud of how far you have come.",
+        "You are more than the hardest thing on your mind today.",
+        "Your existence is not ordinary to the people who love you.",
+        "You deserve good news, soft mornings, and peaceful sleep.",
+        "You are a whole person, not a list of things to improve.",
+        "There is comfort in the world that belongs to you too.",
+        "Your gentle way of caring is one of the beautiful things about you.",
+        "You are worth missing, choosing, and coming home to.",
+        "Your best does not have to look the same every day to be enough.",
+        "You make love feel visible in the small things you do.",
+        "There is no version of this world in which you are replaceable.",
+        "You deserve to receive the tenderness you give so naturally."
+      ];
+
+      const careLines = [
+        "Please eat something kind and drink enough water today.",
+        "Tiny reminder: your body deserves food, water, and patience.",
+        "Before you carry the whole day, please give yourself water and a little snack.",
+        "You matter, so please do the small caring things too: food, water, rest.",
+        "Your smile is precious, and so is your energy. Please eat and drink enough.",
+        "Please do a tiny body check: water, food, shoulders down, jaw soft.",
+        "You are not a machine. Please feed the sweet human carrying you.",
+        "A little water now is a love note to your future self.",
+        "If the day feels heavy, start with one sip and one slow breath.",
+        "Please take your vitamins, your water, or your tiny snack if you need them.",
+        "Your body has been holding you all day. Please be kind back to it.",
+        "Even cute people need lunch. Especially cute people.",
+        "Please do not forget yourself while being there for everyone else.",
+        "A soft reminder: rest is productive when your heart is tired.",
+        "Please give your eyes a tiny break from the screen when you can.",
+        "Check in with yourself before saying yes to one more thing.",
+        "A warm meal is a quiet way to tell your body that it matters.",
+        "Please let one task be good enough instead of perfect.",
+        "Take one full breath before carrying the next thought.",
+        "Your needs are not an inconvenience.",
+        "A slower pace is still a real pace.",
+        "Please choose comfort where you are allowed to choose it.",
+        "Please check whether your hands are cold and find something cozy if they are.",
+        "A few bites still count when a full meal feels difficult.",
+        "Please let your shoulders drop before they try to carry tomorrow too.",
+        "Your body is asking kindly: a sip, a stretch, and one quiet moment.",
+        "Please choose the kinder voice when you speak to yourself today.",
+        "A small break is allowed before you feel completely tired."
+      ];
+
+      const tinyMissions = [
+        "Take three slow breaths and unclench your shoulders.",
+        "Send yourself one kind thought without arguing with it.",
+        "Sssip some water like it is a tiny potion for your glow.",
+        "Look at the sky for five seconds and let it hold one worry.",
+        "Put on one song that makes the room feel lighter.",
+        "Stretch your hands, your neck, or your back for a tiny reset.",
+        "Save one sweet sentence from today in your memory.",
+        "Smile at yourself for no reason, just to confuse the day.",
+        "Do one thing slowly on purpose.",
+        "Let one small problem wait while you care for yourself.",
+        "Notice one color around you that feels pretty.",
+        "Give yourself permission to have a softer evening.",
+        "Write down one thing you handled better than before.",
+        "Choose one tiny corner and make it a little cozier.",
+        "Say one kind sentence to the person in the mirror.",
+        "Let yourself enjoy something without making it useful.",
+        "Put your phone down for one peaceful minute.",
+        "Remember one moment when you felt completely safe.",
+        "Give yourself credit for one invisible effort.",
+        "Pick one worry and tell it to wait until tomorrow.",
+        "Find one soft thing nearby and give it a tiny appreciative pat.",
+        "Sssend one person a heart, even if that person is you.",
+        "Take ten slow steps and let each one be enough.",
+        "Choose one tiny thing you can happily leave unfinished today.",
+        "Make your next sip the fanciest sip of the day.",
+        "Name one lovely thing your heart did this week."
+      ];
+
+      const littleWishes = [
+        "May today bring you a tiny surprise that feels made for you.",
+        "May your next drink taste extra refreshing.",
+        "May one person be gentle with you exactly when you need it.",
+        "May your worries shrink enough for you to breathe around them.",
+        "May something make you laugh before the day ends.",
+        "May your heart feel a little lighter than it did five minutes ago.",
+        "May the weather be sssweet to you and your hair.",
+        "May you find a comfortable place to rest your thoughts.",
+        "May your phone battery and your patience both last long enough.",
+        "May a tiny bit of luck sit beside you today.",
+        "May you feel loved without having to earn it.",
+        "May the next hour be softer than the last one.",
+        "May your next deep breath feel like a little more space.",
+        "May something you feared turn out easier than expected.",
+        "May your favorite song find you at the right moment.",
+        "May tonight give you the rest you have been missing.",
+        "May kindness return to you in an unexpected way.",
+        "May your next decision feel clear and gentle.",
+        "May you notice how much you have already overcome.",
+        "May a small beautiful thing choose you today.",
+        "May your blanket feel especially cozy when you need it most.",
+        "May an answer arrive more gently than you expected.",
+        "May you catch yourself smiling and decide to keep it.",
+        "May the next kind word you hear stay with you all day.",
+        "May your plans leave room for one lovely little surprise.",
+        "May your heart remember that it never has to earn its place."
+      ];
+
+      const softReminders = [
+        "Psst... I have a tiny sssomething for you.",
+        "Hiii... I saved a little smile for you.",
+        "Psst... tiny snake brought you a soft mission.",
+        "I found a little wish and kept it safe for you.",
+        "Sssurprise... this one is just for your heart.",
+        "Tiny snake says: open this gently.",
+        "Psst... I carried this tiny thought all the way here.",
+        "I have a cozy little thing for you.",
+        "Sssweet human, I brought you a tiny bit of care.",
+        "Tiny snake found something soft for today.",
+        "Psst... here is a little pocket-sized kindness.",
+        "I kept this wish warm for you.",
+        "Psst... another tiny treasure found its way to you.",
+        "Sssomething lovely was waiting inside this letter.",
+        "I brought a little reminder for your heart.",
+        "Psst... this soft thought has your name on it.",
+        "Tiny snake saved one more smile for you.",
+        "I found a pocket of courage and brought it here.",
+        "Sssurprise... your heart gets another gentle card.",
+        "This little kindness wanted to belong to you.",
+        "Psst... I sssaved the coziest thought for you.",
+        "Tiny snake reporting for smile delivery duty.",
+        "Ssspecial delivery: one gentle thing for one special human.",
+        "I curled around this little wish so it would stay safe.",
+        "Psst... your tiny happiness parcel has arrived.",
+        "I have a sssmall secret: you are very loved."
+      ];
+
+      const collectibleCards = [
+        { id: 1, title: "Quiet Courage", quote: "You kept going, even when nobody saw how much strength it took.", tone: "rose" },
+        { id: 2, title: "Soft Light", quote: "Your presence makes ordinary moments feel warmer.", tone: "mint" },
+        { id: 3, title: "Safe Harbor", quote: "You have a beautiful way of making people feel less alone.", tone: "sky" },
+        { id: 4, title: "Golden Heart", quote: "Your kindness is never small to the person who receives it.", tone: "rose" },
+        { id: 5, title: "Tiny Victory", quote: "Every gentle step still counts as moving forward.", tone: "mint" },
+        { id: 6, title: "Kindness Keeper", quote: "The care you give leaves soft traces in the world.", tone: "sky" },
+        { id: 7, title: "Already Enough", quote: "You do not have to earn the right to be loved today.", tone: "rose" },
+        { id: 8, title: "Brave Rest", quote: "Resting is not giving up. It is how your heart gathers strength.", tone: "mint" },
+        { id: 9, title: "Warm Voice", quote: "Your words can become a safe place for someone.", tone: "sky" },
+        { id: 10, title: "Gentle Magic", quote: "You make life sweeter in ways you may never fully notice.", tone: "rose" },
+        { id: 11, title: "Heart Home", quote: "There are people who feel more at home because you exist.", tone: "mint" },
+        { id: 12, title: "Resilient Bloom", quote: "You are still growing, even on the quiet days.", tone: "sky" },
+        { id: 13, title: "Cozy Permission", quote: "You are allowed to choose the softer path today.", tone: "rose" },
+        { id: 14, title: "Bright Presence", quote: "The room is different when your smile is in it.", tone: "mint" },
+        { id: 15, title: "Deeply Loved", quote: "You are loved beyond your productive days and perfect moments.", tone: "sky" },
+        { id: 16, title: "After the Rain", quote: "A heavy moment is not the whole story of your day.", tone: "rose" },
+        { id: 17, title: "Little Miracle", quote: "There is only one you, and that makes you irreplaceable.", tone: "mint" },
+        { id: 18, title: "Patient Heart", quote: "You deserve the same patience you so freely give others.", tone: "sky" },
+        { id: 19, title: "Joy Finder", quote: "Tiny happy moments are still real treasures.", tone: "rose" },
+        { id: 20, title: "Tender Strength", quote: "Softness and strength can live in the same beautiful heart.", tone: "mint" },
+        { id: 21, title: "Sister Spark", quote: "Having you as a sister is one of life's loveliest gifts.", tone: "sky" },
+        { id: 22, title: "Soft Tomorrow", quote: "Tomorrow does not need you to have everything figured out tonight.", tone: "rose" },
+        { id: 23, title: "Precious Human", quote: "Please care for yourself like someone deeply important.", tone: "mint" },
+        { id: 24, title: "Forever Favorite", quote: "You will always be someone worth celebrating.", tone: "sky" },
+        { id: 25, title: "Inner Sunrise", quote: "Even after difficult nights, your light still knows how to return.", tone: "rose" },
+        { id: 26, title: "Gentle Anchor", quote: "Your love gives people something steady to hold onto.", tone: "mint" },
+        { id: 27, title: "Proud Moment", quote: "You have grown through things that once felt far too heavy.", tone: "sky" },
+        { id: 28, title: "Soft Wonder", quote: "There is something quietly wonderful about the way you are you.", tone: "rose" },
+        { id: 29, title: "Heart Crown", quote: "Your tenderness is not ordinary. It is something precious.", tone: "mint" },
+        { id: 30, title: "Always Chosen", quote: "In every season, you remain someone deeply worth choosing.", tone: "sky" }
+      ];
+
+      const rarityDrawWeights = [
+        { rarity: "common", weight: 55 },
+        { rarity: "uncommon", weight: 27 },
+        { rarity: "rare", weight: 14 },
+        { rarity: "super-rare", weight: 4 }
+      ];
+
+      const collectionCategories = [
+        {
+          id: "main",
+          group: "smile",
+          label: "Main Stories",
+          tone: "rose",
+          items: collectibleCards.map((card, index) => ({
+            key: `main-${card.id}`,
+            title: card.title,
+            text: card.quote,
+            rarity: rarityForIndex(index, collectibleCards.length),
+            tone: card.tone
+          }))
+        },
+        {
+          id: "for-you",
+          group: "smile",
+          label: "For You",
+          tone: "mint",
+          items: buildTextCards("for-you", "For You", qualities, "mint")
+        },
+        {
+          id: "care",
+          group: "smile",
+          label: "Tiny Care Check",
+          tone: "rose",
+          items: buildTextCards("care", "Care Note", careLines, "rose")
+        },
+        {
+          id: "facts",
+          group: "smile",
+          label: "Little Thing to Know",
+          tone: "sky",
+          items: buildTextCards("facts", "Tiny Fact", tinyFacts, "sky")
+        },
+        {
+          id: "snake",
+          group: "snake",
+          label: "Snake Sayings",
+          tone: "mint",
+          items: buildTextCards("snake", "Snake Note", softReminders, "mint")
+        },
+        {
+          id: "wishes",
+          group: "snake",
+          label: "Little Wishes",
+          tone: "sky",
+          items: buildTextCards("wishes", "Little Wish", littleWishes, "sky")
+        },
+        {
+          id: "missions",
+          group: "snake",
+          label: "Tiny Missions",
+          tone: "rose",
+          items: buildTextCards("missions", "Tiny Mission", tinyMissions, "rose")
+        }
+      ];
+
+      const weatherCodes = new Map([
+        [0, "clear sky"],
+        [1, "mostly clear"],
+        [2, "partly cloudy"],
+        [3, "cloudy"],
+        [45, "foggy"],
+        [48, "foggy"],
+        [51, "light drizzle"],
+        [53, "drizzle"],
+        [55, "heavy drizzle"],
+        [56, "freezing drizzle"],
+        [57, "freezing drizzle"],
+        [61, "light rain"],
+        [63, "rain"],
+        [65, "heavy rain"],
+        [66, "freezing rain"],
+        [67, "freezing rain"],
+        [71, "light snow"],
+        [73, "snow"],
+        [75, "heavy snow"],
+        [77, "snow grains"],
+        [80, "light showers"],
+        [81, "showers"],
+        [82, "heavy showers"],
+        [85, "snow showers"],
+        [86, "heavy snow showers"],
+        [95, "thunderstorm"],
+        [96, "thunderstorm with hail"],
+        [99, "thunderstorm with hail"]
+      ]);
+
+      function pick(list) {
+        return list[Math.floor(Math.random() * list.length)];
+      }
+
+      function rarityForIndex(index, total) {
+        const position = (index + 1) / total;
+        if (position <= 0.5) return "common";
+        if (position <= 0.78) return "uncommon";
+        if (position <= 0.94) return "rare";
+        return "super-rare";
+      }
+
+      function buildTextCards(categoryId, titlePrefix, texts, tone) {
+        return texts.map((text, index) => ({
+          key: `${categoryId}-${index + 1}`,
+          title: `${titlePrefix} ${String(index + 1).padStart(2, "0")}`,
+          text,
+          tone,
+          rarity: rarityForIndex(index, texts.length)
+        }));
+      }
+
+      function rarityName(rarity) {
+        return rarity === "super-rare"
+          ? "Super Rare"
+          : rarity.charAt(0).toUpperCase() + rarity.slice(1);
+      }
+
+      function drawFromCategory(category) {
+        const roll = Math.random() * 100;
+        let total = 0;
+        let chosenRarity = "common";
+
+        for (const tier of rarityDrawWeights) {
+          total += tier.weight;
+          if (roll < total) {
+            chosenRarity = tier.rarity;
+            break;
+          }
+        }
+
+        const pool = category.items.filter((item) => item.rarity === chosenRarity);
+        return pick(pool.length ? pool : category.items);
+      }
+
+      function allCollectionItems() {
+        return collectionCategories.flatMap((category) => category.items);
+      }
+
+      function loadCollectionCounts() {
+        try {
+          const validKeys = new Set(allCollectionItems().map((item) => item.key));
+          const stored = localStorage.getItem(collectionStorageKey);
+          if (stored) {
+            const parsed = JSON.parse(stored);
+            return Object.fromEntries(
+              Object.entries(parsed).filter(
+                ([key, count]) => validKeys.has(key) && Number.isInteger(count) && count > 0
+              )
+            );
+          }
+
+          const legacy = JSON.parse(localStorage.getItem(legacyCollectionStorageKey) || "[]");
+          const migrated = {};
+          if (Array.isArray(legacy)) {
+            legacy.forEach((id) => {
+              const key = `main-${id}`;
+              if (validKeys.has(key)) migrated[key] = 1;
+            });
+          }
+          return migrated;
+        } catch {
+          return {};
+        }
+      }
+
+      function saveCollectionCounts() {
+        try {
+          localStorage.setItem(collectionStorageKey, JSON.stringify(collectionCounts));
+        } catch {
+          // The collection still works for this visit when storage is unavailable.
+        }
+      }
+
+      function renderCollection() {
+        Object.entries(collectionGroups).forEach(([groupId, group]) => {
+          const categories = collectionCategories.filter((category) => category.group === groupId);
+          const groupItems = categories.flatMap((category) => category.items);
+          const uniqueFound = groupItems.filter((item) => (collectionCounts[item.key] || 0) > 0).length;
+          const totalPulls = groupItems.reduce(
+            (sum, item) => sum + (collectionCounts[item.key] || 0),
+            0
+          );
+
+          group.meta.textContent = `${uniqueFound} of ${groupItems.length} phrases found - ${totalPulls} total pulls`;
+          group.sections.innerHTML = "";
+
+          categories.forEach((category) => {
+            const uniqueCategory = category.items.filter((item) => (collectionCounts[item.key] || 0) > 0).length;
+            const categoryPulls = category.items.reduce(
+              (sum, item) => sum + (collectionCounts[item.key] || 0),
+              0
+            );
+            const hasNew = category.items.some((item) => lastDrawnKeys.has(item.key));
+            const isCategoryOpen = openCollectionCategory[groupId] === category.id;
+            const section = document.createElement("section");
+            section.className = `collection-category${isCategoryOpen ? " is-open" : ""}${hasNew ? " has-new" : ""}`;
+
+            section.innerHTML = `
+              <button class="category-toggle" type="button" data-collection-group="${groupId}" data-collection-category="${category.id}" aria-expanded="${isCategoryOpen}">
+                <span class="category-name">
+                  <strong>${category.label}</strong>
+                  <span class="category-progress">${uniqueCategory}/${category.items.length} found - ${categoryPulls} pulls</span>
+                </span>
+                <span class="category-side">
+                  <span class="category-new">New</span>
+                  <span class="category-arrow" aria-hidden="true">&#8964;</span>
+                </span>
+              </button>
+              <div class="category-body">
+                <div class="collection-grid"></div>
+              </div>
+            `;
+
+            if (isCategoryOpen) {
+              const grid = section.querySelector(".collection-grid");
+              category.items.forEach((card, index) => {
+                const count = collectionCounts[card.key] || 0;
+                const item = document.createElement("article");
+                item.className = count
+                  ? `collectible-card tone-${card.tone} rarity-${card.rarity}${lastDrawnKeys.has(card.key) ? " is-new" : ""}`
+                  : "collectible-card is-locked";
+
+                if (count) {
+                  item.innerHTML = `
+                    <div class="collectible-topline">
+                      <span class="rarity-label">${rarityName(card.rarity)}</span>
+                      <span class="duplicate-count">x${count}</span>
+                    </div>
+                    <h3 class="collectible-title">${card.title}</h3>
+                    <p class="collectible-quote">${card.text}</p>
+                  `;
+                } else {
+                  item.innerHTML = `
+                    <div class="collectible-topline">
+                      <span>${rarityName(card.rarity)}</span>
+                      <span>#${String(index + 1).padStart(2, "0")}</span>
+                    </div>
+                    <div class="locked-mark">?</div>
+                    <div class="locked-copy">Not found yet</div>
+                  `;
+                }
+
+                grid.appendChild(item);
+              });
+            }
+
+            group.sections.appendChild(section);
+          });
+        });
+
+        const allItems = allCollectionItems();
+        const uniqueFound = allItems.filter((item) => (collectionCounts[item.key] || 0) > 0).length;
+        const totalPulls = allItems.reduce((sum, item) => sum + (collectionCounts[item.key] || 0), 0);
+        rewardsFound.textContent = `${uniqueFound}/${allItems.length}`;
+        rewardsPulls.textContent = String(totalPulls);
+      }
+
+      function drawLetterCollection() {
+        const draws = {};
+        lastDrawnKeys = new Set();
+
+        collectionCategories.forEach((category) => {
+          const card = drawFromCategory(category);
+          collectionCounts[card.key] = (collectionCounts[card.key] || 0) + 1;
+          lastDrawnKeys.add(card.key);
+          draws[category.id] = card;
+        });
+
+        saveCollectionCounts();
+        renderCollection();
+        Object.values(collectionGroups).forEach((group) => group.root.classList.add("has-new"));
+        return draws;
+      }
+
+      function toggleCollection(event) {
+        const groupId = event.currentTarget.dataset.collectionGroup;
+        const group = collectionGroups[groupId];
+        if (!group) return;
+        const willOpen = !group.root.classList.contains("is-open");
+        group.root.classList.toggle("is-open", willOpen);
+        group.toggle.setAttribute("aria-expanded", String(willOpen));
+        if (willOpen) {
+          group.root.classList.remove("has-new");
+        }
+      }
+
+      function toggleCollectionCategory(event) {
+        const button = event.target.closest("[data-collection-category]");
+        if (!button) return;
+        const groupId = button.dataset.collectionGroup;
+        const group = collectionGroups[groupId];
+        if (!group || !group.sections.contains(button)) return;
+        const categoryId = button.dataset.collectionCategory;
+        openCollectionCategory[groupId] = openCollectionCategory[groupId] === categoryId ? null : categoryId;
+        renderCollection();
+      }
+
+      function setViewNavOpen(isOpen) {
+        isViewNavOpen = isOpen;
+        viewMenuToggle.classList.toggle("is-open", isOpen);
+        viewMenuToggle.setAttribute("aria-expanded", String(isOpen));
+        viewNav.classList.toggle("is-open", isOpen);
+        viewNav.setAttribute("aria-hidden", String(!isOpen));
+        viewNav.toggleAttribute("inert", !isOpen);
+        viewNavBackdrop.classList.toggle("is-open", isOpen);
+      }
+
+      function animateLetterArrival() {
+        openButton.classList.remove("arrive");
+        void openButton.offsetWidth;
+        openButton.classList.add("arrive");
+        window.setTimeout(() => openButton.classList.remove("arrive"), 950);
+      }
+
+      function showAppView(viewId) {
+        const targetView = Array.from(appViews).find((view) => view.dataset.appView === viewId);
+        if (!targetView) return;
+        setViewNavOpen(false);
+
+        if (viewId === currentAppView || isViewSwitching) return;
+        const previousViewId = currentAppView;
+        const outgoingView = Array.from(appViews).find((view) => view.classList.contains("is-active"));
+        isViewSwitching = true;
+
+        viewTargetButtons.forEach((button) => {
+          const isActive = button.dataset.viewTarget === viewId;
+          button.classList.toggle("is-active", isActive);
+          button.setAttribute("aria-current", isActive ? "page" : "false");
+        });
+
+        const finishViewSwitch = () => {
+          if (outgoingView) outgoingView.classList.remove("is-active", "is-leaving");
+          targetView.classList.remove("is-leaving");
+          targetView.classList.add("is-active");
+          currentAppView = viewId;
+          appShell.dataset.view = viewId;
+
+          if (viewId === "letter" && previousViewId !== "letter" && !isOpen) {
+            animateLetterArrival();
+          }
+
+          if (viewId === "useful") {
+            updateTime();
+            if (Date.now() - lastUsefulLoad > 600000) {
+              lastUsefulLoad = Date.now();
+              loadWeather();
+              loadFuelPrices();
+            }
+          }
+
+          isViewSwitching = false;
+          window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "auto" : "smooth" });
+        };
+
+        window.clearTimeout(viewSwitchTimer);
+        if (outgoingView && !prefersReducedMotion) {
+          outgoingView.classList.add("is-leaving");
+          viewSwitchTimer = window.setTimeout(finishViewSwitch, 240);
+        } else {
+          finishViewSwitch();
+        }
+      }
+
+      function setMusicUi(isPlaying) {
+        isMusicPlaying = isPlaying;
+        const currentSong = songs[currentSongIndex];
+        musicWidget.classList.toggle("is-playing", isPlaying);
+        musicToggle.setAttribute("aria-pressed", String(isPlaying));
+        musicToggle.setAttribute(
+          "aria-label",
+          isPlaying ? `Pause ${currentSong.title}` : `Play ${currentSong.title}`
+        );
+        musicStatus.textContent = isPlaying ? "Playing" : "Play";
+        musicTitle.textContent = currentSong.title;
+        updateSongControls();
+      }
+
+      function setMusicPanelOpen(isOpen) {
+        isMusicPanelOpen = isOpen;
+        musicWidget.classList.toggle("is-expanded", isOpen);
+        musicPanel.setAttribute("aria-hidden", String(!isOpen));
+      }
+
+      function loadCurrentSong() {
+        const currentSong = songs[currentSongIndex];
+        if (localSong.getAttribute("src") !== currentSong.src) {
+          localSong.src = currentSong.src;
+          localSong.load();
+        }
+        musicTitle.textContent = currentSong.title;
+        updateSongControls();
+      }
+
+      function moveToNextSong() {
+        currentSongIndex = (currentSongIndex + 1) % songs.length;
+        loadCurrentSong();
+      }
+
+      function updateSongControls() {
+        songChoices.forEach((button) => {
+          button.classList.toggle(
+            "is-active",
+            Number(button.dataset.songIndex) === currentSongIndex
+          );
+        });
+        songLock.classList.toggle("is-locked", isSongLocked);
+        songLock.setAttribute("aria-pressed", String(isSongLocked));
+        songLock.textContent = isSongLocked ? "ON" : "LOCK";
+        songLock.setAttribute(
+          "aria-label",
+          isSongLocked ? "Unlock song switching" : "Lock current song"
+        );
+      }
+
+      async function playCurrentSong() {
+        loadCurrentSong();
+        await localSong.play();
+        setMusicPanelOpen(true);
+        setMusicUi(true);
+      }
+
+      async function selectSong(index, shouldLock = true) {
+        const wasPlaying = !localSong.paused;
+        setMusicPanelOpen(true);
+        currentSongIndex = index;
+        isSongLocked = shouldLock;
+        localSong.pause();
+        localSong.currentTime = 0;
+        loadCurrentSong();
+        if (wasPlaying) {
+          try {
+            await playCurrentSong();
+          } catch {
+            setMusicUi(false);
+          }
+        } else {
+          setMusicUi(false);
+        }
+      }
+
+      function switchSongForNewLetter() {
+        if (isSongLocked) return;
+        const wasPlaying = !localSong.paused;
+        moveToNextSong();
+        if (wasPlaying) {
+          localSong.play().then(() => setMusicUi(true)).catch(() => setMusicUi(false));
+        } else {
+          setMusicUi(false);
+        }
+      }
+
+      async function toggleMusic() {
+        if (isMusicPlaying || !localSong.paused || isMusicPanelOpen) {
+          localSong.pause();
+          setMusicPanelOpen(false);
+          setMusicUi(false);
+          return;
+        }
+
+        setMusicPanelOpen(true);
+        try {
+          await playCurrentSong();
+        } catch {
+          setMusicPanelOpen(true);
+          musicStatus.textContent = "Tap again";
+        }
+      }
+
+      function updateSoftReminder(reminder) {
+        softBubble.textContent = reminder;
+        triggerSnakeHappy();
+      }
+
+      function revealSnakeGifts(reminder) {
+        updateSoftReminder(reminder);
+        snakeNote.classList.add("is-awake");
+      }
+
+      function hideSnakeGifts() {
+        snakeNote.classList.remove("is-awake");
+        softBubble.textContent = "";
+      }
+
+      function triggerSnakeHappy() {
+        snakeFriend.classList.remove("happy-wiggle");
+        void snakeFriend.offsetWidth;
+        snakeFriend.classList.add("happy-wiggle");
+        window.clearTimeout(snakeTimer);
+        snakeTimer = window.setTimeout(() => {
+          snakeFriend.classList.remove("happy-wiggle");
+        }, 1200);
+      }
+
+      function updateTime() {
+        const now = new Date();
+        const weekday = new Intl.DateTimeFormat("en-GB", {
+          weekday: "long"
+        }).format(now);
+        const day = String(now.getDate()).padStart(2, "0");
+        const month = String(now.getMonth() + 1).padStart(2, "0");
+        const year = now.getFullYear();
+        const time = new Intl.DateTimeFormat("en-GB", {
+          hour: "2-digit",
+          minute: "2-digit"
+        }).format(now);
+        timeText.textContent = `${weekday}, ${day}.${month}.${year} - ${time}`;
+      }
+
+      function summarizeWeather(code) {
+        return weatherCodes.get(code) ?? "a mysterious sky";
+      }
+
+      function upcomingWeatherHours(hourly) {
+        const now = new Date();
+        if (!hourly?.time) return [];
+        return hourly.time
+          .map((time, index) => ({ time: new Date(time), index }))
+          .filter(({ time }) => time >= now)
+          .slice(0, 6);
+      }
+
+      function weatherWarning(current, hourly) {
+        const nextHours = upcomingWeatherHours(hourly);
+
+        const stormSoon = nextHours.some(({ index }) => hourly.weather_code[index] >= 95);
+        const heavyRainSoon = nextHours.some(({ index }) =>
+          [65, 66, 67, 82].includes(hourly.weather_code[index])
+        );
+        const highWindSoon = nextHours.some(({ index }) => hourly.wind_speed_10m[index] >= 50);
+        const rainLikely = nextHours.some(
+          ({ index }) => (hourly.precipitation_probability[index] ?? 0) >= 80
+        );
+
+        if (stormSoon || current.weather_code >= 95) {
+          return "Thunder may be nearby soon. Please stay indoors when needed and follow local safety alerts.";
+        }
+
+        if (heavyRainSoon || highWindSoon) {
+          return "Heavy rain or strong wind may arrive soon. Please take extra care outside.";
+        }
+
+        if (rainLikely) {
+          return "Rain is likely within the next few hours. An umbrella might be a lovely little helper.";
+        }
+
+        return "No forecast warning detected for the next few hours.";
+      }
+
+      function gentleWeatherNote(current, hourly) {
+        const summary = summarizeWeather(current.weather_code);
+        const nextHours = upcomingWeatherHours(hourly);
+        const rainChance = Math.max(
+          0,
+          ...nextHours.map(({ index }) => hourly.precipitation_probability[index] ?? 0)
+        );
+
+        if (current.temperature_2m >= 28) {
+          return `The sky is ${summary}. It is a warm one, so shade and an extra sssip of water would be kind.`;
+        }
+        if (current.temperature_2m <= 5) {
+          return `The sky is ${summary}. A cozy layer would be a very good companion today.`;
+        }
+        if (current.wind_speed_10m >= 30) {
+          return `The sky is ${summary}, and the wind feels lively. Keep loose little things close.`;
+        }
+        if (rainChance >= 50) {
           return `The sky is ${summary}. A small rain plan could keep the rest of the day softer.`;
         }
         return `The sky is ${summary}. Nothing dramatic is asking for attention, so take the day gently.`;
