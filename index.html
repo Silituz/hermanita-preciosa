@@ -198,7 +198,7 @@
         font-size: 12px;
         font-weight: 950;
         text-transform: uppercase;
-        letter-spacing: 0.05em;
+        letter-spacing: 0;
       }
 
       .music-title {
@@ -307,7 +307,7 @@
         color: var(--berry);
         font-size: 13px;
         font-weight: 750;
-        letter-spacing: 0.08em;
+        letter-spacing: 0;
         text-transform: uppercase;
       }
 
@@ -655,14 +655,25 @@
 
       .message {
         display: grid;
-        gap: 12px;
+        gap: 14px;
         animation: riseIn 340ms ease both;
+      }
+
+      .daily-overview {
+        display: grid;
+        gap: 14px;
+        margin-bottom: 2px;
       }
 
       .pill-row {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
+        gap: 0;
+        overflow: hidden;
+        border: 1px solid rgba(143, 76, 111, 0.13);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.68);
+        box-shadow: 0 10px 28px rgba(143, 76, 111, 0.08);
       }
 
       .pill,
@@ -674,911 +685,355 @@
       }
 
       .pill {
-        min-height: 84px;
-        padding: 14px;
+        min-height: 102px;
+        padding: 14px 15px;
         display: grid;
-        align-content: center;
-        gap: 5px;
+        align-content: start;
+        gap: 9px;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+
+      .pill + .pill {
+        border-left: 1px solid rgba(143, 76, 111, 0.11);
+      }
+
+      .pill-heading {
+        display: flex;
+        align-items: center;
+        min-width: 0;
+        gap: 8px;
+      }
+
+      .status-icon,
+      .info-symbol,
+      .weather-mini-symbol {
+        display: grid;
+        place-items: center;
+        flex: 0 0 auto;
+        color: #fff;
+        box-shadow: 0 6px 14px rgba(89, 67, 75, 0.12);
+      }
+
+      .status-icon {
+        width: 29px;
+        height: 29px;
+        border-radius: 10px;
+        font-size: 14px;
+      }
+
+      .time-icon {
+        background: linear-gradient(145deg, #f29bb7, #cf6d92);
+      }
+
+      .outside-icon {
+        background: linear-gradient(145deg, #f7c765, #e9a64d);
       }
 
       .label {
         color: var(--soft-ink);
-        font-size: 12px;
+        font-size: 11px;
         font-weight: 850;
         text-transform: uppercase;
-        letter-spacing: 0.07em;
+        letter-spacing: 0;
       }
 
       .value {
-        font-size: 17px;
-        font-weight: 850;
-        line-height: 1.15;
-      }
-
-      .card {
-        padding: 16px;
-        line-height: 1.45;
-      }
-
-      .card:nth-of-type(2) {
-        background: rgba(234, 255, 248, 0.78);
-      }
-
-      .card:nth-of-type(3) {
-        background: rgba(255, 248, 214, 0.78);
-      }
-
-      .card:nth-of-type(4) {
-        background: rgba(255, 235, 243, 0.86);
-      }
-
-      .card:nth-of-type(5) {
-        background: rgba(236, 249, 255, 0.82);
-      }
-
-      .card:nth-of-type(6) {
-        background: rgba(244, 238, 255, 0.84);
-      }
-
-      .card:nth-of-type(7) {
-        background: rgba(255, 242, 227, 0.86);
-      }
-
-      .card strong {
-        display: block;
-        margin-bottom: 5px;
         font-size: 15px;
+        font-weight: 850;
+        line-height: 1.32;
       }
 
-      .mood {
-        font-size: 20px;
-        font-weight: 900;
-        line-height: 1.22;
-      }
-
-      .tiny {
-        margin: 0;
-        color: var(--soft-ink);
-        font-size: 13px;
-        line-height: 1.4;
-      }
-
-      footer {
-        padding: 0 22px 22px;
-        text-align: center;
-      }
-
-      .credit {
-        position: fixed;
-        right: 10px;
-        bottom: 8px;
-        z-index: 2;
-        color: rgba(52, 34, 31, 0.52);
-        font-size: 10px;
-        font-weight: 750;
-      }
-
-      .snake-note {
-        position: relative;
-        z-index: 1;
-        margin: 0 22px 18px;
-        display: grid;
-        gap: 12px;
-        padding: 13px 14px;
-        border: 1px solid rgba(143, 76, 111, 0.14);
-        border-radius: 18px;
-        background:
-          linear-gradient(135deg, rgba(238, 255, 235, 0.88), rgba(255, 244, 250, 0.78)),
-          rgba(255, 255, 255, 0.72);
-        color: var(--soft-ink);
-        font-size: 12px;
-        font-weight: 800;
-        line-height: 1.35;
-        box-shadow: 0 10px 24px rgba(143, 76, 111, 0.08);
-      }
-
-      .snake-note:not(.is-awake) {
-        gap: 0;
-      }
-
-      .snake-main {
-        display: grid;
-        grid-template-columns: 122px minmax(0, 1fr);
-        gap: 14px;
+      .outside-heading {
+        display: flex;
         align-items: center;
+        justify-content: space-between;
+        gap: 8px;
       }
 
-      .cute-snake {
-        position: relative;
-        width: 122px;
-        height: 122px;
-        display: grid;
-        place-items: end center;
-        animation: sweetSnakeFloat 5.8s ease-in-out infinite;
+      .unit-switch {
+        display: inline-grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 2px;
+        border: 1px solid rgba(143, 76, 111, 0.18);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.7);
+      }
+
+      .unit-option {
+        min-width: 29px;
+        height: 24px;
+        padding: 0 6px;
+        border: 0;
+        border-radius: 999px;
+        background: transparent;
+        color: var(--soft-ink);
+        font: inherit;
+        font-size: 10px;
+        font-weight: 900;
         cursor: pointer;
       }
 
-      .cute-snake:focus-visible {
-        outline: 3px solid rgba(255, 120, 150, 0.42);
-        outline-offset: 4px;
-        border-radius: 22px;
+      .unit-option.is-active {
+        background: var(--berry);
+        color: #fff;
+        box-shadow: 0 4px 10px rgba(143, 76, 111, 0.2…25265 tokens truncated…e >= 50) {
+          return `The sky is ${summary}. A small rain plan could keep the rest of the day softer.`;
+        }
+        return `The sky is ${summary}. Nothing dramatic is asking for attention, so take the day gently.`;
       }
 
-      .cute-snake img {
-        display: block;
-        width: 122px;
-        height: 122px;
-        object-fit: contain;
-        filter: drop-shadow(0 10px 12px rgba(52, 34, 31, 0.14));
-        transform-origin: 50% 84%;
-        animation: tinySnakeBreathe 4.4s ease-in-out infinite, tinySnakeLook 7.6s ease-in-out infinite;
+      function weatherIconEntity(code) {
+        if (code === 0) return "&#9728;";
+        if ([1, 2].includes(code)) return "&#9925;";
+        if ([3, 45, 48].includes(code)) return "&#9729;";
+        if ([51, 53, 55, 56, 57, 61, 63, 80, 81].includes(code)) return "&#9730;";
+        if ([65, 66, 67, 82, 95, 96, 99].includes(code)) return "&#9889;";
+        if ([71, 73, 75, 77, 85, 86].includes(code)) return "&#10052;";
+        return "&#9729;";
       }
 
-      .cute-snake.happy-wiggle img {
-        animation: tinySnakeHappy 1150ms cubic-bezier(0.2, 0.8, 0.25, 1) both;
+      function displayTemperature(celsius) {
+        if (!Number.isFinite(Number(celsius))) return "--";
+        const value = temperatureUnit === "f" ? (celsius * 9) / 5 + 32 : celsius;
+        return `${Math.round(value)}\u00B0${temperatureUnit.toUpperCase()}`;
       }
 
-      .cute-snake.happy-wiggle .mini-heart {
-        animation: happyHeartPop 1150ms ease-out forwards;
+      function renderDailyAnalysis() {
+        if (!currentDailyForecast?.time?.length) return;
+        const high = currentDailyForecast.temperature_2m_max?.[0];
+        const low = currentDailyForecast.temperature_2m_min?.[0];
+        const rain = Math.round(currentDailyForecast.precipitation_probability_max?.[0] ?? 0);
+        const wind = Math.round(currentDailyForecast.wind_speed_10m_max?.[0] ?? 0);
+        weatherAnalysis.textContent = `Today may reach ${displayTemperature(high)} and settle near ${displayTemperature(low)}. Rain chance: ${rain}%. Strongest wind: about ${wind} km/h.`;
       }
 
-      .mini-heart {
-        position: absolute;
-        right: 6px;
-        top: 18px;
-        color: #ff7896;
-        font-size: 15px;
-        opacity: 0;
-        animation: softHeartPop 4.8s ease-in-out infinite;
-      }
+      function renderForecast() {
+        if (!currentDailyForecast?.time?.length) return;
+        forecastStrip.innerHTML = "";
 
-      .mini-heart:nth-of-type(2) {
-        right: 22px;
-        top: 2px;
-        font-size: 11px;
-        animation-delay: 1.3s;
-      }
+        currentDailyForecast.time.slice(0, 14).forEach((dateValue, index) => {
+          const date = new Date(`${dateValue}T12:00:00`);
+          const day = document.createElement("article");
+          day.className = "forecast-day";
 
-      .snake-chat {
-        position: relative;
-        min-height: 0;
-        padding: 0 11px;
-        border: 1px solid rgba(143, 76, 111, 0.13);
-        border-radius: 16px 16px 16px 5px;
-        background: rgba(255, 255, 255, 0.8);
-        text-align: left;
-        max-height: 0;
-        opacity: 0;
-        overflow: hidden;
-        pointer-events: none;
-        transform: translateY(8px) scale(0.98);
-        transition:
-          max-height 520ms ease,
-          opacity 360ms ease,
-          transform 520ms cubic-bezier(0.2, 0.8, 0.25, 1);
-      }
+          const dayName = document.createElement("span");
+          dayName.className = "forecast-day-name";
+          dayName.textContent = index === 0
+            ? "Today"
+            : new Intl.DateTimeFormat("en-GB", { weekday: "short", day: "2-digit", month: "short" }).format(date);
 
-      .snake-chat::before {
-        content: "";
-        position: absolute;
-        left: -7px;
-        bottom: 12px;
-        width: 12px;
-        height: 12px;
-        border-left: 1px solid rgba(143, 76, 111, 0.13);
-        border-bottom: 1px solid rgba(143, 76, 111, 0.13);
-        background: rgba(255, 255, 255, 0.8);
-        transform: rotate(45deg);
-      }
+          const icon = document.createElement("span");
+          icon.className = "forecast-icon";
+          icon.setAttribute("aria-hidden", "true");
+          icon.innerHTML = weatherIconEntity(currentDailyForecast.weather_code?.[index]);
 
-      .snake-gifts {
-        display: grid;
-        gap: 8px;
-        max-height: 0;
-        opacity: 0;
-        overflow: hidden;
-        pointer-events: none;
-        transform: translateY(10px);
-        transition:
-          max-height 620ms ease 220ms,
-          opacity 360ms ease 260ms,
-          transform 620ms cubic-bezier(0.2, 0.8, 0.25, 1) 220ms;
-      }
+          const temperatures = document.createElement("span");
+          temperatures.className = "forecast-temperatures";
+          temperatures.textContent = `${displayTemperature(currentDailyForecast.temperature_2m_max[index])} / ${displayTemperature(currentDailyForecast.temperature_2m_min[index])}`;
 
-      .snake-note.is-awake .snake-chat {
-        max-height: 96px;
-        min-height: 48px;
-        padding: 10px 11px;
-        opacity: 1;
-        pointer-events: auto;
-        transform: translateY(0) scale(1);
-      }
+          const detail = document.createElement("span");
+          detail.className = "forecast-detail";
+          const rain = Math.round(currentDailyForecast.precipitation_probability_max?.[index] ?? 0);
+          const wind = Math.round(currentDailyForecast.wind_speed_10m_max?.[index] ?? 0);
+          detail.textContent = `${summarizeWeather(currentDailyForecast.weather_code?.[index])}. Rain ${rain}% - wind ${wind} km/h.`;
 
-      .snake-note.is-awake .snake-gifts {
-        max-height: 220px;
-        opacity: 1;
-        pointer-events: auto;
-        transform: translateY(0);
-      }
-
-      .snake-scale-card {
-        position: relative;
-        overflow: hidden;
-        padding: 12px 13px;
-        border: 1px solid rgba(81, 128, 68, 0.14);
-        border-radius: 15px;
-        background:
-          radial-gradient(circle at 14px 12px, rgba(255, 255, 255, 0.72) 0 7px, transparent 8px),
-          radial-gradient(circle at 42px 12px, rgba(255, 255, 255, 0.46) 0 7px, transparent 8px),
-          radial-gradient(circle at 70px 12px, rgba(255, 255, 255, 0.55) 0 7px, transparent 8px),
-          linear-gradient(135deg, rgba(234, 255, 224, 0.88), rgba(255, 247, 232, 0.88));
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.62);
-      }
-
-      .snake-scale-card strong {
-        display: block;
-        margin-bottom: 4px;
-        color: #4f7b3b;
-        font-size: 12px;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-      }
-
-      @keyframes sweetSnakeFloat {
-        0%,
-        100% {
-          transform: translateY(0) rotate(-1.5deg);
-        }
-        50% {
-          transform: translateY(-5px) rotate(1.5deg);
-        }
-      }
-
-      @keyframes tinySnakeBreathe {
-        0%,
-        100% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(1.025);
-        }
-      }
-
-      @keyframes tinySnakeLook {
-        0%,
-        100% {
-          filter: drop-shadow(0 10px 12px rgba(52, 34, 31, 0.14));
-        }
-        45% {
-          filter: drop-shadow(0 10px 12px rgba(52, 34, 31, 0.14));
-        }
-        52% {
-          filter: drop-shadow(4px 12px 12px rgba(52, 34, 31, 0.13));
-        }
-        58% {
-          filter: drop-shadow(-3px 12px 12px rgba(52, 34, 31, 0.13));
-        }
-      }
-
-      @keyframes tinySnakeHappy {
-        0% {
-          transform: translateY(0) rotate(0deg) scale(1);
-        }
-        16% {
-          transform: translateY(-8px) rotate(-5deg) scale(1.04);
-        }
-        34% {
-          transform: translateY(2px) rotate(5deg) scale(0.99);
-        }
-        52% {
-          transform: translateY(-6px) rotate(-4deg) scale(1.035);
-        }
-        76% {
-          transform: translateY(1px) rotate(2deg) scale(1.01);
-        }
-        100% {
-          transform: translateY(0) rotate(0deg) scale(1);
-        }
-      }
-
-      @keyframes softHeartPop {
-        0%,
-        58% {
-          opacity: 0;
-          transform: translateY(8px) scale(0.65) rotate(-8deg);
-        }
-        70% {
-          opacity: 1;
-          transform: translateY(-4px) scale(1) rotate(8deg);
-        }
-        100% {
-          opacity: 0;
-          transform: translateY(-28px) scale(0.72) rotate(18deg);
-        }
-      }
-
-      @keyframes happyHeartPop {
-        0% {
-          opacity: 0;
-          transform: translateY(8px) scale(0.55) rotate(-10deg);
-        }
-        36% {
-          opacity: 1;
-          transform: translateY(-10px) scale(1.1) rotate(8deg);
-        }
-        100% {
-          opacity: 0;
-          transform: translateY(-42px) scale(0.72) rotate(22deg);
-        }
-      }
-
-      .hidden {
-        display: none;
-      }
-
-      @keyframes riseIn {
-        from {
-          opacity: 0;
-          transform: translateY(10px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @media (max-width: 360px) {
-        body {
-          padding: 12px;
-        }
-
-        .phone {
-          min-height: calc(100vh - 24px);
-          border-radius: 22px;
-        }
-
-        header,
-        main,
-        footer {
-          padding-left: 16px;
-          padding-right: 16px;
-        }
-
-        .pill-row {
-          grid-template-columns: 1fr;
-        }
-
-        .snake-note {
-          margin-left: 16px;
-          margin-right: 16px;
-          text-align: center;
-        }
-
-        .snake-main {
-          grid-template-columns: 1fr;
-          justify-items: center;
-        }
-
-        .snake-chat {
-          border-radius: 16px;
-          text-align: center;
-        }
-
-        .snake-chat::before {
-          display: none;
-        }
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        *,
-        *::before,
-        *::after {
-          animation-duration: 1ms !important;
-          scroll-behavior: auto !important;
-          transition-duration: 1ms !important;
-        }
-
-        .heart-field {
-          display: none;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="music-widget" id="musicWidget">
-      <button class="music-toggle" id="musicToggle" type="button" aria-pressed="false" aria-label="Play music">♪</button>
-      <div class="music-panel" id="musicPanel" aria-hidden="true">
-        <div class="music-line">
-          <span class="music-status" id="musicStatus">Play</span>
-          <span class="music-title" id="musicTitle">Te Levantas</span>
-        </div>
-        <div class="music-wave" aria-hidden="true">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="song-picker" aria-label="Choose song">
-          <button class="song-choice is-active" type="button" data-song-index="0">Te Levantas</button>
-          <button class="song-choice" type="button" data-song-index="1">Little Flame</button>
-          <button class="song-lock" id="songLock" type="button" aria-pressed="false" aria-label="Lock current song">LOCK</button>
-        </div>
-      </div>
-      <audio id="localSong" preload="metadata"></audio>
-    </div>
-    <div class="heart-field" aria-hidden="true">
-      <span>&hearts;</span>
-      <span>&hearts;</span>
-      <span>&hearts;</span>
-      <span>&hearts;</span>
-      <span>&hearts;</span>
-      <span>&hearts;</span>
-    </div>
-    <section class="phone" aria-label="Good Mood to Go">
-      <header>
-        <p class="eyebrow">A pocket-sized smile</p>
-        <h1><span>Good Mood</span><span>to Go</span></h1>
-      </header>
-
-      <main>
-        <div class="envelope-wrap">
-          <button class="envelope" id="openButton" type="button" aria-label="Open a tiny smile">
-            <span class="ribbon" aria-hidden="true"></span>
-            <span class="seal" aria-hidden="true">&hearts;</span>
-            <span class="note" id="noteText"></span>
-            <span class="sparkles" aria-hidden="true">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
-          </button>
-        </div>
-
-        <button class="primary" id="moodButton" type="button">Open a tiny smile</button>
-
-        <section class="message hidden" id="message" aria-live="polite">
-          <div class="pill-row">
-            <article class="pill">
-              <span class="label">Right now</span>
-              <span class="value" id="timeText">Checking the clock...</span>
-            </article>
-            <article class="pill">
-              <span class="label">Outside</span>
-              <span class="value" id="weatherText">Checking the sky...</span>
-            </article>
-          </div>
-
-          <article class="card" id="weatherNote">
-            <strong>Weather note</strong>
-            <span id="weatherDetail">A gentle weather note will appear here.</span>
-          </article>
-
-          <article class="card">
-            <strong>Tiny care check</strong>
-            <span id="careText">Please eat something kind and drink enough water today.</span>
-          </article>
-
-          <article class="card">
-            <strong>Little thing to know</strong>
-            <span id="factText">One tiny fact is on its way.</span>
-          </article>
-
-          <article class="card">
-            <strong>For you</strong>
-            <div class="mood" id="loveText">You are deeply loved.</div>
-          </article>
-
-        </section>
-      </main>
-
-      <div class="snake-note" aria-label="Tiny cute snake note">
-        <div class="snake-main">
-          <div class="cute-snake" id="snakeFriend" role="button" tabindex="0" aria-label="Send a heart from the tiny snake">
-            <img src="assets/cute-snake.png" alt="Cute green snake" />
-            <span class="mini-heart">&hearts;</span>
-            <span class="mini-heart">&hearts;</span>
-          </div>
-          <div class="snake-chat" id="softBubble"></div>
-        </div>
-        <div class="snake-gifts">
-          <div class="snake-scale-card">
-            <strong>Tiny mission</strong>
-            <span id="missionText">Do one tiny kind thing for yourself today.</span>
-          </div>
-          <div class="snake-scale-card">
-            <strong>Little wish</strong>
-            <span id="wishText">May something gentle find you today.</span>
-          </div>
-        </div>
-      </div>
-
-      <footer>
-        <p class="tiny">Made with love for the sister who makes ordinary days feel warmer.</p>
-      </footer>
-    </section>
-    <div class="credit">Created by Silituz</div>
-
-    <script>
-      const openButton = document.querySelector("#openButton");
-      const moodButton = document.querySelector("#moodButton");
-      const musicWidget = document.querySelector("#musicWidget");
-      const musicToggle = document.querySelector("#musicToggle");
-      const musicPanel = document.querySelector("#musicPanel");
-      const musicTitle = document.querySelector("#musicTitle");
-      const musicStatus = document.querySelector("#musicStatus");
-      const localSong = document.querySelector("#localSong");
-      const songChoices = document.querySelectorAll(".song-choice");
-      const songLock = document.querySelector("#songLock");
-      const noteText = document.querySelector("#noteText");
-      const message = document.querySelector("#message");
-      const timeText = document.querySelector("#timeText");
-      const weatherText = document.querySelector("#weatherText");
-      const weatherDetail = document.querySelector("#weatherDetail");
-      const careText = document.querySelector("#careText");
-      const factText = document.querySelector("#factText");
-      const loveText = document.querySelector("#loveText");
-      const missionText = document.querySelector("#missionText");
-      const wishText = document.querySelector("#wishText");
-      const softBubble = document.querySelector("#softBubble");
-      const snakeNote = document.querySelector(".snake-note");
-      const snakeFriend = document.querySelector("#snakeFriend");
-      let isOpen = false;
-      let isFlying = false;
-      let isMusicPlaying = false;
-      let isMusicPanelOpen = false;
-      let isSongLocked = false;
-      let currentSongIndex = 0;
-      let messageTimer = 0;
-      let snakeTimer = 0;
-      const songs = [
-        { title: "Te Levantas", src: "assets/te-levantas.mp3" },
-        { title: "Peque\u00f1a Llama (Fuego y Luz)", src: "assets/pequena-llama.mp3" }
-      ];
-
-      const tinyFacts = [
-        "A sincere smile can soften the whole room in less than a second.",
-        "The moon moves about 3.8 centimeters away from Earth every year.",
-        "Honey never truly expires when it is stored well.",
-        "The word serendipity means finding something lovely by happy accident.",
-        "Rain has a smell because plant oils and soil bacteria meet the air.",
-        "A day can become better because one person was gentle in it.",
-        "Stars do not just shine. They also remind us that distance can still hold beauty.",
-        "Kind words can lower stress and make someone feel safer.",
-        "Music can bring back a memory faster than almost anything else.",
-        "Small acts of love are still real acts of love.",
-        "A handwritten note can feel warmer because it carries a little bit of time.",
-        "The heart beats around 100,000 times a day, quietly choosing life again and again.",
-        "Some clouds can weigh more than a million pounds and still look soft.",
-        "A warm drink can make people feel more emotionally warm too.",
-        "The smell after rain is called petrichor.",
-        "Warm light in the evening can help the mind feel calmer.",
-        "Your brain can recognize a loved voice in less than a second.",
-        "Writing things down can make worries feel smaller.",
-        "Sunflowers can turn toward the sun while they are growing.",
-        "A tiny pause can change the whole feeling of a hard moment.",
-        "The color pink was named after a flower.",
-        "Deep breaths tell the body that it is allowed to feel safe.",
-        "Some stars you see at night are older than every story you have ever heard.",
-        "A compliment can stay in someone's memory for years.",
-        "Even a two-minute rest can help your nervous system soften."
-      ];
-
-      const qualities = [
-        "You are special because your kindness feels quiet, real, and rare.",
-        "You are important because your heart notices things other people miss.",
-        "You are beautiful in the way you make people feel safe around you.",
-        "You are stronger than you probably give yourself credit for.",
-        "You have a soft light in you, and it matters more than you know.",
-        "You are lovable on easy days, messy days, and every day between.",
-        "You make the world feel a little more gentle just by being in it.",
-        "You are enough today, exactly as you are.",
-        "You carry sweetness, courage, and warmth in your own way.",
-        "You deserve care, softness, food, water, rest, and a very good day.",
-        "You have a beautiful way of making small moments matter.",
-        "You are not hard to love. You are a reason to be grateful.",
-        "Your softness is not weakness. It is one of your quiet powers.",
-        "You bring a kind of warmth that cannot be copied.",
-        "You are allowed to take up space, ask for care, and be held gently.",
-        "You are a lovely part of this world, even on days when you forget it.",
-        "Your laugh is the kind of sound that can rescue a mood.",
-        "You have a heart that deserves patience, not pressure.",
-        "You are someone worth protecting, celebrating, and checking on.",
-        "You do not need to be perfect to be deeply precious.",
-        "You are a little miracle in normal clothes.",
-        "You make ordinary days feel softer.",
-        "You are loved in ways that are bigger than one message can hold.",
-        "You are someone's favorite reason to smile."
-      ];
-
-      const careLines = [
-        "Please eat something kind and drink enough water today.",
-        "Tiny reminder: your body deserves food, water, and patience.",
-        "Before you carry the whole day, please give yourself water and a little snack.",
-        "You matter, so please do the small caring things too: food, water, rest.",
-        "Your smile is precious, and so is your energy. Please eat and drink enough.",
-        "Please do a tiny body check: water, food, shoulders down, jaw soft.",
-        "You are not a machine. Please feed the sweet human carrying you.",
-        "A little water now is a love note to your future self.",
-        "If the day feels heavy, start with one sip and one slow breath.",
-        "Please take your vitamins, your water, or your tiny snack if you need them.",
-        "Your body has been holding you all day. Please be kind back to it.",
-        "Even cute people need lunch. Especially cute people.",
-        "Please do not forget yourself while being there for everyone else.",
-        "A soft reminder: rest is productive when your heart is tired."
-      ];
-
-      const tinyMissions = [
-        "Take three slow breaths and unclench your shoulders.",
-        "Send yourself one kind thought without arguing with it.",
-        "Sssip some water like it is a tiny potion for your glow.",
-        "Look at the sky for five seconds and let it hold one worry.",
-        "Put on one song that makes the room feel lighter.",
-        "Stretch your hands, your neck, or your back for a tiny reset.",
-        "Save one sweet sentence from today in your memory.",
-        "Smile at yourself for no reason, just to confuse the day.",
-        "Do one thing slowly on purpose.",
-        "Let one small problem wait while you care for yourself.",
-        "Notice one color around you that feels pretty.",
-        "Give yourself permission to have a softer evening."
-      ];
-
-      const littleWishes = [
-        "May today bring you a tiny surprise that feels made for you.",
-        "May your next drink taste extra refreshing.",
-        "May one person be gentle with you exactly when you need it.",
-        "May your worries shrink enough for you to breathe around them.",
-        "May something make you laugh before the day ends.",
-        "May your heart feel a little lighter than it did five minutes ago.",
-        "May the weather be sssweet to you and your hair.",
-        "May you find a comfortable place to rest your thoughts.",
-        "May your phone battery and your patience both last long enough.",
-        "May a tiny bit of luck sit beside you today.",
-        "May you feel loved without having to earn it.",
-        "May the next hour be softer than the last one."
-      ];
-
-      const softReminders = [
-        "Psst... I have a tiny sssomething for you.",
-        "Hiii... I saved a little smile for you.",
-        "Psst... tiny snake brought you a soft mission.",
-        "I found a little wish and kept it safe for you.",
-        "Sssurprise... this one is just for your heart.",
-        "Tiny snake says: open this gently.",
-        "Psst... I carried this tiny thought all the way here.",
-        "I have a cozy little thing for you.",
-        "Sssweet human, I brought you a tiny bit of care.",
-        "Tiny snake found something soft for today.",
-        "Psst... here is a little pocket-sized kindness.",
-        "I kept this wish warm for you."
-      ];
-
-      const weatherCodes = new Map([
-        [0, "clear sky"],
-        [1, "mostly clear"],
-        [2, "partly cloudy"],
-        [3, "cloudy"],
-        [45, "foggy"],
-        [48, "foggy"],
-        [51, "light drizzle"],
-        [53, "drizzle"],
-        [55, "heavy drizzle"],
-        [56, "freezing drizzle"],
-        [57, "freezing drizzle"],
-        [61, "light rain"],
-        [63, "rain"],
-        [65, "heavy rain"],
-        [66, "freezing rain"],
-        [67, "freezing rain"],
-        [71, "light snow"],
-        [73, "snow"],
-        [75, "heavy snow"],
-        [77, "snow grains"],
-        [80, "light showers"],
-        [81, "showers"],
-        [82, "heavy showers"],
-        [85, "snow showers"],
-        [86, "heavy snow showers"],
-        [95, "thunderstorm"],
-        [96, "thunderstorm with hail"],
-        [99, "thunderstorm with hail"]
-      ]);
-
-      function pick(list) {
-        return list[Math.floor(Math.random() * list.length)];
-      }
-
-      function setMusicUi(isPlaying) {
-        isMusicPlaying = isPlaying;
-        const currentSong = songs[currentSongIndex];
-        musicWidget.classList.toggle("is-playing", isPlaying);
-        musicToggle.setAttribute("aria-pressed", String(isPlaying));
-        musicToggle.setAttribute(
-          "aria-label",
-          isPlaying ? `Pause ${currentSong.title}` : `Play ${currentSong.title}`
-        );
-        musicStatus.textContent = isPlaying ? "Playing" : "Play";
-        musicTitle.textContent = currentSong.title;
-        updateSongControls();
-      }
-
-      function setMusicPanelOpen(isOpen) {
-        isMusicPanelOpen = isOpen;
-        musicWidget.classList.toggle("is-expanded", isOpen);
-        musicPanel.setAttribute("aria-hidden", String(!isOpen));
-      }
-
-      function loadCurrentSong() {
-        const currentSong = songs[currentSongIndex];
-        if (localSong.getAttribute("src") !== currentSong.src) {
-          localSong.src = currentSong.src;
-          localSong.load();
-        }
-        musicTitle.textContent = currentSong.title;
-        updateSongControls();
-      }
-
-      function moveToNextSong() {
-        currentSongIndex = (currentSongIndex + 1) % songs.length;
-        loadCurrentSong();
-      }
-
-      function updateSongControls() {
-        songChoices.forEach((button) => {
-          button.classList.toggle(
-            "is-active",
-            Number(button.dataset.songIndex) === currentSongIndex
-          );
+          day.append(dayName, icon, temperatures, detail);
+          forecastStrip.appendChild(day);
         });
-        songLock.classList.toggle("is-locked", isSongLocked);
-        songLock.setAttribute("aria-pressed", String(isSongLocked));
-        songLock.textContent = isSongLocked ? "ON" : "LOCK";
-        songLock.setAttribute(
-          "aria-label",
-          isSongLocked ? "Unlock song switching" : "Lock current song"
-        );
       }
 
-      async function playCurrentSong() {
-        loadCurrentSong();
-        await localSong.play();
-        setMusicPanelOpen(true);
-        setMusicUi(true);
+      function renderHourlyForecast() {
+        if (!currentHourlyForecast?.time?.length) return;
+        const now = new Date();
+        const upcoming = currentHourlyForecast.time
+          .map((time, index) => ({ time: new Date(time), index }))
+          .filter(({ time }) => time >= new Date(now.getTime() - 30 * 60 * 1000))
+          .slice(0, 24);
+
+        hourlyStrip.innerHTML = "";
+        if (!upcoming.length) {
+          hourlyStrip.innerHTML = '<span class="fuel-note">The next hours are still being updated.</span>';
+          return;
+        }
+        upcoming.forEach(({ time, index }, position) => {
+          const hour = document.createElement("article");
+          hour.className = "hourly-hour";
+
+          const timeText = document.createElement("span");
+          timeText.className = "hourly-time";
+          timeText.textContent = position === 0
+            ? "Now"
+            : new Intl.DateTimeFormat("en-GB", { weekday: "short", hour: "2-digit", minute: "2-digit" }).format(time);
+
+          const icon = document.createElement("span");
+          icon.className = "forecast-icon";
+          icon.setAttribute("aria-hidden", "true");
+          icon.innerHTML = weatherIconEntity(currentHourlyForecast.weather_code?.[index]);
+
+          const temperature = document.createElement("span");
+          temperature.className = "hourly-temperature";
+          temperature.textContent = displayTemperature(currentHourlyForecast.temperature_2m?.[index]);
+
+          const detail = document.createElement("span");
+          detail.className = "hourly-detail";
+          const rain = Math.round(currentHourlyForecast.precipitation_probability?.[index] ?? 0);
+          const wind = Math.round(currentHourlyForecast.wind_speed_10m?.[index] ?? 0);
+          detail.textContent = `Rain ${rain}% - wind ${wind} km/h.`;
+
+          hour.append(timeText, icon, temperature, detail);
+          hourlyStrip.appendChild(hour);
+        });
       }
 
-      async function selectSong(index, shouldLock = true) {
-        const wasPlaying = !localSong.paused;
-        setMusicPanelOpen(true);
-        currentSongIndex = index;
-        isSongLocked = shouldLock;
-        localSong.pause();
-        localSong.currentTime = 0;
-        loadCurrentSong();
-        if (wasPlaying) {
+      function toggleHourlyForecast() {
+        isHourlyOpen = !isHourlyOpen;
+        hourlyCard.classList.toggle("is-open", isHourlyOpen);
+        hourlyToggle.setAttribute("aria-expanded", String(isHourlyOpen));
+        hourlyBody.setAttribute("aria-hidden", String(!isHourlyOpen));
+        if (isHourlyOpen) renderHourlyForecast();
+      }
+
+      function renderTemperature() {
+        temperatureUnitButtons.forEach((button) => {
+          const isActive = button.dataset.temperatureUnit === temperatureUnit;
+          button.classList.toggle("is-active", isActive);
+          button.setAttribute("aria-pressed", String(isActive));
+        });
+
+        if (currentTemperatureC === null) return;
+        const temperature = temperatureUnit === "f"
+          ? Math.round((currentTemperatureC * 9) / 5 + 32)
+          : Math.round(currentTemperatureC);
+        weatherText.textContent = `${temperature}\u00B0${temperatureUnit.toUpperCase()}, ${currentWeatherSummary}`;
+      }
+
+      function setTemperatureUnit(unit) {
+        if (unit !== "c" && unit !== "f") return;
+        temperatureUnit = unit;
+        renderTemperature();
+        renderHourlyForecast();
+        renderDailyAnalysis();
+        renderForecast();
+      }
+
+      function preferredCountryCode() {
+        const languages = navigator.languages?.length ? navigator.languages : [navigator.language];
+        for (const language of languages) {
           try {
-            await playCurrentSong();
+            const region = new Intl.Locale(language).region;
+            if (region) return region.toUpperCase();
           } catch {
-            setMusicUi(false);
+            const match = String(language).match(/[-_]([A-Za-z]{2})$/);
+            if (match) return match[1].toUpperCase();
           }
-        } else {
-          setMusicUi(false);
+        }
+        return "DE";
+      }
+
+      function formatFuelPrice(value, currency) {
+        try {
+          return new Intl.NumberFormat("en", {
+            style: "currency",
+            currency,
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+          }).format(value);
+        } catch {
+          return `${Number(value).toFixed(2)} ${currency}`;
         }
       }
 
-      function switchSongForNewLetter() {
-        if (isSongLocked) return;
-        const wasPlaying = !localSong.paused;
-        moveToNextSong();
-        if (wasPlaying) {
-          localSong.play().then(() => setMusicUi(true)).catch(() => setMusicUi(false));
-        } else {
-          setMusicUi(false);
-        }
-      }
-
-      async function toggleMusic() {
-        if (isMusicPlaying || !localSong.paused || isMusicPanelOpen) {
-          localSong.pause();
-          setMusicPanelOpen(false);
-          setMusicUi(false);
+      function renderFuelPrice() {
+        const type = fuelTypeSelect.value;
+        if (type === "electric") {
+          fuelPrice.textContent = "Varies by provider";
+          fuelNote.textContent = "Charging prices depend on the station, provider, speed, and personal tariff.";
+          fuelMetaText.textContent = "Electric charging is not included in the fuel average. ";
           return;
         }
 
-        setMusicPanelOpen(true);
+        const countries = fuelPriceData?.data;
+        if (!countries) return;
+        const countryEntry = countries[fuelCountryCode] || countries.DE || Object.values(countries)[0];
+        if (!countryEntry) {
+          fuelPrice.textContent = "No average available";
+          fuelNote.textContent = "This fuel type is not listed for the selected country right now.";
+          return;
+        }
+
+        const value = Number(countryEntry.prices?.[type]);
+        if (!Number.isFinite(value)) {
+          fuelPrice.textContent = "No average available";
+          fuelNote.textContent = "This fuel type is not listed for the selected country right now.";
+        } else {
+          const unit = String(countryEntry.unit || "litre").toLowerCase().startsWith("l") ? "L" : countryEntry.unit;
+          fuelPrice.textContent = `${formatFuelPrice(value, countryEntry.currency || "EUR")} / ${unit}`;
+          fuelNote.textContent = "Latest available country average. Individual stations may be higher or lower.";
+        }
+
+        let updated = "latest available update";
+        const rawUpdated = fuelPriceData.meta?.updated_at;
+        if (rawUpdated) {
+          const dateOnly = String(rawUpdated).slice(0, 10);
+          const parsedDate = new Date(`${dateOnly}T00:00:00Z`);
+          if (!Number.isNaN(parsedDate.getTime())) {
+            updated = new Intl.DateTimeFormat("en-GB", { dateStyle: "medium", timeZone: "UTC" }).format(parsedDate);
+          }
+        }
+        fuelMetaText.textContent = `${countryEntry.country_name || fuelCountryCode} - updated ${updated}. `;
+      }
+
+      async function loadFuelPrices() {
+        fuelCountryCode = preferredCountryCode();
+        if (fuelTypeSelect.value === "electric") {
+          renderFuelPrice();
+          return;
+        }
+        if (fuelPriceData) {
+          renderFuelPrice();
+          return;
+        }
+
+        fuelPrice.textContent = "Checking the latest average...";
+        fuelNote.textContent = "This will show a current country average, not a single station price.";
         try {
-          await playCurrentSong();
+          const response = await fetch("https://openvan.camp/api/fuel/prices?source=good-mood-to-go");
+          if (!response.ok) throw new Error("Fuel data unavailable");
+          const data = await response.json();
+          if (!data.success || !data.data) throw new Error("Fuel data unavailable");
+          fuelPriceData = data;
+          renderFuelPrice();
         } catch {
-          setMusicPanelOpen(true);
-          musicStatus.textContent = "Tap again";
+          fuelPrice.textContent = "Price is shy today";
+          fuelNote.textContent = "The current average could not load. Please check again a little later.";
+          fuelMetaText.textContent = "No price update available. ";
         }
-      }
-
-      function updateSoftReminder() {
-        const reminder = pick(softReminders);
-        softBubble.textContent = reminder;
-        triggerSnakeHappy();
-      }
-
-      function revealSnakeGifts() {
-        updateSoftReminder();
-        snakeNote.classList.add("is-awake");
-      }
-
-      function hideSnakeGifts() {
-        snakeNote.classList.remove("is-awake");
-        softBubble.textContent = "";
-      }
-
-      function triggerSnakeHappy() {
-        snakeFriend.classList.remove("happy-wiggle");
-        void snakeFriend.offsetWidth;
-        snakeFriend.classList.add("happy-wiggle");
-        window.clearTimeout(snakeTimer);
-        snakeTimer = window.setTimeout(() => {
-          snakeFriend.classList.remove("happy-wiggle");
-        }, 1200);
-      }
-
-      function updateTime() {
-        const now = new Date();
-        const weekday = new Intl.DateTimeFormat("en-GB", {
-          weekday: "long"
-        }).format(now);
-        const day = String(now.getDate()).padStart(2, "0");
-        const month = String(now.getMonth() + 1).padStart(2, "0");
-        const year = now.getFullYear();
-        const time = new Intl.DateTimeFormat("en-GB", {
-          hour: "2-digit",
-          minute: "2-digit"
-        }).format(now);
-        timeText.textContent = `Today is ${weekday}, ${day}.${month}.${year}, and it is ${time}.`;
-      }
-
-      function summarizeWeather(code) {
-        return weatherCodes.get(code) ?? "a mysterious sky";
-      }
-
-      function weatherWarning(current, hourly) {
-        const now = new Date();
-        const nextHours = hourly.time
-          .map((time, index) => ({ time: new Date(time), index }))
-          .filter(({ time }) => time >= now)
-          .slice(0, 6);
-
-        const stormSoon = nextHours.some(({ index }) => hourly.weather_code[index] >= 95);
-        const heavyRainSoon = nextHours.some(({ index }) =>
-          [65, 66, 67, 82].includes(hourly.weather_code[index])
-        );
-        const highWindSoon = nextHours.some(({ index }) => hourly.wind_speed_10m[index] >= 50);
-        const rainLikely = nextHours.some(
-          ({ index }) => (hourly.precipitation_probability[index] ?? 0) >= 80
-        );
-
-        if (stormSoon || current.weather_code >= 95) {
-          return "Thunder may be nearby soon. Please stay cozy, keep your phone charged, eat something, and drink enough water.";
-        }
-
-        if (heavyRainSoon || highWindSoon) {
-          return "The weather could get rough soon. Please stay safe, keep water close, and do not skip food today.";
-        }
-
-        if (rainLikely) {
-          return "Rain looks likely later. Please take something warm with you and keep yourself cared for.";
-        }
-
-        return "No strong weather warning showed up here. Still, please eat something kind and drink enough water.";
       }
 
       async function loadWeather() {
         if (!("geolocation" in navigator)) {
+          currentTemperatureC = null;
+          currentHourlyForecast = null;
+          currentDailyForecast = null;
           weatherText.textContent = "location unavailable";
+          weatherWarningText.textContent = "No local forecast warning is available without location.";
           weatherDetail.textContent =
             "Weather needs location access, but this phone did not offer it.";
+          weatherAnalysis.textContent = "Today's analysis needs location access too.";
+          hourlyStrip.innerHTML = '<span class="fuel-note">The hourly forecast needs location access.</span>';
+          forecastStrip.innerHTML = '<span class="fuel-note">The 14-day outlook needs location access.</span>';
           return;
         }
 
         weatherText.textContent = "asking the sky...";
+        weatherWarningText.textContent = "Checking the next few hours...";
         weatherDetail.textContent = "Waiting for location so the weather note can be local.";
+        weatherAnalysis.textContent = "Gathering the gentler details of today...";
+        hourlyStrip.innerHTML = '<span class="fuel-note">Drawing the next 24 hours...</span>';
+        forecastStrip.innerHTML = '<span class="fuel-note">Drawing the next 14 days...</span>';
 
         navigator.geolocation.getCurrentPosition(
           async ({ coords }) => {
@@ -1587,28 +1042,48 @@
                 latitude: coords.latitude.toFixed(4),
                 longitude: coords.longitude.toFixed(4),
                 current: "temperature_2m,weather_code,wind_speed_10m",
-                hourly: "weather_code,precipitation_probability,wind_speed_10m",
-                forecast_days: "1",
+                hourly: "temperature_2m,weather_code,precipitation_probability,wind_speed_10m",
+                daily: "weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_speed_10m_max",
+                forecast_days: "14",
                 timezone: "auto"
               });
               const response = await fetch(`https://api.open-meteo.com/v1/forecast?${params}`);
               const data = await response.json();
               const current = data.current;
-              const temp = Math.round(current.temperature_2m);
-              const summary = summarizeWeather(current.weather_code);
-
-              weatherText.textContent = `${temp}\u00B0C, ${summary}`;
-              weatherDetail.textContent = weatherWarning(current, data.hourly);
+              currentTemperatureC = current.temperature_2m;
+              currentWeatherSummary = summarizeWeather(current.weather_code);
+              currentHourlyForecast = data.hourly;
+              currentDailyForecast = data.daily;
+              renderTemperature();
+              weatherWarningText.textContent = weatherWarning(current, data.hourly);
+              weatherDetail.textContent = gentleWeatherNote(current, data.hourly);
+              renderHourlyForecast();
+              renderDailyAnalysis();
+              renderForecast();
             } catch {
+              currentTemperatureC = null;
+              currentHourlyForecast = null;
+              currentDailyForecast = null;
               weatherText.textContent = "weather shy today";
+              weatherWarningText.textContent = "The local forecast warning could not load.";
               weatherDetail.textContent =
                 "The weather note could not load, but the care note still counts: food, water, and softness.";
+              weatherAnalysis.textContent = "Today's analysis could not load this time.";
+              hourlyStrip.innerHTML = '<span class="fuel-note">The hourly forecast is hiding for now.</span>';
+              forecastStrip.innerHTML = '<span class="fuel-note">The 14-day outlook is hiding for now.</span>';
             }
           },
           () => {
+            currentTemperatureC = null;
+            currentHourlyForecast = null;
+            currentDailyForecast = null;
             weatherText.textContent = "location not shared";
+            weatherWarningText.textContent = "No local forecast warning is available without location.";
             weatherDetail.textContent =
               "No worries. Without location, this still sends love: please eat, drink water, and stay safe.";
+            weatherAnalysis.textContent = "No location was shared, so today's analysis will stay private too.";
+            hourlyStrip.innerHTML = '<span class="fuel-note">Share location to see the hourly forecast.</span>';
+            forecastStrip.innerHTML = '<span class="fuel-note">Share location to see the 14-day outlook.</span>';
           },
           { enableHighAccuracy: false, timeout: 9000, maximumAge: 600000 }
         );
@@ -1617,6 +1092,7 @@
       function openSmile() {
         if (isOpen || isFlying) return;
         isOpen = true;
+        const draws = drawLetterCollection();
         switchSongForNewLetter();
         openButton.classList.add("open");
         openButton.classList.remove("ready");
@@ -1625,13 +1101,14 @@
         noteText.textContent = "A little love note for you.";
         moodButton.textContent = "Close";
         updateTime();
-        careText.textContent = pick(careLines);
-        factText.textContent = pick(tinyFacts);
-        loveText.textContent = pick(qualities);
-        missionText.textContent = pick(tinyMissions);
-        wishText.textContent = pick(littleWishes);
-        revealSnakeGifts();
-        loadWeather();
+        mainStoryTitle.textContent = draws.main.title;
+        mainStoryText.textContent = draws.main.text;
+        careText.textContent = draws.care.text;
+        factText.textContent = draws.facts.text;
+        loveText.textContent = draws["for-you"].text;
+        missionText.textContent = draws.missions.text;
+        wishText.textContent = draws.wishes.text;
+        revealSnakeGifts(draws.snake.text);
         window.clearTimeout(messageTimer);
         messageTimer = window.setTimeout(() => {
           if (isOpen) message.classList.remove("hidden");
@@ -1673,10 +1150,41 @@
         setMusicPanelOpen(false);
       }
 
+      function closeViewNavFromOutside(event) {
+        if (!isViewNavOpen) return;
+        if (viewNav.contains(event.target) || viewMenuToggle.contains(event.target)) return;
+        setViewNavOpen(false);
+      }
+
+      viewMenuToggle.addEventListener("click", () => setViewNavOpen(!isViewNavOpen));
+      viewNavClose.addEventListener("click", () => setViewNavOpen(false));
+      viewNavBackdrop.addEventListener("click", () => setViewNavOpen(false));
+      document.addEventListener("click", closeViewNavFromOutside);
+      viewTargetButtons.forEach((button) => {
+        button.addEventListener("click", () => showAppView(button.dataset.viewTarget));
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && isViewNavOpen) setViewNavOpen(false);
+      });
       openButton.addEventListener("click", openSmile);
       moodButton.addEventListener("click", handleMainButton);
       musicToggle.addEventListener("click", toggleMusic);
       document.addEventListener("click", closeMusicPanelFromOutside);
+      collectionToggle.addEventListener("click", toggleCollection);
+      snakeCollectionToggle.addEventListener("click", toggleCollection);
+      collectionSections.addEventListener("click", toggleCollectionCategory);
+      snakeCollectionSections.addEventListener("click", toggleCollectionCategory);
+      hourlyToggle.addEventListener("click", toggleHourlyForecast);
+      temperatureUnitButtons.forEach((button) => {
+        button.addEventListener("click", () => setTemperatureUnit(button.dataset.temperatureUnit));
+      });
+      fuelTypeSelect.addEventListener("change", () => {
+        if (fuelTypeSelect.value === "electric" || fuelPriceData) {
+          renderFuelPrice();
+        } else {
+          loadFuelPrices();
+        }
+      });
       songChoices.forEach((button) => {
         button.addEventListener("click", () => selectSong(Number(button.dataset.songIndex), true));
       });
@@ -1704,6 +1212,8 @@
       updateTime();
       loadCurrentSong();
       updateSongControls();
+      collectionCounts = loadCollectionCounts();
+      renderCollection();
       setInterval(updateTime, 30000);
     </script>
   </body>
