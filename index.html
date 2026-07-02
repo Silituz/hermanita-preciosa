@@ -1880,6 +1880,10 @@
         background: linear-gradient(145deg, #e6bf57, #81bc76);
       }
 
+      .nav-llamita {
+        background: linear-gradient(145deg, #ff9a45, #d84e62);
+      }
+
       .nav-arrow {
         color: var(--soft-ink);
         font-size: 18px;
@@ -1981,6 +1985,10 @@
         background: linear-gradient(135deg, #fff9df, #eaf9df);
       }
 
+      .world-choice-llamita {
+        background: linear-gradient(135deg, #fff3dc, #ffe1e8 58%, #e8f5ed);
+      }
+
       .world-icon {
         width: 52px;
         height: 52px;
@@ -2028,8 +2036,736 @@
         background: linear-gradient(90deg, rgba(216, 246, 255, 0.78), rgba(220, 248, 239, 0.58));
       }
 
+      .llamita-intro {
+        background: linear-gradient(90deg, rgba(255, 223, 177, 0.82), rgba(255, 218, 229, 0.68));
+      }
+
       .reward-banner {
         background: linear-gradient(90deg, rgba(255, 243, 194, 0.78), rgba(222, 248, 215, 0.66));
+      }
+
+      .llamita-main {
+        display: grid;
+        gap: 0;
+        padding: 0 0 26px;
+        background:
+          linear-gradient(180deg, #35171f 0, #51232b 50%, #fff4e5 50%, #fffaf4 100%);
+      }
+
+      .llamita-topline {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 11px 18px 7px;
+        color: #fff7ec;
+      }
+
+      .llamita-stage-name,
+      .llamita-care-count {
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .llamita-care-count {
+        color: #ffd98a;
+        text-align: right;
+      }
+
+      .llamita-habitat {
+        position: relative;
+        min-height: 326px;
+        display: grid;
+        justify-items: center;
+        align-content: center;
+        overflow: hidden;
+        padding: 0 14px 18px;
+        background:
+          radial-gradient(circle at 50% 45%, rgba(255, 153, 57, 0.28), transparent 37%),
+          radial-gradient(circle at 12% 12%, rgba(255, 210, 120, 0.12), transparent 24%),
+          linear-gradient(180deg, #35171f, #51232b);
+      }
+
+      .llamita-habitat::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 54px;
+        width: 190px;
+        height: 22px;
+        border-radius: 50%;
+        background: rgba(255, 128, 49, 0.2);
+        filter: blur(13px);
+        transform: translateX(-50%);
+      }
+
+      .llamita-embers,
+      .llamita-effects {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+      }
+
+      .llamita-embers span {
+        position: absolute;
+        bottom: 42px;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: #ffd768;
+        box-shadow: 0 0 10px #ff8650;
+        opacity: 0;
+        animation: emberFloat 4.4s ease-in infinite;
+      }
+
+      .llamita-embers span:nth-child(1) { left: 14%; animation-delay: -0.6s; }
+      .llamita-embers span:nth-child(2) { left: 27%; animation-delay: -2.9s; }
+      .llamita-embers span:nth-child(3) { left: 72%; animation-delay: -1.8s; }
+      .llamita-embers span:nth-child(4) { left: 85%; animation-delay: -3.7s; }
+      .llamita-embers span:nth-child(5) { left: 56%; animation-delay: -0.2s; }
+
+      .llamita-pet {
+        position: relative;
+        z-index: 2;
+        width: min(75vw, 268px);
+        height: min(75vw, 268px);
+        display: grid;
+        place-items: center;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: inherit;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .llamita-pet:focus-visible {
+        outline: 3px solid #ffd768;
+        outline-offset: 2px;
+        border-radius: 50%;
+      }
+
+      .llamita-image {
+        position: absolute;
+        inset: -2%;
+        width: 104%;
+        height: 104%;
+        object-fit: cover;
+        opacity: 0;
+        transform: translateY(28px) scale(0.45);
+        filter: drop-shadow(0 16px 18px rgba(31, 5, 12, 0.25));
+        -webkit-mask-image: radial-gradient(ellipse 47% 49% at 50% 51%, #000 65%, transparent 100%);
+        mask-image: radial-gradient(ellipse 47% 49% at 50% 51%, #000 65%, transparent 100%);
+        pointer-events: none;
+      }
+
+      .llamita-habitat.has-flame .llamita-image {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        animation: llamitaIdle 3.8s ease-in-out infinite;
+      }
+
+      .llamita-habitat.is-bright .llamita-image {
+        inset: -4%;
+        width: 108%;
+        height: 108%;
+        filter:
+          saturate(1.08)
+          drop-shadow(0 0 16px rgba(255, 214, 98, 0.45))
+          drop-shadow(0 18px 20px rgba(31, 5, 12, 0.28));
+      }
+
+      .llamita-habitat.is-strong .llamita-image {
+        inset: -8%;
+        width: 116%;
+        height: 116%;
+        filter:
+          saturate(1.18)
+          brightness(1.06)
+          drop-shadow(0 0 24px rgba(255, 214, 98, 0.58))
+          drop-shadow(0 20px 24px rgba(31, 5, 12, 0.3));
+      }
+
+      .spark-form {
+        position: relative;
+        width: 140px;
+        height: 140px;
+        display: block;
+        object-fit: contain;
+        filter:
+          drop-shadow(0 0 12px rgba(255, 210, 79, 0.72))
+          drop-shadow(0 12px 18px rgba(111, 32, 14, 0.24));
+        animation: sparkBreathe 1.8s ease-in-out infinite;
+      }
+
+      .llamita-habitat.has-flame .spark-form {
+        display: none;
+      }
+
+      .llamita-habitat.is-hatching .spark-form {
+        animation: sparkHatch 1.45s cubic-bezier(0.2, 0.86, 0.24, 1) both;
+      }
+
+      .llamita-habitat.is-hatching .llamita-image {
+        animation: llamitaBorn 1.3s cubic-bezier(0.16, 0.9, 0.22, 1.12) 720ms both;
+      }
+
+      .llamita-habitat.react-feed .llamita-image,
+      .llamita-habitat.react-pet .llamita-image {
+        animation: llamitaHappy 820ms ease both;
+      }
+
+      .llamita-habitat.react-play .llamita-image {
+        animation: llamitaPlay 900ms ease both;
+      }
+
+      .llamita-habitat.react-clean .llamita-image {
+        animation: llamitaClean 920ms ease both;
+      }
+
+      .llamita-habitat.is-growing .llamita-image {
+        animation: llamitaGrow 1.45s cubic-bezier(0.16, 0.9, 0.22, 1.12) both;
+      }
+
+      .llamita-habitat[data-visual="sleep"] .llamita-image {
+        animation: llamitaSleep 4.6s ease-in-out infinite;
+        filter: brightness(0.9) saturate(0.92) drop-shadow(0 12px 18px rgba(31, 5, 12, 0.3));
+      }
+
+      .llamita-habitat[data-visual="sad"] .llamita-image,
+      .llamita-habitat[data-visual="unwell"] .llamita-image {
+        animation: llamitaSad 4.8s ease-in-out infinite;
+        filter: brightness(0.94) saturate(0.9) drop-shadow(0 12px 18px rgba(31, 5, 12, 0.3));
+      }
+
+      .llamita-habitat[data-visual="sick"] .llamita-image {
+        animation: llamitaSad 5.4s ease-in-out infinite;
+        filter: brightness(0.86) saturate(0.82) drop-shadow(0 10px 16px rgba(31, 5, 12, 0.32));
+      }
+
+      .llamita-sleep-mark {
+        position: absolute;
+        top: 35px;
+        right: 36px;
+        z-index: 4;
+        color: #ffe49a;
+        font-size: 28px;
+        font-weight: 900;
+        opacity: 0;
+        transform: translateY(8px) rotate(-8deg);
+        transition: opacity 300ms ease, transform 420ms ease;
+      }
+
+      .llamita-habitat.is-sleeping .llamita-sleep-mark {
+        opacity: 1;
+        transform: translateY(0) rotate(-8deg);
+        animation: sleepyMark 2.4s ease-in-out infinite;
+      }
+
+      .llamita-sad-face {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 4;
+        width: 92px;
+        height: 72px;
+        opacity: 0;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        transition: opacity 420ms ease;
+      }
+
+      .llamita-habitat.is-sad:not(.is-sleeping) .llamita-sad-face {
+        opacity: 0.88;
+      }
+
+      .llamita-habitat.is-very-sad:not(.is-sleeping) .llamita-sad-face {
+        opacity: 1;
+      }
+
+      .llamita-frown {
+        position: absolute;
+        left: 50%;
+        bottom: 2px;
+        width: 28px;
+        height: 15px;
+        border-top: 3px solid #6f2532;
+        border-radius: 50% 50% 0 0;
+        background: #ffd16a;
+        box-shadow: 0 -4px 8px rgba(255, 209, 106, 0.75);
+        transform: translateX(-50%);
+      }
+
+      .llamita-tear {
+        position: absolute;
+        right: 7px;
+        top: 23px;
+        width: 10px;
+        height: 15px;
+        border-radius: 60% 40% 65% 35%;
+        background: linear-gradient(145deg, #dff8ff, #67bce5);
+        box-shadow: 0 0 8px rgba(130, 211, 241, 0.65);
+        transform: rotate(16deg);
+        animation: llamitaTear 2.2s ease-in-out infinite;
+      }
+
+      .llamita-effect {
+        position: absolute;
+        left: var(--x);
+        top: var(--y);
+        z-index: 5;
+        color: var(--effect-color, #ffd765);
+        font-size: var(--effect-size, 20px);
+        font-weight: 900;
+        text-shadow: 0 0 10px rgba(255, 117, 56, 0.7);
+        animation: llamitaBurst 1.05s ease-out forwards;
+      }
+
+      .llamita-speech {
+        position: relative;
+        z-index: 3;
+        width: min(100%, 326px);
+        min-height: 52px;
+        display: grid;
+        place-items: center;
+        margin-top: -14px;
+        padding: 11px 16px;
+        border: 1px solid rgba(255, 222, 170, 0.28);
+        border-radius: 8px;
+        background: rgba(255, 248, 235, 0.94);
+        color: #5a2830;
+        font-size: 13px;
+        font-weight: 850;
+        line-height: 1.35;
+        text-align: center;
+        box-shadow: 0 12px 28px rgba(30, 8, 14, 0.2);
+      }
+
+      .llamita-ignite {
+        position: relative;
+        z-index: 3;
+        min-height: 46px;
+        margin-top: 11px;
+        padding: 0 18px;
+        border: 0;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #ffd45d, #ff8054 58%, #d84e62);
+        color: #4b2027;
+        font: inherit;
+        font-size: 13px;
+        font-weight: 950;
+        box-shadow: 0 10px 24px rgba(255, 113, 61, 0.25);
+        cursor: pointer;
+      }
+
+      .llamita-ignite[hidden] {
+        display: none;
+      }
+
+      .llamita-dashboard {
+        display: grid;
+        gap: 13px;
+        padding: 18px;
+        background: linear-gradient(180deg, #fff4e5, #fffaf4);
+      }
+
+      .llamita-dashboard[hidden] {
+        display: none;
+      }
+
+      .llamita-mood-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .llamita-mood-row strong {
+        color: #632c39;
+        font-size: 15px;
+      }
+
+      .llamita-mood {
+        color: #a24c5e;
+        font-size: 12px;
+        font-weight: 900;
+        text-align: right;
+      }
+
+      .llamita-needs {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .llamita-need {
+        min-width: 0;
+        display: grid;
+        gap: 6px;
+        padding: 10px;
+        border: 1px solid rgba(99, 44, 57, 0.1);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.72);
+      }
+
+      .llamita-need:last-child {
+        grid-column: 1 / -1;
+      }
+
+      .llamita-need-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        color: #6b3941;
+        font-size: 10px;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .llamita-need-head span:last-child {
+        color: #9d6570;
+      }
+
+      .llamita-meter,
+      .llamita-growth-track {
+        height: 7px;
+        overflow: hidden;
+        border-radius: 999px;
+        background: rgba(99, 44, 57, 0.1);
+      }
+
+      .llamita-meter span,
+      .llamita-growth-track span {
+        display: block;
+        width: 50%;
+        height: 100%;
+        border-radius: inherit;
+        background: var(--meter-color, #ff8650);
+        transition: width 620ms cubic-bezier(0.2, 0.8, 0.25, 1);
+      }
+
+      .llamita-need[data-need="hunger"] { --meter-color: #ff8a58; }
+      .llamita-need[data-need="joy"] { --meter-color: #e76c9b; }
+      .llamita-need[data-need="energy"] { --meter-color: #70b8d1; }
+      .llamita-need[data-need="cleanliness"] { --meter-color: #72bea1; }
+      .llamita-need[data-need="love"] { --meter-color: #d85669; }
+
+      .llamita-actions {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 7px;
+      }
+
+      .llamita-action {
+        min-width: 0;
+        min-height: 64px;
+        display: grid;
+        place-items: center;
+        align-content: center;
+        gap: 4px;
+        padding: 6px 2px;
+        border: 1px solid rgba(99, 44, 57, 0.12);
+        border-radius: 8px;
+        background: #fff;
+        color: #66313b;
+        font: inherit;
+        font-size: 10px;
+        font-weight: 900;
+        cursor: pointer;
+        box-shadow: 0 7px 16px rgba(99, 44, 57, 0.07);
+        transition: transform 180ms ease, background 220ms ease, opacity 220ms ease;
+      }
+
+      .llamita-action:active:not(:disabled) {
+        transform: translateY(2px) scale(0.98);
+      }
+
+      .llamita-action:disabled {
+        opacity: 0.42;
+        cursor: default;
+      }
+
+      .llamita-action-icon {
+        display: grid;
+        place-items: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: #fff0dd;
+        color: #d85852;
+        font-size: 16px;
+      }
+
+      .llamita-action[data-llamita-action="play"] .llamita-action-icon { background: #ffe8f1; color: #cc5d91; }
+      .llamita-action[data-llamita-action="pet"] .llamita-action-icon { background: #ffe1e4; color: #c9475c; }
+      .llamita-action[data-llamita-action="sleep"] .llamita-action-icon { background: #e5f1ff; color: #5486b5; }
+      .llamita-action[data-llamita-action="clean"] .llamita-action-icon { background: #dff6ee; color: #4e9e84; }
+
+      .llamita-growth {
+        display: grid;
+        gap: 7px;
+        padding-top: 2px;
+      }
+
+      .llamita-growth-copy {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        color: #81515a;
+        font-size: 10px;
+        font-weight: 850;
+      }
+
+      .llamita-growth-track span {
+        background: linear-gradient(90deg, #ff9a45, #e95d72 62%, #72bea1);
+      }
+
+      .llamita-shop {
+        overflow: hidden;
+        border: 1px solid rgba(99, 44, 57, 0.12);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.68);
+      }
+
+      .llamita-shop-toggle {
+        width: 100%;
+        min-height: 62px;
+        display: grid;
+        grid-template-columns: 36px minmax(0, 1fr) auto auto;
+        align-items: center;
+        gap: 9px;
+        padding: 9px 11px;
+        border: 0;
+        background: transparent;
+        color: #5f2d38;
+        font: inherit;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .llamita-shop-icon {
+        width: 34px;
+        height: 34px;
+        display: grid;
+        place-items: center;
+        border-radius: 11px;
+        background: linear-gradient(145deg, #ff9a45, #d84e62);
+        color: #fff;
+        box-shadow: 0 7px 15px rgba(216, 78, 98, 0.18);
+      }
+
+      .llamita-shop-copy {
+        min-width: 0;
+        display: grid;
+        gap: 2px;
+      }
+
+      .llamita-shop-copy strong {
+        font-size: 13px;
+      }
+
+      .llamita-shop-copy span {
+        color: #8d6068;
+        font-size: 9px;
+        line-height: 1.3;
+      }
+
+      .llamita-shop-balance {
+        color: #b65359;
+        font-size: 10px;
+        font-weight: 950;
+        white-space: nowrap;
+      }
+
+      .llamita-shop-arrow {
+        color: #9f5964;
+        font-size: 18px;
+        transition: transform 360ms ease;
+      }
+
+      .llamita-shop.is-open .llamita-shop-arrow {
+        transform: rotate(180deg);
+      }
+
+      .llamita-shop-body {
+        display: grid;
+        grid-template-rows: 0fr;
+        opacity: 0;
+        transition: grid-template-rows 420ms ease, opacity 280ms ease;
+      }
+
+      .llamita-shop.is-open .llamita-shop-body {
+        grid-template-rows: 1fr;
+        opacity: 1;
+      }
+
+      .llamita-shop-grid {
+        min-height: 0;
+        display: grid;
+        gap: 7px;
+        overflow: hidden;
+        padding: 0 9px;
+      }
+
+      .llamita-shop.is-open .llamita-shop-grid {
+        padding-bottom: 10px;
+      }
+
+      .llamita-shop-item {
+        min-height: 54px;
+        display: grid;
+        grid-template-columns: 32px minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 9px;
+        padding: 7px 9px;
+        border: 1px solid rgba(99, 44, 57, 0.1);
+        border-radius: 8px;
+        background: #fffaf4;
+        color: #63323b;
+        font: inherit;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .llamita-shop-item:disabled {
+        cursor: default;
+      }
+
+      .llamita-shop-item.is-owned {
+        border-color: rgba(84, 158, 132, 0.25);
+        background: #eefaf4;
+      }
+
+      .llamita-shop-item.cannot-afford:not(.is-owned) {
+        opacity: 0.58;
+      }
+
+      .llamita-item-icon {
+        width: 30px;
+        height: 30px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: #fff0dd;
+        color: #d85852;
+        font-size: 15px;
+      }
+
+      .llamita-item-copy {
+        min-width: 0;
+        display: grid;
+        gap: 2px;
+      }
+
+      .llamita-item-copy strong {
+        font-size: 11px;
+      }
+
+      .llamita-item-copy span {
+        color: #8d6068;
+        font-size: 9px;
+        line-height: 1.3;
+      }
+
+      .llamita-item-price {
+        min-width: 38px;
+        padding: 5px 7px;
+        border-radius: 999px;
+        background: #ffe5c3;
+        color: #9d4b43;
+        font-size: 9px;
+        font-weight: 950;
+        text-align: center;
+      }
+
+      .llamita-shop-item.is-owned .llamita-item-price {
+        background: #d7f1e4;
+        color: #397e67;
+      }
+
+      @keyframes emberFloat {
+        0% { opacity: 0; transform: translateY(0) scale(0.6); }
+        24% { opacity: 0.8; }
+        100% { opacity: 0; transform: translateY(-240px) translateX(18px) scale(1.2); }
+      }
+
+      @keyframes sparkBreathe {
+        0%, 100% { transform: translateY(0) scale(0.94) rotate(-2deg); }
+        50% { transform: translateY(-7px) scale(1.06) rotate(2deg); }
+      }
+
+      @keyframes sparkHatch {
+        0% { opacity: 1; transform: scale(1); }
+        52% { opacity: 1; transform: scale(1.45) rotate(-8deg); filter: brightness(1.35); }
+        100% { opacity: 0; transform: scale(3.4) rotate(14deg); filter: brightness(2); }
+      }
+
+      @keyframes llamitaBorn {
+        0% { opacity: 0; transform: translateY(42px) scale(0.32) rotate(-8deg); }
+        68% { opacity: 1; transform: translateY(-7px) scale(1.08) rotate(3deg); }
+        100% { opacity: 1; transform: translateY(0) scale(1) rotate(0); }
+      }
+
+      @keyframes llamitaIdle {
+        0%, 100% { transform: translateY(2px) rotate(-1.2deg) scale(0.99); }
+        50% { transform: translateY(-8px) rotate(1.2deg) scale(1.015); }
+      }
+
+      @keyframes llamitaHappy {
+        0%, 100% { transform: translateY(0) scale(1); }
+        30% { transform: translateY(-12px) scale(1.06) rotate(-3deg); }
+        58% { transform: translateY(-5px) scale(1.03) rotate(3deg); }
+      }
+
+      @keyframes llamitaPlay {
+        0%, 100% { transform: translateY(0) rotate(0) scale(1); }
+        28% { transform: translate(-13px, -12px) rotate(-7deg) scale(1.02); }
+        55% { transform: translate(13px, -14px) rotate(7deg) scale(1.04); }
+        76% { transform: translate(-4px, -5px) rotate(-2deg) scale(1.02); }
+      }
+
+      @keyframes llamitaClean {
+        0%, 100% { transform: translateY(0) rotate(0); filter: brightness(1); }
+        44% { transform: translateY(-5px) rotate(-3deg); filter: brightness(1.3) saturate(1.2); }
+        70% { transform: translateY(-3px) rotate(3deg); filter: brightness(1.15); }
+      }
+
+      @keyframes llamitaGrow {
+        0% { transform: scale(1); }
+        42% { transform: scale(1.18); filter: brightness(1.45) saturate(1.15); }
+        100% { transform: scale(1); }
+      }
+
+      @keyframes llamitaSleep {
+        0%, 100% { transform: translateY(6px) scale(0.97) rotate(-1deg); }
+        50% { transform: translateY(9px) scale(0.955) rotate(1deg); }
+      }
+
+      @keyframes llamitaSad {
+        0%, 100% { transform: translateY(9px) rotate(-2deg) scale(0.965); }
+        50% { transform: translateY(12px) rotate(1deg) scale(0.95); }
+      }
+
+      @keyframes llamitaTear {
+        0%, 32% { opacity: 0; transform: translateY(-2px) rotate(16deg) scale(0.7); }
+        52% { opacity: 1; }
+        100% { opacity: 0; transform: translateY(16px) rotate(16deg) scale(1); }
+      }
+
+      @keyframes sleepyMark {
+        0%, 100% { transform: translate(0, 4px) rotate(-8deg); opacity: 0.45; }
+        50% { transform: translate(7px, -8px) rotate(-4deg); opacity: 1; }
+      }
+
+      @keyframes llamitaBurst {
+        0% { opacity: 0; transform: translate(-50%, 10px) scale(0.45) rotate(-8deg); }
+        30% { opacity: 1; }
+        100% { opacity: 0; transform: translate(-50%, -78px) scale(1.15) rotate(12deg); }
       }
 
       .view-intro-icon,
@@ -2519,6 +3255,7 @@
         }
       }
     </style>
+    <link rel="stylesheet" href="assets/llamita-upgrade.css" />
   </head>
   <body>
     <div class="music-widget" id="musicWidget">
@@ -2573,13 +3310,18 @@
           <span>Useful</span>
           <span class="nav-arrow" aria-hidden="true">&#8250;</span>
         </button>
+        <button class="view-nav-item" type="button" data-view-target="llamita">
+          <span class="nav-item-icon nav-llamita" aria-hidden="true">&#9830;</span>
+          <span>Mi llamita</span>
+          <span class="nav-arrow" aria-hidden="true">&#8250;</span>
+        </button>
         <button class="view-nav-item" type="button" data-view-target="rewards">
           <span class="nav-item-icon nav-rewards" aria-hidden="true">&#9733;</span>
           <span>Rewards</span>
           <span class="nav-arrow" aria-hidden="true">&#8250;</span>
         </button>
       </nav>
-      <p class="view-nav-foot">Three little places, all made with love.</p>
+      <p class="view-nav-foot">Four little places, all made with love.</p>
     </aside>
 
     <section class="phone" id="appShell" data-view="home" aria-label="Good Mood to Go">
@@ -2608,6 +3350,14 @@
               <span class="world-choice-copy">
                 <strong>Useful today</strong>
                 <span>A calm little look at the world.</span>
+              </span>
+              <span class="world-arrow" aria-hidden="true">&#8250;</span>
+            </button>
+            <button class="world-choice world-choice-llamita" type="button" data-view-target="llamita">
+              <span class="world-icon nav-llamita" aria-hidden="true">&#9830;</span>
+              <span class="world-choice-copy">
+                <strong>Mi llamita</strong>
+                <span>A tiny spark that grows with your care.</span>
               </span>
               <span class="world-arrow" aria-hidden="true">&#8250;</span>
             </button>
@@ -2823,6 +3573,130 @@
           </main>
         </section>
 
+        <section class="app-view llamita-view" id="llamitaView" data-app-view="llamita" aria-label="Mi llamita">
+          <div class="view-intro llamita-intro">
+            <span class="view-intro-icon nav-llamita" aria-hidden="true">&#9830;</span>
+            <span class="view-intro-copy">
+              <h2>Mi llamita</h2>
+              <p>A tiny spark that grows brighter with your care.</p>
+            </span>
+          </div>
+
+          <main class="llamita-main">
+            <div class="llamita-topline">
+              <span class="llamita-stage-name" id="llamitaStageName">Tiny Spark</span>
+              <span class="llamita-care-count" id="llamitaCareCount">0 warm moments</span>
+            </div>
+
+            <section class="llamita-habitat" id="llamitaHabitat" aria-label="Mi llamita's cozy home">
+              <div class="llamita-embers" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <div class="llamita-effects" id="llamitaEffects" aria-hidden="true"></div>
+              <button class="llamita-pet" id="llamitaPet" type="button" aria-label="Warm the tiny spark">
+                <img class="spark-form" src="assets/spark.png" alt="" aria-hidden="true" />
+                <img class="llamita-image" id="llamitaImage" src="assets/llamita-normal.png" alt="A tiny cheerful flame with glasses and a rose" />
+              </button>
+              <div class="llamita-speech" id="llamitaSpeech" aria-live="polite">A tiny spark is waiting for your warmth.</div>
+              <button class="llamita-ignite" id="llamitaIgnite" type="button">Help the spark glow</button>
+            </section>
+
+            <section class="llamita-dashboard" id="llamitaDashboard" hidden>
+              <div class="llamita-mood-row">
+                <strong>Your little flame</strong>
+                <span class="llamita-mood" id="llamitaMood">Warm and curious</span>
+              </div>
+
+              <div class="llamita-needs" aria-label="Mi llamita's needs">
+                <div class="llamita-need" data-need="hunger">
+                  <span class="llamita-need-head"><span>Hungry</span><span data-need-value>80%</span></span>
+                  <span class="llamita-meter"><span data-need-meter></span></span>
+                </div>
+                <div class="llamita-need" data-need="joy">
+                  <span class="llamita-need-head"><span>Joy</span><span data-need-value>80%</span></span>
+                  <span class="llamita-meter"><span data-need-meter></span></span>
+                </div>
+                <div class="llamita-need" data-need="energy">
+                  <span class="llamita-need-head"><span>Rest</span><span data-need-value>80%</span></span>
+                  <span class="llamita-meter"><span data-need-meter></span></span>
+                </div>
+                <div class="llamita-need" data-need="cleanliness">
+                  <span class="llamita-need-head"><span>Clean</span><span data-need-value>80%</span></span>
+                  <span class="llamita-meter"><span data-need-meter></span></span>
+                </div>
+                <div class="llamita-need" data-need="love">
+                  <span class="llamita-need-head"><span>Love</span><span data-need-value>80%</span></span>
+                  <span class="llamita-meter"><span data-need-meter></span></span>
+                </div>
+              </div>
+
+              <div class="llamita-actions" id="llamitaActions" aria-label="Care for Mi llamita">
+                <button class="llamita-action" type="button" data-llamita-action="feed">
+                  <span class="llamita-action-icon" aria-hidden="true">&#9679;</span><span>Feed</span>
+                </button>
+                <button class="llamita-action" type="button" data-llamita-action="play">
+                  <span class="llamita-action-icon" aria-hidden="true">&#9733;</span><span>Play</span>
+                </button>
+                <button class="llamita-action" type="button" data-llamita-action="pet">
+                  <span class="llamita-action-icon" aria-hidden="true">&#9829;</span><span>Pet</span>
+                </button>
+                <button class="llamita-action" type="button" data-llamita-action="sleep">
+                  <span class="llamita-action-icon" aria-hidden="true">&#9790;</span><span data-sleep-label>Sleep</span>
+                </button>
+                <button class="llamita-action" type="button" data-llamita-action="clean">
+                  <span class="llamita-action-icon" aria-hidden="true">&#10022;</span><span>Clean</span>
+                </button>
+              </div>
+
+              <div class="llamita-growth">
+                <span class="llamita-growth-copy"><span id="llamitaGrowthLabel">Level 1 &bull; learning to glow</span><span id="llamitaGrowthValue">0 / 36 XP</span></span>
+                <span class="llamita-growth-track"><span id="llamitaGrowthMeter"></span></span>
+              </div>
+
+              <section class="llamita-shop" id="llamitaShop" aria-label="Little Glow Shop">
+                <button class="llamita-shop-toggle" id="llamitaShopToggle" type="button" aria-expanded="false" aria-controls="llamitaShopBody">
+                  <span class="llamita-shop-icon" aria-hidden="true">&#9830;</span>
+                  <span class="llamita-shop-copy">
+                    <strong>Little Glow Shop</strong>
+                    <span>Permanent helpers for a growing flame</span>
+                  </span>
+                  <span class="llamita-shop-balance" id="llamitaShopBalance">0 embers</span>
+                  <span class="llamita-shop-arrow" aria-hidden="true">&#8964;</span>
+                </button>
+                <div class="llamita-shop-body" id="llamitaShopBody" aria-hidden="true" inert>
+                  <div class="llamita-shop-grid">
+                    <button class="llamita-shop-item" type="button" data-llamita-item="glow-berry">
+                      <span class="llamita-item-icon" aria-hidden="true">&#9679;</span>
+                      <span class="llamita-item-copy"><strong>Glow Berry</strong><span>Feed gives +8 more</span></span>
+                      <span class="llamita-item-price" data-item-price>12</span>
+                    </button>
+                    <button class="llamita-shop-item" type="button" data-llamita-item="play-bell">
+                      <span class="llamita-item-icon" aria-hidden="true">&#9733;</span>
+                      <span class="llamita-item-copy"><strong>Play Bell</strong><span>Play gives +7 joy</span></span>
+                      <span class="llamita-item-price" data-item-price>18</span>
+                    </button>
+                    <button class="llamita-shop-item" type="button" data-llamita-item="soft-pillow">
+                      <span class="llamita-item-icon" aria-hidden="true">&#9790;</span>
+                      <span class="llamita-item-copy"><strong>Soft Pillow</strong><span>Sleep restores rest faster</span></span>
+                      <span class="llamita-item-price" data-item-price>22</span>
+                    </button>
+                    <button class="llamita-shop-item" type="button" data-llamita-item="bubble-brush">
+                      <span class="llamita-item-icon" aria-hidden="true">&#10022;</span>
+                      <span class="llamita-item-copy"><strong>Bubble Brush</strong><span>Clean gives +10 more</span></span>
+                      <span class="llamita-item-price" data-item-price>20</span>
+                    </button>
+                    <button class="llamita-shop-item" type="button" data-llamita-item="heart-charm">
+                      <span class="llamita-item-icon" aria-hidden="true">&#9829;</span>
+                      <span class="llamita-item-copy"><strong>Heart Charm</strong><span>Love fades slower and pets help more</span></span>
+                      <span class="llamita-item-price" data-item-price>30</span>
+                    </button>
+                  </div>
+                </div>
+              </section>
+            </section>
+          </main>
+        </section>
+
         <section class="app-view rewards-view" id="rewardsView" data-app-view="rewards" aria-label="Rewards and collections">
           <div class="reward-banner">
             <span class="reward-icon nav-rewards" aria-hidden="true">&#9733;</span>
@@ -2879,6 +3753,7 @@
     </section>
     <div class="credit">Created by Silituz</div>
 
+    <script src="assets/llamita-game-config.js"></script>
     <script>
       const usefulContentMount = document.querySelector("#usefulContentMount");
       const dailyOverview = document.querySelector(".daily-overview");
@@ -2944,6 +3819,27 @@
       const snakeCollectionSections = document.querySelector("#snakeCollectionSections");
       const rewardsFound = document.querySelector("#rewardsFound");
       const rewardsPulls = document.querySelector("#rewardsPulls");
+      const llamitaHabitat = document.querySelector("#llamitaHabitat");
+      const llamitaPet = document.querySelector("#llamitaPet");
+      const llamitaImage = document.querySelector("#llamitaImage");
+      const llamitaSpeech = document.querySelector("#llamitaSpeech");
+      const llamitaIgnite = document.querySelector("#llamitaIgnite");
+      const llamitaDashboard = document.querySelector("#llamitaDashboard");
+      const llamitaEffects = document.querySelector("#llamitaEffects");
+      const llamitaStageName = document.querySelector("#llamitaStageName");
+      const llamitaCareCount = document.querySelector("#llamitaCareCount");
+      const llamitaMood = document.querySelector("#llamitaMood");
+      const llamitaNeeds = document.querySelectorAll(".llamita-need");
+      const llamitaActionButtons = document.querySelectorAll("[data-llamita-action]");
+      const llamitaSleepLabel = document.querySelector("[data-sleep-label]");
+      const llamitaGrowthLabel = document.querySelector("#llamitaGrowthLabel");
+      const llamitaGrowthValue = document.querySelector("#llamitaGrowthValue");
+      const llamitaGrowthMeter = document.querySelector("#llamitaGrowthMeter");
+      const llamitaShop = document.querySelector("#llamitaShop");
+      const llamitaShopToggle = document.querySelector("#llamitaShopToggle");
+      const llamitaShopBody = document.querySelector("#llamitaShopBody");
+      const llamitaShopBalance = document.querySelector("#llamitaShopBalance");
+      const llamitaShopItems = document.querySelectorAll("[data-llamita-item]");
       let isOpen = false;
       let isFlying = false;
       let isMusicPlaying = false;
@@ -2965,16 +3861,49 @@
       let isViewNavOpen = false;
       let isViewSwitching = false;
       let viewSwitchTimer = 0;
+      let isLlamitaHatching = false;
+      let isLlamitaShopOpen = false;
+      let llamitaReactionTimer = 0;
+      let llamitaVisualTimer = 0;
+      let llamitaVisualState = "";
+      let llamitaVisualUntil = 0;
+      let llamitaImagesPreloaded = false;
+      let llamitaMessageUntil = 0;
+      let llamitaLastActionAt = 0;
       const prefersReducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
       let lastUsefulLoad = 0;
       let fuelPriceData = null;
       let fuelCountryCode = "DE";
       const collectionStorageKey = "good-mood-smile-collection-v2";
       const legacyCollectionStorageKey = "good-mood-smile-collection-v1";
+      const llamitaStorageKey = "good-mood-mi-llamita-v1";
+      const llamitaSleepXpPerMinute = 5;
+      const llamitaImages = {
+        hello: { src: "assets/llamita-hello.png", alt: "Mi llamita waves hello" },
+        normal: { src: "assets/llamita-normal.png", alt: "Mi llamita smiles warmly" },
+        unwell: { src: "assets/llamita-unwell.png", alt: "Mi llamita sits down and does not feel quite well" },
+        sad: { src: "assets/llamita-sad.png", alt: "Mi llamita feels sad and needs some love" },
+        happy: { src: "assets/llamita-happy.png", alt: "Mi llamita is overjoyed and surrounded by hearts" },
+        sleep: { src: "assets/llamita-sleep.png", alt: "Mi llamita sleeps peacefully" },
+        shower: { src: "assets/llamita-shower.png", alt: "Mi llamita enjoys a sparkling shower" },
+        play: { src: "assets/llamita-play.png", alt: "Mi llamita plays with a ball" },
+        hungry: { src: "assets/llamita-hungry.png", alt: "Mi llamita is hungry" },
+        burrito: { src: "assets/llamita-burrito.png", alt: "Mi llamita happily eats a burrito" },
+        taco: { src: "assets/llamita-taco.png", alt: "Mi llamita happily eats a taco" },
+        sick: { src: "assets/llamita-sick.png", alt: "Mi llamita is sick and resting under a blanket" }
+      };
       const songs = [
         { title: "Te Levantas", src: "assets/te-levantas.mp3" },
         { title: "Peque\u00f1a Llama (Fuego y Luz)", src: "assets/pequena-llama.mp3" }
       ];
+      const llamitaItemData = {
+        "glow-berry": { price: 12, name: "Glow Berry" },
+        "play-bell": { price: 18, name: "Play Bell" },
+        "soft-pillow": { price: 22, name: "Soft Pillow" },
+        "bubble-brush": { price: 20, name: "Bubble Brush" },
+        "heart-charm": { price: 30, name: "Heart Charm" }
+      };
+      let llamitaState = loadLlamitaState();
 
       const collectionGroups = {
         smile: {
@@ -3535,6 +4464,571 @@
         renderCollection();
       }
 
+      function defaultLlamitaState() {
+        return {
+          stage: 0,
+          hunger: 82,
+          joy: 82,
+          energy: 84,
+          cleanliness: 86,
+          love: 84,
+          carePoints: 0,
+          level: 1,
+          xp: 0,
+          embers: 0,
+          ownedItems: [],
+          asleep: false,
+          sleepRestProgressMs: 0,
+          lastUpdated: Date.now()
+        };
+      }
+
+      function clampLlamita(value, minimum = 12, maximum = 100) {
+        return Math.min(maximum, Math.max(minimum, Number(value) || 0));
+      }
+
+      function loadLlamitaState() {
+        const fallback = defaultLlamitaState();
+        try {
+          const stored = JSON.parse(localStorage.getItem(llamitaStorageKey) || "null");
+          if (!stored || typeof stored !== "object") return fallback;
+          const state = { ...fallback, ...stored };
+          state.stage = [0, 1, 2, 3].includes(Number(state.stage)) ? Number(state.stage) : 0;
+          state.carePoints = Math.max(0, Math.round(Number(state.carePoints) || 0));
+          state.level = Math.max(1, Math.round(Number(state.level) || (state.stage === 2 ? 3 : 1)));
+          state.xp = Math.max(0, Number(state.xp) || 0);
+          state.embers = Math.max(0, Math.round(Number(state.embers) || 0));
+          state.ownedItems = Array.isArray(state.ownedItems)
+            ? state.ownedItems.filter((item) => Object.hasOwn(llamitaItemData, item))
+            : [];
+          state.asleep = Boolean(state.asleep);
+          state.sleepRestProgressMs = Math.max(0, Math.min(2999, Number(state.sleepRestProgressMs) || 0));
+          delete state.sleepStartedAt;
+          delete state.sleepRewardPending;
+          state.lastUpdated = Number(state.lastUpdated) || Date.now();
+          ["hunger", "joy", "energy", "cleanliness", "love"].forEach((need) => {
+            state[need] = clampLlamita(state[need]);
+          });
+          if (state.stage > 0) {
+            state.stage = state.level >= 5 ? 3 : state.level >= 3 ? 2 : 1;
+          }
+          return state;
+        } catch {
+          return fallback;
+        }
+      }
+
+      function saveLlamitaState() {
+        try {
+          localStorage.setItem(llamitaStorageKey, JSON.stringify(llamitaState));
+        } catch {
+          // Mi llamita still works for this visit when storage is unavailable.
+        }
+      }
+
+      function ownsLlamitaItem(itemId) {
+        return llamitaState.ownedItems.includes(itemId);
+      }
+
+      function llamitaLevelXpNeeded(level = llamitaState.level) {
+        return 24 + level * 12;
+      }
+
+      function llamitaDifficulty() {
+        return Math.min(2.35, 1 + (llamitaState.level - 1) * 0.18);
+      }
+
+      function grantLlamitaProgress(xp, embers) {
+        const previousLevel = llamitaState.level;
+        llamitaState.xp += xp;
+        llamitaState.embers += embers;
+        while (llamitaState.xp >= llamitaLevelXpNeeded()) {
+          llamitaState.xp -= llamitaLevelXpNeeded();
+          llamitaState.level += 1;
+          llamitaState.embers += 7 + llamitaState.level;
+        }
+        llamitaState.stage = llamitaState.level >= 5 ? 3 : llamitaState.level >= 3 ? 2 : 1;
+        return llamitaState.level > previousLevel;
+      }
+
+      function applyLlamitaTime() {
+        if (llamitaState.stage === 0) return false;
+        const now = Date.now();
+        const rawElapsedMs = Math.max(0, now - llamitaState.lastUpdated);
+        if (llamitaState.asleep) {
+          const elapsedMs = Math.min(360000, rawElapsedMs);
+          if (elapsedMs < 100) return false;
+          const difficulty = llamitaDifficulty();
+          const loveProtection = ownsLlamitaItem("heart-charm") ? 0.78 : 1;
+          const pillowBoost = ownsLlamitaItem("soft-pillow") ? 1.35 : 1;
+          const progressBefore = llamitaState.sleepRestProgressMs || 0;
+          const missingRest = Math.max(0, 100 - llamitaState.energy);
+          const ticksUntilFull = missingRest > 0 ? Math.ceil(missingRest / pillowBoost) : 0;
+          const restorativeTimeLeft = Math.max(0, ticksUntilFull * 3000 - progressBefore);
+          const xpElapsedMs = Math.min(elapsedMs, restorativeTimeLeft);
+          let sleepLevelUp = false;
+
+          if (xpElapsedMs > 0) {
+            sleepLevelUp = grantLlamitaProgress(
+              (xpElapsedMs / 60000) * llamitaSleepXpPerMinute,
+              0
+            );
+          }
+
+          const accumulatedRestMs = progressBefore + elapsedMs;
+          const restTicks = Math.min(120, Math.floor(accumulatedRestMs / 3000));
+          llamitaState.sleepRestProgressMs = accumulatedRestMs - restTicks * 3000;
+          if (restTicks > 0) {
+            llamitaState.energy = clampLlamita(llamitaState.energy + restTicks * pillowBoost);
+          }
+          if (llamitaState.energy >= 100) llamitaState.sleepRestProgressMs = 0;
+
+          const sleepUnits = elapsedMs / 3000;
+          llamitaState.hunger = clampLlamita(llamitaState.hunger - 0.55 * sleepUnits * difficulty);
+          llamitaState.joy = clampLlamita(llamitaState.joy - 0.4 * sleepUnits * difficulty);
+          llamitaState.cleanliness = clampLlamita(
+            llamitaState.cleanliness - 0.35 * sleepUnits * difficulty
+          );
+          llamitaState.love = clampLlamita(
+            llamitaState.love - 0.4 * sleepUnits * difficulty * loveProtection
+          );
+          llamitaState.lastUpdated = now;
+          saveLlamitaState();
+          if (sleepLevelUp) {
+            setLlamitaMessage(
+              `Level ${llamitaState.level}! Even my sleepy glow grew stronger.`,
+              9000
+            );
+            createLlamitaBurst(["\u263e", "\u2605", "\u2726"], "#ffd765", 12);
+          }
+          return true;
+        }
+
+        const tickDuration = 5000;
+        const elapsedTicks = Math.min(
+          120,
+          Math.floor(rawElapsedMs / tickDuration)
+        );
+        if (elapsedTicks < 1) return false;
+        const difficulty = llamitaDifficulty();
+        const loveProtection = ownsLlamitaItem("heart-charm") ? 0.78 : 1;
+        llamitaState.hunger = clampLlamita(llamitaState.hunger - 0.55 * elapsedTicks * difficulty);
+        llamitaState.joy = clampLlamita(llamitaState.joy - 0.45 * elapsedTicks * difficulty);
+        llamitaState.energy = clampLlamita(llamitaState.energy - 0.4 * elapsedTicks * difficulty);
+        llamitaState.cleanliness = clampLlamita(
+          llamitaState.cleanliness - 0.35 * elapsedTicks * difficulty
+        );
+        llamitaState.love = clampLlamita(
+          llamitaState.love - 0.8 * elapsedTicks * difficulty * loveProtection
+        );
+
+        llamitaState.lastUpdated += elapsedTicks * tickDuration;
+        saveLlamitaState();
+        return true;
+      }
+
+      function setLlamitaShopOpen(isOpen) {
+        isLlamitaShopOpen = isOpen;
+        llamitaShop.classList.toggle("is-open", isOpen);
+        llamitaShopToggle.setAttribute("aria-expanded", String(isOpen));
+        llamitaShopBody.setAttribute("aria-hidden", String(!isOpen));
+        llamitaShopBody.toggleAttribute("inert", !isOpen);
+      }
+
+      function buyLlamitaItem(itemId) {
+        const item = llamitaItemData[itemId];
+        if (!item || ownsLlamitaItem(itemId)) return;
+        if (llamitaState.embers < item.price) {
+          setLlamitaMessage(`You need ${item.price - llamitaState.embers} more embers for ${item.name}.`);
+          createLlamitaBurst(["\u00b7"], "#ffb56f", 4);
+          return;
+        }
+
+        llamitaState.embers -= item.price;
+        llamitaState.ownedItems.push(itemId);
+        llamitaState.carePoints += 1;
+        llamitaState.lastUpdated = Date.now();
+        saveLlamitaState();
+        renderLlamita();
+        setLlamitaMessage(`${item.name} is yours forever. My glow feels stronger!`, 8000);
+        createLlamitaBurst(["\u2665", "\u2726", "\u2605"], "#ffd765", 12);
+      }
+
+      function llamitaMoodCopy() {
+        if (llamitaState.stage === 0) return "A shy little spark";
+        if (llamitaState.asleep) return "Dreaming in tiny golden lights";
+        if (llamitaState.love < 20) return "Very quiet and missing your warmth";
+        if (llamitaState.love < 44) return "A little sad and unsure";
+        if (llamitaState.hunger < 34) return "A little snack would feel lovely";
+        if (llamitaState.energy < 30) return "Sleepy, but still glowing";
+        if (llamitaState.cleanliness < 34) return "Ready for a sparkle wash";
+        if (llamitaState.joy < 34) return "Hoping for a tiny game";
+        if (llamitaState.stage >= 3) return "Strong, bright, and very loved";
+        if (llamitaState.stage === 2) return "Bright, brave, and very loved";
+        return "Warm, curious, and happy";
+      }
+
+      function defaultLlamitaMessage() {
+        if (llamitaState.stage === 0) return "A tiny spark is waiting for your warmth.";
+        if (llamitaState.asleep) return "Shh... tiny golden dreams are glowing.";
+        if (llamitaState.love < 20) return "My heart glow feels very small... please stay a little.";
+        if (llamitaState.love < 44) return "I missed your gentle hand. I may need a few soft pets.";
+        if (llamitaState.hunger < 34) return "Could I have one teeny warm snack?";
+        if (llamitaState.energy < 30) return "My glow is getting sleepy. A little nap?";
+        if (llamitaState.cleanliness < 34) return "I think one sparkle is stuck to me.";
+        if (llamitaState.joy < 34) return "Can we play for just one tiny minute?";
+        if (llamitaState.love < 38) return "I saved my softest glow for your hand.";
+        const brightMessages = [
+          "I glow a little brighter when you come back.",
+          "Your care feels warm, even to a flame.",
+          "Look! I kept a tiny light on for you.",
+          "You are my favorite cozy human.",
+          "My little heart is toasty and happy."
+        ];
+        return brightMessages[llamitaState.carePoints % brightMessages.length];
+      }
+
+      function setLlamitaMessage(text, duration = 6500) {
+        llamitaMessageUntil = Date.now() + duration;
+        llamitaSpeech.textContent = text;
+        window.setTimeout(() => {
+          if (Date.now() >= llamitaMessageUntil) {
+            llamitaSpeech.textContent = defaultLlamitaMessage();
+          }
+        }, duration + 80);
+      }
+
+      function createLlamitaBurst(symbols, color = "#ffd765", amount = 7) {
+        if (prefersReducedMotion) return;
+        for (let index = 0; index < amount; index += 1) {
+          const particle = document.createElement("span");
+          particle.className = "llamita-effect";
+          particle.textContent = symbols[index % symbols.length];
+          particle.style.setProperty("--x", `${25 + Math.random() * 50}%`);
+          particle.style.setProperty("--y", `${35 + Math.random() * 37}%`);
+          particle.style.setProperty("--effect-color", color);
+          particle.style.setProperty("--effect-size", `${15 + Math.random() * 11}px`);
+          particle.style.animationDelay = `${index * 55}ms`;
+          llamitaEffects.appendChild(particle);
+          window.setTimeout(() => particle.remove(), 1450);
+        }
+      }
+
+      function playLlamitaReaction(reaction) {
+        const reactionClasses = ["react-feed", "react-play", "react-pet", "react-clean", "is-growing"];
+        reactionClasses.forEach((className) => llamitaHabitat.classList.remove(className));
+        void llamitaHabitat.offsetWidth;
+        llamitaHabitat.classList.add(reaction);
+        window.clearTimeout(llamitaReactionTimer);
+        llamitaReactionTimer = window.setTimeout(() => {
+          llamitaHabitat.classList.remove(reaction);
+        }, reaction === "is-growing" ? 1500 : 980);
+      }
+
+      function preloadLlamitaImages() {
+        if (llamitaImagesPreloaded) return;
+        llamitaImagesPreloaded = true;
+        Object.values(llamitaImages).forEach(({ src }) => {
+          const image = new Image();
+          image.decoding = "async";
+          image.src = src;
+        });
+      }
+
+      function showLlamitaVisual(state, duration = 1800) {
+        window.clearTimeout(llamitaVisualTimer);
+        llamitaVisualState = state;
+        llamitaVisualUntil = Date.now() + duration;
+        llamitaVisualTimer = window.setTimeout(() => {
+          if (Date.now() >= llamitaVisualUntil) {
+            llamitaVisualState = "";
+            llamitaVisualUntil = 0;
+            renderLlamita();
+          }
+        }, duration + 80);
+      }
+
+      function passiveLlamitaVisual(averageNeed) {
+        if (llamitaState.asleep) return "sleep";
+        const criticalNeeds = [
+          llamitaState.hunger,
+          llamitaState.joy,
+          llamitaState.energy,
+          llamitaState.cleanliness,
+          llamitaState.love
+        ].filter((value) => value <= 20).length;
+        if (criticalNeeds >= 2 || averageNeed <= 22) return "sick";
+        if (llamitaState.hunger < 34) return "hungry";
+        if (llamitaState.love < 28 || averageNeed < 32) return "sad";
+        if (llamitaState.energy < 38) return "unwell";
+        if (llamitaState.cleanliness < 38 || llamitaState.joy < 38 || llamitaState.love < 44) return "unwell";
+        if (
+          llamitaState.love >= 90 &&
+          llamitaState.joy >= 86 &&
+          llamitaState.hunger >= 65 &&
+          llamitaState.energy >= 65 &&
+          llamitaState.cleanliness >= 65
+        ) return "happy";
+        return "normal";
+      }
+
+      function renderLlamitaImage(averageNeed) {
+        if (llamitaVisualState && Date.now() >= llamitaVisualUntil) {
+          llamitaVisualState = "";
+          llamitaVisualUntil = 0;
+        }
+        const visual = llamitaVisualState || passiveLlamitaVisual(averageNeed);
+        const imageData = llamitaImages[visual] || llamitaImages.normal;
+        llamitaHabitat.dataset.visual = visual;
+        if (llamitaImage.getAttribute("src") !== imageData.src) {
+          llamitaImage.src = imageData.src;
+          if (!prefersReducedMotion) {
+            llamitaImage.animate([{ opacity: 0.25 }, { opacity: 1 }], {
+              duration: 420,
+              easing: "ease-out"
+            });
+          }
+        }
+        llamitaImage.alt = imageData.alt;
+      }
+
+      function renderLlamita() {
+        const hasFlame = llamitaState.stage > 0;
+        if (hasFlame) {
+          llamitaState.stage = llamitaState.level >= 5 ? 3 : llamitaState.level >= 3 ? 2 : 1;
+        }
+        const isBright = llamitaState.stage >= 2;
+        const isStrong = llamitaState.stage >= 3;
+        const averageNeed =
+          (llamitaState.hunger +
+            llamitaState.joy +
+            llamitaState.energy +
+            llamitaState.cleanliness +
+            llamitaState.love) /
+          5;
+        const isSad = hasFlame && (llamitaState.love < 44 || averageNeed < 34);
+        const isVerySad = hasFlame && (llamitaState.love < 20 || averageNeed < 22);
+        llamitaHabitat.classList.toggle("has-flame", hasFlame);
+        llamitaHabitat.classList.toggle("is-bright", isBright);
+        llamitaHabitat.classList.toggle("is-strong", isStrong);
+        llamitaHabitat.classList.toggle("is-sad", isSad);
+        llamitaHabitat.classList.toggle("is-very-sad", isVerySad);
+        llamitaHabitat.classList.toggle("is-sleeping", hasFlame && llamitaState.asleep);
+        if (hasFlame) renderLlamitaImage(averageNeed);
+        llamitaStageName.textContent = !hasFlame
+          ? "Tiny Spark"
+          : isStrong
+            ? "Strong Flame"
+            : isBright
+              ? "Bright Flame"
+              : "Little Flame";
+        llamitaCareCount.textContent = `${llamitaState.carePoints} warm moment${llamitaState.carePoints === 1 ? "" : "s"}`;
+        llamitaPet.setAttribute(
+          "aria-label",
+          !hasFlame ? "Warm the tiny spark" : llamitaState.asleep ? "Mi llamita is sleeping" : "Pet Mi llamita"
+        );
+        llamitaIgnite.hidden = hasFlame;
+        llamitaIgnite.disabled = isLlamitaHatching;
+        llamitaDashboard.hidden = !hasFlame;
+        llamitaMood.textContent = llamitaMoodCopy();
+
+        llamitaNeeds.forEach((needElement) => {
+          const need = needElement.dataset.need;
+          const value = Math.round(clampLlamita(llamitaState[need]));
+          needElement.querySelector("[data-need-value]").textContent = `${value}%`;
+          needElement.querySelector("[data-need-meter]").style.width = `${value}%`;
+        });
+
+        llamitaActionButtons.forEach((button) => {
+          const action = button.dataset.llamitaAction;
+          button.disabled = isLlamitaHatching || (llamitaState.asleep && action !== "sleep");
+        });
+        llamitaSleepLabel.textContent = llamitaState.asleep ? "Wake" : "Sleep";
+        const xpNeeded = llamitaLevelXpNeeded();
+        const evolutionCopy =
+          llamitaState.level < 3
+            ? "bright evolution at level 3"
+            : llamitaState.level < 5
+              ? "strong evolution at level 5"
+              : `care difficulty x${llamitaDifficulty().toFixed(2)}`;
+        llamitaGrowthLabel.textContent = `Level ${llamitaState.level} \u2022 ${evolutionCopy}`;
+        const xpDisplay = Number.isInteger(llamitaState.xp)
+          ? String(llamitaState.xp)
+          : llamitaState.xp.toFixed(1);
+        llamitaGrowthValue.textContent = `${xpDisplay} / ${xpNeeded} XP`;
+        llamitaGrowthMeter.style.width = `${Math.min(100, (llamitaState.xp / xpNeeded) * 100)}%`;
+
+        llamitaShopBalance.textContent = `${llamitaState.embers} ember${llamitaState.embers === 1 ? "" : "s"}`;
+        llamitaShopItems.forEach((button) => {
+          const itemId = button.dataset.llamitaItem;
+          const item = llamitaItemData[itemId];
+          const owned = ownsLlamitaItem(itemId);
+          const canAfford = llamitaState.embers >= item.price;
+          button.classList.toggle("is-owned", owned);
+          button.classList.toggle("cannot-afford", !owned && !canAfford);
+          button.disabled = owned;
+          button.querySelector("[data-item-price]").textContent = owned ? "Owned" : `${item.price} \u2666`;
+          button.setAttribute(
+            "aria-label",
+            owned ? `${item.name}, owned` : `${item.name}, ${item.price} embers`
+          );
+        });
+
+        if (Date.now() >= llamitaMessageUntil) {
+          llamitaSpeech.textContent = defaultLlamitaMessage();
+        }
+      }
+
+      function igniteLlamita() {
+        if (llamitaState.stage > 0 || isLlamitaHatching) return;
+        isLlamitaHatching = true;
+        llamitaHabitat.classList.add("is-hatching");
+        llamitaIgnite.disabled = true;
+        setLlamitaMessage("Hold still... the tiny spark is listening.", 2300);
+        createLlamitaBurst(["\u2726", "\u00b7"], "#ffd765", 10);
+
+        const birthDelay = prefersReducedMotion ? 80 : 650;
+        const finishDelay = prefersReducedMotion ? 180 : 2150;
+        window.setTimeout(() => {
+          llamitaState.stage = 1;
+          llamitaState.hunger = 84;
+          llamitaState.joy = 88;
+          llamitaState.energy = 86;
+          llamitaState.cleanliness = 90;
+          llamitaState.love = 92;
+          llamitaState.carePoints = 1;
+          llamitaState.level = 1;
+          llamitaState.xp = 0;
+          llamitaState.embers = 4;
+          llamitaState.ownedItems = [];
+          llamitaState.sleepRestProgressMs = 0;
+          llamitaState.lastUpdated = Date.now();
+          showLlamitaVisual("hello", 3600);
+          saveLlamitaState();
+          renderLlamita();
+          createLlamitaBurst(["\u2665", "\u2726"], "#ff9f68", 12);
+        }, birthDelay);
+
+        window.setTimeout(() => {
+          isLlamitaHatching = false;
+          llamitaHabitat.classList.remove("is-hatching");
+          setLlamitaMessage("Oh! I am your little flame now.", 7000);
+          renderLlamita();
+        }, finishDelay);
+      }
+
+      function careForLlamita(action) {
+        if (llamitaState.stage === 0) {
+          igniteLlamita();
+          return;
+        }
+        if (isLlamitaHatching) return;
+        if (llamitaState.asleep && action !== "sleep") return;
+        const now = Date.now();
+        if (now - llamitaLastActionAt < 600) return;
+        llamitaLastActionAt = now;
+        applyLlamitaTime();
+        const difficulty = llamitaDifficulty();
+        let reaction = "react-pet";
+        let symbols = ["\u2665", "\u2726"];
+        let color = "#ff9a72";
+        let xpReward = 0;
+        let emberReward = 0;
+        let actionVisual = "";
+        let actionVisualDuration = 1900;
+
+        if (action === "feed") {
+          const feedBoost = ownsLlamitaItem("glow-berry") ? 8 : 0;
+          llamitaState.hunger = clampLlamita(llamitaState.hunger + 24 + feedBoost);
+          xpReward = 3;
+          emberReward = 1;
+          reaction = "react-feed";
+          actionVisual = llamitaState.carePoints % 2 === 0 ? "burrito" : "taco";
+          actionVisualDuration = 2400;
+          symbols = ["\u2665", "\u00b7", "\u2726"];
+          setLlamitaMessage("Mmm... that tastes like a warm little hug.");
+        } else if (action === "play") {
+          const playBoost = ownsLlamitaItem("play-bell") ? 7 : 0;
+          llamitaState.joy = clampLlamita(llamitaState.joy + 22 + playBoost);
+          llamitaState.hunger = clampLlamita(llamitaState.hunger - 7 * difficulty);
+          llamitaState.energy = clampLlamita(llamitaState.energy - 9 * difficulty);
+          llamitaState.cleanliness = clampLlamita(llamitaState.cleanliness - 11 * difficulty);
+          xpReward = 4;
+          emberReward = 2;
+          reaction = "react-play";
+          actionVisual = "play";
+          actionVisualDuration = 2300;
+          symbols = ["\u2605", "\u2726"];
+          color = "#ffcf5a";
+          setLlamitaMessage("Again! I am happy, hungry, a little tired, and wonderfully messy.");
+        } else if (action === "pet") {
+          const heartBoost = ownsLlamitaItem("heart-charm") ? 5 : 0;
+          const loveRecoveryFactor = 0.28 + (llamitaState.love / 100) * 0.72;
+          const loveGain = ((22 + heartBoost) * loveRecoveryFactor) / difficulty;
+          llamitaState.love = clampLlamita(llamitaState.love + loveGain);
+          llamitaState.cleanliness = clampLlamita(llamitaState.cleanliness - 4 * difficulty);
+          llamitaState.energy = clampLlamita(llamitaState.energy - 4 * difficulty);
+          llamitaState.hunger = clampLlamita(llamitaState.hunger - 3 * difficulty);
+          xpReward = 3;
+          emberReward = 1;
+          reaction = "react-pet";
+          actionVisual = "happy";
+          symbols = ["\u2665", "\u2661"];
+          color = "#ff7188";
+          setLlamitaMessage(
+            loveGain < 10
+              ? "I am still a little unsure... but your gentle touch reached me."
+              : "Your hand is gentle. I saved that feeling."
+          );
+        } else if (action === "clean") {
+          const cleanBoost = ownsLlamitaItem("bubble-brush") ? 10 : 0;
+          llamitaState.cleanliness = clampLlamita(llamitaState.cleanliness + 28 + cleanBoost);
+          xpReward = 3;
+          emberReward = 1;
+          reaction = "react-clean";
+          actionVisual = "shower";
+          actionVisualDuration = 2400;
+          symbols = ["\u2726", "\u00b0"];
+          color = "#8de1c4";
+          setLlamitaMessage("So sparkly! I can almost see my tiny glow.");
+        } else if (action === "sleep") {
+          window.clearTimeout(llamitaVisualTimer);
+          llamitaVisualState = "";
+          llamitaVisualUntil = 0;
+          llamitaState.asleep = !llamitaState.asleep;
+          if (llamitaState.asleep) {
+            setLlamitaMessage("Good night... rest and sleepy XP now grow together.", 8000);
+            symbols = ["\u263e", "\u2726"];
+            color = "#b7d6ff";
+          } else {
+            setLlamitaMessage("Good morning! Rest and sleepy XP stop as soon as I wake up.");
+            symbols = ["\u2600", "\u2665"];
+            color = "#ffd765";
+          }
+        } else {
+          return;
+        }
+
+        llamitaState.carePoints += 1;
+        const leveledUp = xpReward > 0 ? grantLlamitaProgress(xpReward, emberReward) : false;
+        llamitaState.lastUpdated = Date.now();
+        if (actionVisual) showLlamitaVisual(actionVisual, actionVisualDuration);
+        saveLlamitaState();
+        renderLlamita();
+        createLlamitaBurst(symbols, color, action === "pet" ? 9 : 7);
+
+        if (leveledUp) {
+          playLlamitaReaction("is-growing");
+          setLlamitaMessage(
+            `Level ${llamitaState.level}! I grew stronger, and caring for me will be a little harder now.`,
+            9000
+          );
+          createLlamitaBurst(["\u2665", "\u2605", "\u2726"], "#ffd765", 15);
+        } else if (action !== "sleep") {
+          playLlamitaReaction(reaction);
+        }
+      }
+
       function setViewNavOpen(isOpen) {
         isViewNavOpen = isOpen;
         viewMenuToggle.classList.toggle("is-open", isOpen);
@@ -3586,6 +5080,12 @@
               loadWeather();
               loadFuelPrices();
             }
+          }
+
+          if (viewId === "llamita") {
+            preloadLlamitaImages();
+            applyLlamitaTime();
+            renderLlamita();
           }
 
           isViewSwitching = false;
@@ -4233,12 +5733,36 @@
           triggerSnakeHappy();
         }
       });
+      llamitaIgnite.addEventListener("click", igniteLlamita);
+      llamitaPet.addEventListener("click", () => {
+        if (llamitaState.stage === 0) {
+          igniteLlamita();
+        } else if (!llamitaState.asleep) {
+          careForLlamita("pet");
+        }
+      });
+      llamitaActionButtons.forEach((button) => {
+        button.addEventListener("click", () => careForLlamita(button.dataset.llamitaAction));
+      });
+      llamitaShopToggle.addEventListener("click", () => {
+        setLlamitaShopOpen(!isLlamitaShopOpen);
+      });
+      llamitaShopItems.forEach((button) => {
+        button.addEventListener("click", () => buyLlamitaItem(button.dataset.llamitaItem));
+      });
       updateTime();
       loadCurrentSong();
       updateSongControls();
       collectionCounts = loadCollectionCounts();
       renderCollection();
+      applyLlamitaTime();
+      setLlamitaShopOpen(false);
+      renderLlamita();
       setInterval(updateTime, 30000);
+      setInterval(() => {
+        if (applyLlamitaTime()) renderLlamita();
+      }, 500);
     </script>
+    <script src="assets/llamita-upgrade.js"></script>
   </body>
 </html>
