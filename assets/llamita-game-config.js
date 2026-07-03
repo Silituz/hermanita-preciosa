@@ -50,7 +50,7 @@
       permanentPrices.normal,
       "\u25cf",
       (index) => ({ action: "feed", stat: "hunger", actionBonus: [3, 6, 10, 15, 22][index], itemStat: "hunger", itemMultiplier: [1.05, 1.1, 1.15, 1.22, 1.3][index] }),
-      (index) => `Feed +${[3, 6, 10, 15, 22][index]} Hunger; Hunger items +${[5, 10, 15, 22, 30][index]}%`
+      (index) => `Feed +${[3, 6, 10, 15, 22][index]} Hungry; Hungry items +${[5, 10, 15, 22, 30][index]}%`
     ),
     ...permanentFamily(
       "happy-spark",
@@ -93,11 +93,11 @@
       (index) => `Permanent +${[2, 4, 7, 10, 15][index]}% Ember rewards`
     ),
 
-    item("sparkle-cookie-i", "Sparkle Cookie I", "food", 90, { hunger: 12, joy: 8 }, 1, { icon: "\u2736", description: "+12 Hunger, +8 Joy" }),
-    item("sparkle-cookie-ii", "Sparkle Cookie II", "food", 180, { hunger: 24, joy: 14 }, 2, { icon: "\u2736", description: "+24 Hunger, +14 Joy" }),
-    item("sparkle-cookie-iii", "Sparkle Cookie III", "food", 330, { hunger: 40, joy: 24 }, 3, { icon: "\u2736", description: "+40 Hunger, +24 Joy" }),
-    item("sparkle-cookie-iv", "Sparkle Cookie IV", "food", 540, { hunger: 58, joy: 36 }, 4, { icon: "\u2736", description: "+58 Hunger, +36 Joy" }),
-    item("sparkle-cookie-v", "Sparkle Cookie V", "food", 850, { hunger: 80, joy: 55 }, 5, { icon: "\u2736", description: "+80 Hunger, +55 Joy" }),
+    item("sparkle-cookie-i", "Sparkle Cookie I", "food", 90, { hunger: 12, joy: 8 }, 1, { icon: "\u2736", description: "+12 Hungry, +8 Joy" }),
+    item("sparkle-cookie-ii", "Sparkle Cookie II", "food", 180, { hunger: 24, joy: 14 }, 2, { icon: "\u2736", description: "+24 Hungry, +14 Joy" }),
+    item("sparkle-cookie-iii", "Sparkle Cookie III", "food", 330, { hunger: 40, joy: 24 }, 3, { icon: "\u2736", description: "+40 Hungry, +24 Joy" }),
+    item("sparkle-cookie-iv", "Sparkle Cookie IV", "food", 540, { hunger: 58, joy: 36 }, 4, { icon: "\u2736", description: "+58 Hungry, +36 Joy" }),
+    item("sparkle-cookie-v", "Sparkle Cookie V", "food", 850, { hunger: 80, joy: 55 }, 5, { icon: "\u2736", description: "+80 Hungry, +55 Joy" }),
 
     item("rose-tea-i", "Rose Tea I", "joy", 90, { joy: 15, love: 5 }, 1, { icon: "\u2665", description: "+15 Joy, +5 Love" }),
     item("rose-tea-ii", "Rose Tea II", "joy", 180, { joy: 28, love: 10 }, 2, { icon: "\u2665", description: "+28 Joy, +10 Love" }),
@@ -111,11 +111,17 @@
     item("moon-milk-iv", "Sleepy Moon Milk IV", "rest", 620, { energy: 72, joy: 18 }, 4, { icon: "\u263e", description: "+72 Rest, +18 Joy" }),
     item("moon-milk-v", "Sleepy Moon Milk V", "rest", 960, { energy: 100, joy: 28 }, 5, { icon: "\u263e", description: "+100 Rest, +28 Joy" }),
 
-    item("cozy-taco-i", "Cozy Taco I", "combo", 120, { hunger: 25, joy: 15 }, 1, { icon: "\u25d2", description: "+25 Hunger, +15 Joy" }),
-    item("cozy-taco-ii", "Cozy Taco II", "combo", 240, { hunger: 45, joy: 30 }, 2, { icon: "\u25d2", description: "+45 Hunger, +30 Joy" }),
-    item("cozy-taco-iii", "Cozy Taco III", "combo", 430, { hunger: 70, joy: 45 }, 3, { icon: "\u25d2", description: "+70 Hunger, +45 Joy" }),
-    item("cozy-taco-iv", "Cozy Taco IV", "combo", 680, { hunger: 90, joy: 60, love: 10 }, 4, { icon: "\u25d2", description: "+90 Hunger, +60 Joy, +10 Love" }),
-    item("cozy-taco-v", "Cozy Taco V", "combo", 980, { hunger: "max", joy: 85, love: 20 }, 5, { icon: "\u25d2", description: "Full Hunger, +85 Joy, +20 Love" }),
+    item("sparkle-bath-i", "Sparkle Bath I", "clean", 85, { cleanliness: 18 }, 1, { icon: "\u2727", description: "+18 Clean" }),
+    item("sparkle-bath-ii", "Sparkle Bath II", "clean", 170, { cleanliness: 34 }, 2, { icon: "\u2727", description: "+34 Clean" }),
+    item("sparkle-bath-iii", "Sparkle Bath III", "clean", 320, { cleanliness: 52, joy: 5 }, 3, { icon: "\u2727", description: "+52 Clean, +5 Joy" }),
+    item("sparkle-bath-iv", "Sparkle Bath IV", "clean", 520, { cleanliness: 74, joy: 10 }, 4, { icon: "\u2727", description: "+74 Clean, +10 Joy" }),
+    item("sparkle-bath-v", "Sparkle Bath V", "clean", 820, { cleanliness: "max", joy: 18 }, 5, { icon: "\u2727", description: "Full Clean, +18 Joy" }),
+
+    item("cozy-taco-i", "Cozy Taco I", "combo", 120, { hunger: 25, joy: 15 }, 1, { icon: "\u25d2", description: "+25 Hungry, +15 Joy" }),
+    item("cozy-taco-ii", "Cozy Taco II", "combo", 240, { hunger: 45, joy: 30 }, 2, { icon: "\u25d2", description: "+45 Hungry, +30 Joy" }),
+    item("cozy-taco-iii", "Cozy Taco III", "combo", 430, { hunger: 70, joy: 45 }, 3, { icon: "\u25d2", description: "+70 Hungry, +45 Joy" }),
+    item("cozy-taco-iv", "Cozy Taco IV", "combo", 680, { hunger: 90, joy: 60, love: 10 }, 4, { icon: "\u25d2", description: "+90 Hungry, +60 Joy, +10 Love" }),
+    item("cozy-taco-v", "Cozy Taco V", "combo", 980, { hunger: "max", joy: 85, love: 20 }, 5, { icon: "\u25d2", description: "Full Hungry, +85 Joy, +20 Love" }),
 
     item("warm-cocoa-i", "Warm Cocoa I", "combo", 110, { joy: 20, energy: 10 }, 1, { icon: "\u25d0", description: "+20 Joy, +10 Rest" }),
     item("warm-cocoa-ii", "Warm Cocoa II", "combo", 230, { joy: 35, energy: 25 }, 2, { icon: "\u25d0", description: "+35 Joy, +25 Rest" }),
@@ -123,20 +129,20 @@
     item("warm-cocoa-iv", "Warm Cocoa IV", "combo", 660, { joy: 72, energy: 58, love: 10 }, 4, { icon: "\u25d0", description: "+72 Joy, +58 Rest, +10 Love" }),
     item("warm-cocoa-v", "Warm Cocoa V", "combo", 980, { joy: "max", energy: 82, love: 20 }, 5, { icon: "\u25d0", description: "Full Joy, +82 Rest, +20 Love" }),
 
-    item("special-meal", "Special Meal", "combo", 200, { hunger: "max", joy: "max" }, 0, { icon: "\u2605", description: "Fills Hunger and Joy together" }),
-    item("little-feast", "Little Feast", "combo", 650, { hunger: 50, joy: 50 }, 0, { unlockLevel: 10, icon: "\u2737", description: "+50 Hunger and +50 Joy" }),
-    item("glow-care-box", "Glow Care Box", "combo", 1200, { hunger: 50, joy: 50, energy: 50 }, 0, { unlockLevel: 20, icon: "\u25c7", description: "+50 Hunger, Joy, and Rest" }),
-    item("hearty-toast", "Hearty Glow Toast", "food", 180, { hunger: 45, love: 4 }, 0, { icon: "\u25b0", description: "+45 Hunger and +4 Love" }),
+    item("special-meal", "Special Meal", "combo", 200, { hunger: "max", joy: "max" }, 0, { icon: "\u2605", description: "Fills Hungry and Joy together" }),
+    item("little-feast", "Little Feast", "combo", 650, { hunger: 50, joy: 50 }, 0, { unlockLevel: 10, icon: "\u2737", description: "+50 Hungry and +50 Joy" }),
+    item("glow-care-box", "Glow Care Box", "combo", 1200, { hunger: 50, joy: 50, energy: 50 }, 0, { unlockLevel: 20, icon: "\u25c7", description: "+50 Hungry, Joy, and Rest" }),
+    item("hearty-toast", "Hearty Glow Toast", "food", 180, { hunger: 45, love: 4 }, 0, { icon: "\u25b0", description: "+45 Hungry and +4 Love" }),
     item("joy-lantern", "Joy Lantern", "joy", 260, { joy: 40, love: 8 }, 0, { unlockLevel: 3, icon: "\u2600", description: "+40 Joy and +8 Love" }),
     item("dream-cloud", "Dream Cloud", "rest", 300, { energy: 48, joy: 8 }, 0, { unlockLevel: 3, icon: "\u263e", description: "+48 Rest and +8 Joy" }),
     item("heart-macaron", "Heart Macaron", "love", 240, { love: 28, joy: 10 }, 0, { unlockLevel: 3, icon: "\u2665", description: "+28 Love and +10 Joy" }),
     item("rose-hug", "Rose Hug", "love", 520, { love: 55, joy: 22 }, 0, { unlockLevel: 8, icon: "\u2764", description: "+55 Love and +22 Joy" }),
     item("study-spark", "Study Spark", "xp", 750, { xp: 45 }, 0, { unlockLevel: 8, icon: "\u2726", description: "One-time +45 XP" }),
-    item("cozy-care-basket", "Cozy Care Basket", "combo", 900, { hunger: 40, joy: 40, energy: 40, love: 30 }, 0, { unlockLevel: 12, icon: "\u25c7", description: "+40 Hunger, Joy, Rest and +30 Love" }),
+    item("cozy-care-basket", "Cozy Care Basket", "combo", 900, { hunger: 40, joy: 40, energy: 40, love: 30 }, 0, { unlockLevel: 12, icon: "\u25c7", description: "+40 Hungry, Joy, Rest and +30 Love" }),
     item("full-care-lantern", "Full Care Lantern", "combo", 1800, { fillAll: true }, 0, { unlockLevel: 18, icon: "\u2600", description: "Fills every care stat completely" }),
 
     item("emergency-care", "Emergency Care Boost", "boost", 1000, { atLeastMain: 70 }, 0, { unlockLevel: 10, type: "boost", icon: "\u271a", description: "Raises all main stats to at least 70%" }),
-    item("full-glow", "Full Glow Boost", "boost", 1500, { fillMain: true }, 0, { unlockLevel: 15, type: "boost", maxOwned: 1, icon: "\u2600", description: "Fills Hunger, Joy, and Rest" }),
+    item("full-glow", "Full Glow Boost", "boost", 1500, { fillMain: true }, 0, { unlockLevel: 15, type: "boost", maxOwned: 1, icon: "\u2600", description: "Fills Hungry, Joy, and Rest" }),
     item("ember-blessing", "Ember Blessing", "boost", 2000, { activeBoost: { group: "ember", emberMultiplier: 1.5, durationMinutes: 30 } }, 0, { unlockLevel: 20, type: "boost", icon: "\u2666", description: "+50% Ember rewards for 30 minutes" }),
     item("perfect-care", "Perfect Care Boost", "boost", 2500, { fillAll: true, xp: 25 }, 0, { unlockLevel: 30, type: "boost", icon: "\u2739", description: "Fills every stat and grants +25 XP" }),
 
@@ -145,9 +151,9 @@
     item("xp-spark-iii", "XP Spark III", "xp", 1800, { activeBoost: { group: "xp", xpMultiplier: 1.3, durationMinutes: 30 } }, 0, { unlockLevel: 20, type: "boost", icon: "\u2726", description: "+30% XP for 30 minutes" }),
     item("golden-xp-flame", "Golden XP Flame", "xp", 3000, { activeBoost: { group: "xp", xpMultiplier: 1.5, durationMinutes: 30 } }, 0, { unlockLevel: 35, type: "boost", icon: "\u2605", description: "+50% XP for 30 minutes" }),
 
-    item("rose-ribbon", "Rose Ribbon", "cosmetics", 350, {}, 0, { unlockLevel: 5, type: "cosmetic", icon: "\u2665", cosmetic: "rose-ribbon", description: "A soft rose-colored ribbon glow" }),
-    item("golden-glasses", "Golden Glasses", "cosmetics", 650, {}, 0, { unlockLevel: 10, type: "cosmetic", icon: "\u25c7", cosmetic: "golden-glasses", description: "A warm golden sparkle for her glasses" }),
-    item("starlight-aura", "Starlight Aura", "cosmetics", 900, {}, 0, { unlockLevel: 20, type: "cosmetic", icon: "\u2605", cosmetic: "starlight-aura", description: "Tiny stars drift around her glow" })
+    item("rose-ribbon", "Rose Ribbon", "cosmetics", 350, {}, 0, { unlockLevel: 5, type: "cosmetic", icon: "\u2665", cosmetic: "rose-ribbon", cosmeticBonus: { emberMultiplier: 1.03 }, description: "An animated rose ribbon glow; +3% Ember while equipped" }),
+    item("golden-glasses", "Golden Glasses", "cosmetics", 650, {}, 0, { unlockLevel: 10, type: "cosmetic", icon: "\u25c7", cosmetic: "golden-glasses", cosmeticBonus: { emberMultiplier: 1.03 }, description: "Animated golden sparkles; +3% Ember while equipped" }),
+    item("starlight-aura", "Starlight Aura", "cosmetics", 900, {}, 0, { unlockLevel: 20, type: "cosmetic", icon: "\u2605", cosmetic: "starlight-aura", cosmeticBonus: { emberMultiplier: 1.03 }, description: "Animated drifting stars; +3% Ember while equipped" })
   ];
 
   const milestoneRewards = [
@@ -206,275 +212,4 @@
         ["Which voice type is usually the highest?", ["Bass", "Baritone", "Tenor", "Soprano"], 3]
       ],
       Medium: [
-        ["What does the tempo marking adagio usually mean?", ["Very fast", "Slow", "Loud", "Playful"], 1],
-        ["What is the relative minor of C major?", ["A minor", "D minor", "E minor", "G minor"], 0],
-        ["Who composed The Four Seasons?", ["Mozart", "Vivaldi", "Chopin", "Debussy"], 1],
-        ["An octave spans how many letter-named notes?", ["Five", "Six", "Seven", "Eight"], 3],
-        ["What does DAW stand for in music production?", ["Digital Audio Workstation", "Dynamic Acoustic Wave", "Direct Analog Writing", "Digital Artist Wire"], 0]
-      ],
-      Hard: [
-        ["Who composed The Well-Tempered Clavier?", ["J. S. Bach", "Franz Liszt", "Gustav Mahler", "Maurice Ravel"], 0],
-        ["Compared with natural minor, which degree is raised in the Dorian mode?", ["Second", "Third", "Sixth", "Seventh"], 2],
-        ["Who composed The Rite of Spring?", ["Stravinsky", "Tchaikovsky", "Brahms", "Handel"], 0],
-        ["Which major key has one sharp?", ["D major", "G major", "A major", "E major"], 1],
-        ["Which note is enharmonic with C-sharp?", ["D-flat", "B-sharp", "E-flat", "C-flat"], 0]
-      ]
-    },
-    "K-Pop": {
-      Easy: [
-        ["K-Pop is most closely associated with which country?", ["Japan", "South Korea", "Thailand", "China"], 1],
-        ["What is BTS's official fandom name?", ["BLINK", "ONCE", "ARMY", "MOA"], 2],
-        ["What is BLACKPINK's fandom name?", ["BLINK", "MIDZY", "CARAT", "STAY"], 0],
-        ["Which word commonly describes the youngest member of a K-Pop group?", ["Leader", "Maknae", "Main", "Trainee"], 1],
-        ["What is a lightstick mainly used for?", ["Cooking", "Concert support", "Dance practice", "Recording"], 1]
-      ],
-      Medium: [
-        ["Which group is widely credited with helping shape modern K-Pop in the early 1990s?", ["Seo Taiji and Boys", "EXO", "TWICE", "IVE"], 0],
-        ["What is EXO's official fandom name?", ["EXO-L", "ELF", "Moa", "Buddy"], 0],
-        ["What is TWICE's official fandom name?", ["Once", "Blink", "Stay", "Atiny"], 0],
-        ["What usually happens before an idol officially debuts?", ["A trainee period", "A world tour", "A film premiere", "A military parade"], 0],
-        ["Which group released the song God's Menu?", ["Stray Kids", "SHINee", "MAMAMOO", "aespa"], 0]
-      ],
-      Hard: [
-        ["What was SHINee's debut single?", ["Replay", "Lucifer", "Sherlock", "View"], 0],
-        ["What is Red Velvet's official fandom name?", ["ReVeluv", "Neverland", "Insomnia", "Melody"], 0],
-        ["Which BTS album includes the song Black Swan?", ["Map of the Soul: 7", "Wings", "BE", "Love Yourself: Her"], 0],
-        ["What was the title of BLACKPINK's debut single album?", ["Square One", "Born Pink", "The Album", "Kill This Love"], 0],
-        ["Which three units form SEVENTEEN's core unit system?", ["Hip-Hop, Vocal, Performance", "Dance, Rap, Visual", "Blue, Red, Gold", "Main, Lead, Sub"], 0]
-      ]
-    },
-    "Movies & Series": {
-      Easy: [
-        ["What is a story shown over several episodes called?", ["A series", "A trailer", "A poster", "A soundtrack"], 0],
-        ["Who usually guides the actors and creative vision on set?", ["Director", "Viewer", "Critic", "Usher"], 0],
-        ["What appears at the end to name the people who made a film?", ["Captions", "Credits", "Spoilers", "Subtitles"], 1],
-        ["What is a short preview for a movie called?", ["Finale", "Trailer", "Episode", "Scene"], 1],
-        ["Which genre is designed mainly to make people laugh?", ["Horror", "Drama", "Comedy", "Mystery"], 2]
-      ],
-      Medium: [
-        ["Who directed Parasite?", ["Bong Joon-ho", "Park Chan-wook", "Akira Kurosawa", "Ang Lee"], 0],
-        ["Wakanda is the home of which Marvel hero?", ["Thor", "Black Panther", "Hawkeye", "Doctor Strange"], 1],
-        ["What company is the setting of the US series The Office?", ["Dunder Mifflin", "Waystar Royco", "Los Pollos Hermanos", "Lumon"], 0],
-        ["Which studio created Spirited Away?", ["Pixar", "Studio Ghibli", "DreamWorks", "Aardman"], 1],
-        ["What subject did Walter White teach in Breaking Bad?", ["Physics", "Chemistry", "History", "Biology"], 1]
-      ],
-      Hard: [
-        ["What is the name of Charles Foster Kane's estate in Citizen Kane?", ["Xanadu", "Rosebud", "Manderley", "Graceland"], 0],
-        ["What are the bioengineered beings called in Blade Runner?", ["Replicants", "Synths", "Hosts", "Clones"], 0],
-        ["Where was most principal photography for The Lord of the Rings trilogy completed?", ["New Zealand", "Scotland", "Canada", "Iceland"], 0],
-        ["Who directed The Godfather?", ["Francis Ford Coppola", "Martin Scorsese", "Sidney Lumet", "Brian De Palma"], 0],
-        ["In which language was the series Dark originally produced?", ["Danish", "German", "Dutch", "Swedish"], 1]
-      ]
-    },
-    Animals: {
-      Easy: [
-        ["Which animal is the largest living mammal?", ["Elephant", "Blue whale", "Giraffe", "Hippopotamus"], 1],
-        ["What do bees collect from flowers?", ["Sand", "Nectar", "Salt", "Wool"], 1],
-        ["Which animal can change color to blend into its surroundings?", ["Chameleon", "Rabbit", "Penguin", "Horse"], 0],
-        ["What is a baby cat called?", ["Pup", "Calf", "Kitten", "Foal"], 2],
-        ["Which bird is famous for being unable to fly and living in Antarctica?", ["Eagle", "Penguin", "Sparrow", "Parrot"], 1]
-      ],
-      Medium: [
-        ["How many hearts does an octopus have?", ["One", "Two", "Three", "Four"], 2],
-        ["What type of animal is an axolotl?", ["Fish", "Amphibian", "Reptile", "Mammal"], 1],
-        ["Which mammals are capable of true sustained flight?", ["Flying squirrels", "Bats", "Sugar gliders", "Colugos"], 1],
-        ["What can give some sloths' fur a green tint?", ["Algae", "Copper", "Pollen", "Clay"], 0],
-        ["What dance do honeybees use to share a food location?", ["Waggle dance", "Moon dance", "Spiral dance", "Circle jump"], 0]
-      ],
-      Hard: [
-        ["A narwhal's tusk is actually an elongated what?", ["Horn", "Tooth", "Bone", "Claw"], 1],
-        ["Which sense helps a platypus locate prey underwater?", ["Electroreception", "Echolocation", "Infrared vision", "Magnetism only"], 0],
-        ["Which animal is famous for cube-shaped droppings?", ["Wombat", "Koala", "Capybara", "Badger"], 0],
-        ["A mantis shrimp belongs to which crustacean order?", ["Decapoda", "Stomatopoda", "Isopoda", "Amphipoda"], 1],
-        ["What is the scientific name of the blue whale?", ["Balaenoptera musculus", "Orcinus orca", "Physeter macrocephalus", "Megaptera novaeangliae"], 0]
-      ]
-    },
-    "Food & Culture": {
-      Easy: [
-        ["Which grain is traditionally used for risotto?", ["Rice", "Oats", "Corn", "Barley"], 0],
-        ["What is hummus mainly made from?", ["Lentils", "Chickpeas", "Potatoes", "Rice"], 1],
-        ["Which drink is made by steeping leaves in hot water?", ["Tea", "Soda", "Cider", "Milk"], 0],
-        ["What gives sourdough its rise and tang?", ["A starter", "Ice", "Oil", "Cocoa"], 0],
-        ["Which utensil is traditionally used for eating many East Asian dishes?", ["Whisk", "Chopsticks", "Ladle", "Tongs"], 1]
-      ],
-      Medium: [
-        ["Miso is traditionally made by fermenting which ingredient?", ["Soybeans", "Potatoes", "Apples", "Almonds"], 0],
-        ["What cooks the fish in a classic ceviche preparation?", ["Citrus acid", "Steam", "Smoke", "Hot oil"], 0],
-        ["Which process gives kimchi its characteristic tang?", ["Lactic fermentation", "Caramelization", "Distillation", "Freezing"], 0],
-        ["Paella is strongly associated with which Spanish region?", ["Valencia", "Galicia", "Navarre", "Asturias"], 0],
-        ["Tahini is made primarily from what?", ["Sesame seeds", "Walnuts", "Olives", "Sunflower petals"], 0]
-      ],
-      Hard: [
-        ["The Maillard reaction mainly occurs between amino acids and what?", ["Reducing sugars", "Mineral salts", "Water", "Citric acid"], 0],
-        ["What is nixtamalization?", ["Alkaline treatment of maize", "Smoking tea leaves", "Freezing cream", "Drying seaweed"], 0],
-        ["What is aquafaba?", ["Legume cooking liquid", "Fermented milk", "Herb oil", "Rice vinegar"], 0],
-        ["Which compound is closely associated with the taste of umami?", ["Glutamate", "Sucrose", "Menthol", "Caffeine"], 0],
-        ["Which is one of the five classical French mother sauces?", ["Bechamel", "Pesto", "Salsa verde", "Tzatziki"], 0]
-      ]
-    },
-    Mexico: {
-      Easy: [
-        ["What is the capital of Mexico?", ["Cancun", "Monterrey", "Mexico City", "Guadalajara"], 2],
-        ["Which ancient civilization built Chichen Itza?", ["Maya", "Roman", "Viking", "Egyptian"], 0],
-        ["What colors appear on the Mexican flag?", ["Blue, white, red", "Green, white, red", "Green, gold, blue", "Red, black, white"], 1],
-        ["Which celebration honors loved ones who have died?", ["Day of the Dead", "Carnival", "New Year", "Spring Day"], 0],
-        ["Which ingredient forms the base of a traditional corn tortilla?", ["Wheat", "Maize", "Rice", "Oats"], 1]
-      ],
-      Medium: [
-        ["What is Mexico's currency?", ["Peso", "Real", "Sol", "Quetzal"], 0],
-        ["Which is Mexico's largest state by area?", ["Chihuahua", "Jalisco", "Oaxaca", "Yucatan"], 0],
-        ["Which Mexican painter is known for many self-portraits?", ["Frida Kahlo", "Remedios Varo", "Maria Izquierdo", "Aurora Reyes"], 0],
-        ["Mole sauce commonly combines chilies with what?", ["Spices and seeds", "Only water", "Raw lettuce", "Plain milk"], 0],
-        ["On which date is Mexican Independence Day celebrated?", ["May 5", "September 16", "November 20", "December 12"], 1]
-      ],
-      Hard: [
-        ["In which modern federal entity is Teotihuacan located?", ["State of Mexico", "Puebla", "Hidalgo", "Morelos"], 0],
-        ["The Maya city of Palenque is in which Mexican state?", ["Chiapas", "Sonora", "Nayarit", "Tlaxcala"], 0],
-        ["The axolotl is native to the lake system of which place?", ["Xochimilco", "Chapultepec", "Tulum", "Copper Canyon"], 0],
-        ["In which year did the Mexican Revolution begin?", ["1810", "1862", "1910", "1938"], 2],
-        ["The word chocolate reached Spanish through a word associated with which language?", ["Nahuatl", "Latin", "Quechua", "Basque"], 0]
-      ]
-    },
-    "Personal Fun Facts": {
-      Easy: [
-        ["What is the name of the cozy shop?", ["Little Glow Shop", "Moon Market", "Spark Store", "Rose Room"], 0],
-        ["What currency does the little flame collect?", ["Stars", "Ember", "Pearls", "Petals"], 1],
-        ["Which reward can be downloaded and sent to Ren\u00e9?", ["Reward Card", "Glow Berry", "Moon Milk", "Daily Stamp"], 0],
-        ["What does Sleep Mode restore?", ["Rest", "Ember", "Claim codes", "Shop prices"], 0],
-        ["What unlocks after 7 Daily Glow Stamps?", ["Weekly Glow Bottle", "A cold shower", "A locked shop", "Nothing"], 0]
-      ],
-      Medium: [
-        ["How long does a Weekly Glow Bottle last?", ["10 minutes", "30 minutes", "60 minutes", "One week"], 2],
-        ["Which item fills Hunger, Joy, and Rest completely?", ["Full Glow Boost", "Rose Tea I", "Glow Berry I", "Daily Stamp"], 0],
-        ["How often does the level-based Ember multiplier improve?", ["Every 5 levels", "Every 10 levels", "Every 25 levels", "Only at Level 100"], 1],
-        ["How many games are inside the Glow Arcade?", ["Two", "Three", "Four", "Seven"], 2],
-        ["What kind of item can help more than one stat?", ["A combo item", "A claim code", "A badge", "A backup"], 0]
-      ],
-      Hard: [
-        ["What is the legendary Level 100 reward?", ["A custom T-shirt", "A Glow Berry", "A quiz hint", "A daily stamp"], 0],
-        ["How often do personal milestone rewards unlock?", ["Every 3 levels", "Every 5 levels", "Every 8 levels", "Every 20 levels"], 1],
-        ["What does XP Spark III provide?", ["+30% XP for 30 minutes", "+10% XP for 10 minutes", "Double Ember for one hour", "Full Rest instantly"], 0],
-        ["Which word begins every saved reward claim code?", ["FLAME", "EMBER", "GLOW", "SISTER"], 0],
-        ["Which file type is used for exported game backups?", ["JSON", "MP3", "PNG", "PDF"], 0]
-      ]
-    }
-  };
-
-  Object.values(quizQuestions).forEach((difficultyGroups) => {
-    Object.keys(difficultyGroups).forEach((difficulty) => {
-      difficultyGroups[difficulty] = difficultyGroups[difficulty].map(([question, answers, correct]) => ({
-        question,
-        answers,
-        correct,
-        difficulty
-      }));
-    });
-  });
-
-  window.LLAMITA_GAME_CONFIG = {
-    saveVersion: 4,
-    storageKey: "good-mood-mi-llamita-v1",
-    backupKind: "mi-llamita-save",
-    stats: {
-      keys: ["hunger", "joy", "energy", "cleanliness", "love"],
-      main: ["hunger", "joy", "energy"],
-      baseMax: 100,
-      minimum: 0,
-      awakeDecayPerMinute: { hunger: 0.32, joy: 0.24, energy: 0.08, cleanliness: 0.15, love: 0.12 },
-      sleepingDecayPerMinute: { hunger: 0.03, joy: 0.01, cleanliness: 0.02, love: 0.01 },
-      sleepRestPerMinute: 14.4,
-      sleepXpPerMinute: 5,
-      maxOfflineMinutes: 720
-    },
-    actions: {
-      feed: { stats: { hunger: 18 }, xp: 3, embers: 1 },
-      play: { stats: { joy: 12, hunger: -2, energy: -1, cleanliness: -2 }, xp: 4, embers: 2 },
-      pet: { stats: { joy: 5, love: 7 }, xp: 2, embers: 1, cooldownMs: 8000, restDrainCooldownMs: 60000 },
-      clean: { stats: { cleanliness: 25 }, xp: 3, embers: 1 }
-    },
-    level: {
-      xpBase: 24,
-      xpPerLevel: 12,
-      maxStatPerLevel: 1,
-      milestoneExtraMax: 4,
-      emberMultiplierStepLevels: 10,
-      emberMultiplierStep: 0.05,
-      levelUpEmberBase: 10,
-      levelUpEmberPerLevel: 2
-    },
-    loveBonus: {
-      thresholds: [
-        { minimumPercent: 100, multiplier: 1.2 },
-        { minimumPercent: 80, multiplier: 1.15 },
-        { minimumPercent: 60, multiplier: 1.1 },
-        { minimumPercent: 40, multiplier: 1.06 },
-        { minimumPercent: 20, multiplier: 1.03 },
-        { minimumPercent: 0, multiplier: 1 }
-      ]
-    },
-    daily: {
-      emberReward: 50,
-      xpReward: 5,
-      stampsRequired: 7,
-      weeklyEmberReward: 200,
-      weeklyDurationMinutes: 60,
-      weeklyXpMultiplier: 2,
-      weeklyDecayMultiplier: 0.4
-    },
-    arcade: {
-      whack: {
-        durationSeconds: 18,
-        highScoreBonus: 100,
-        maxBaseEmber: 30,
-        strongScore: 12,
-        strongXp: 10,
-        symbols: [
-          { id: "flame", symbol: "\ud83d\udd25", points: 1, weight: 65, label: "+1 point" },
-          { id: "sparkle", symbol: "\u2728", points: 5, weight: 15, label: "Bonus points" },
-          { id: "water", symbol: "\ud83d\udca7", points: -1, weight: 15, label: "-1 point" },
-          { id: "skull", symbol: "\ud83d\udc80", resetScore: true, weight: 5, label: "Lose all points" }
-        ]
-      },
-      flappy: {
-        highScoreBonus: 150,
-        score10Ember: 20,
-        score25Ember: 50,
-        score50Xp: 20,
-        spritePath: "assets/flappy-flame-sprite.png",
-        spriteWidth: 50,
-        spriteHeight: 64,
-        hitboxRadius: 12
-      },
-      snake: { highScoreBonus: 150, score10Ember: 30, score25Ember: 80, score50Xp: 25, gridSize: 20, tickMs: 135, wrapAround: true },
-      quiz: {
-        rounds: 5,
-        jackpotBonus: 100,
-        minimumBet: 10,
-        defaultBet: 50,
-        allowNoBet: true,
-        noBetBaseRewards: { 3: 6, 4: 14, 5: 28 },
-        difficulties: {
-          Easy: { multiplier: 1.5 },
-          Medium: { multiplier: 2 },
-          Hard: { multiplier: 3 }
-        }
-      }
-    },
-    shopCategories: [
-      { id: "permanent", label: "Permanent Upgrades" },
-      { id: "food", label: "Food" },
-      { id: "joy", label: "Joy Items" },
-      { id: "love", label: "Love Items" },
-      { id: "rest", label: "Rest Items" },
-      { id: "combo", label: "Combo Items" },
-      { id: "boost", label: "Boosts" },
-      { id: "xp", label: "XP Boosts" },
-      { id: "cosmetics", label: "Cosmetics" }
-    ],
-    rewardCards: { layoutVersion: 2 },
-    shopItems,
-    milestoneRewards,
-    quizQuestions,
-    creativeDisclaimer: "This reward lets you choose the theme and general idea. I will try to follow your wish as closely as possible, but small differences in style, details, movement, lyrics, sound, or final result may happen because creative tools cannot always create everything exactly as imagined."
-  };
-})();
+        ["What doeç^5¶‰žËkºwµçx°”ˆ°€‰ÑÑ…„ˆ°€‰…”Ñ¡”MÕ¸‰t°€Át°(€€€€€€€l‰]¡¥ Í½¹œµ…É­•I•Y•±Ù•ÐÌ½™™¥¥…°‘•‰ÕÐüˆ°l‰!…ÁÁ¥¹•ÍÌˆ°€‰AÍå¡¼ˆ°€‰	…	½äˆ°€‰IÕÍÍ¥…¸I½Õ±•ÑÑ”‰t°€Át(€€€€€t(€€€ô°(€€€€‰5½Ù¥•Ì€˜M•É¥•Ìˆèì(€€€€€…Íäèl(€€€€€€€l‰]¡…Ð¥ÌÑ¡”ÝÉ¥ÑÑ•¸Ñ•áÐ™½È„™¥±´…±±•üˆ°l‰ÍÉ••¹Á±…äˆ°€‰Ñ¥­•Ðˆ°€‰É•Ù¥•Üˆ°€‰Á½ÍÑ•È‰t°€Át°(€€€€€€€l‰]¡…Ð‘½•Ì„Í•ÅÕ•°ÕÍÕ…±±ä‘¼üˆ°l‰½¹Ñ¥¹Õ•Ì…¸•…É±¥•ÈÍÑ½Éäˆ°€‰…¹•±Ì„ÁÉ•µ¥•É”ˆ°€‰I•µ½Ù•Ì…±°…Ñ½ÉÌˆ°€‰M¡½ÉÑ•¹ÌÑ¡”É•‘¥ÑÌ‰t°€Át°(€€€€€€€l‰]¡…ÐÉ•…Ñ•ÌÑ¡”¥±±ÕÍ¥½¸½˜µ½Ù•µ•¹Ð¥¸…¹¥µ…Ñ¥½¸üˆ°l‰I…Á¥‘±äÍ¡½Ý¸™É…µ•Ìˆ°€‰=¹±ä„Í½Õ¹‘ÑÉ…¬ˆ°€‰Í¥¹±”Á¡½Ñ½É…Á ˆ°€‰ÍÑ…”ÕÉÑ…¥¸‰t°€Át(€€€€€t°(€€€€€5•‘¥Õ´èl(€€€€€€€l‰]¡¼‘¥É•Ñ•Q¥Ñ…¹¥Œüˆ°l‰)…µ•Ì…µ•É½¸ˆ°€‰MÑ•Ù•¸MÁ¥•±‰•Éœˆ°€‰I¥‘±•äM½ÑÐˆ°€‰A•Ñ•È)…­Í½¸‰t°€Át°(€€€€€€€l‰]¡…Ð¥ÌÑ¡”™¥ÉÍÐ¹…µ”½˜Ñ¡”µ…¥¸¡•É¼¥¸Q¡”5…ÑÉ¥àüˆ°l‰9•¼ˆ°€‰5½ÉÁ¡•ÕÌˆ°€‰åÁ¡•Èˆ°€‰Mµ¥Ñ ‰t°€Át°(€€€€€€€l‰!½Ý…ÉÑÌ¥ÌÑ¡”Í¡½½°¥¸Ý¡¥ ÍÑ½ÉäÝ½É±üˆ°l‰!…ÉÉäA½ÑÑ•Èˆ°€‰MÑ…È]…ÉÌˆ°€‰Q¡”!Õ¹•È…µ•Ìˆ°€‰Õ¹”‰t°€Át(€€€€€t°(€€€€€!…Éèl(€€€€€€€l‰]¡¼‘¥É•Ñ•I…Í¡½µ½¸üˆ°l‰­¥É„-ÕÉ½Í…Ý„ˆ°€‰e…ÍÕ©¥É¼=éÔˆ°€‰!…å…¼5¥å…é…­¤ˆ°€‰	½¹œ)½½¸µ¡¼‰t°€Át°(€€€€€€€l‰]¡…Ð¥ÌÑ¡”½µÁÕÑ•È…±±•¥¸€ÈÀÀÄèMÁ…”=‘åÍÍ•äüˆ°l‰!0€äÀÀÀˆ°€‰HÈµÈˆ°€‰M­å¹•Ðˆ°€‰••ÀQ¡½Õ¡Ð‰t°€Át°(€€€€€€€l‰]¡¼‘¥É•Ñ•A…¸Ì1…‰åÉ¥¹Ñ üˆ°l‰Õ¥±±•Éµ¼‘•°Q½É¼ˆ°€‰±™½¹Í¼Õ…É½¸ˆ°€‰A•‘É¼±µ½‘½Ù…Èˆ°€‰±•©…¹‘É¼¸%¹…ÉÉ¥ÑÔ‰t°€Át(€€€€€t(€€€ô°(€€€¹¥µ…±Ìèì(€€€€€…Íäèl(€€€€€€€l‰%Ì„‘½±Á¡¥¸„™¥Í ½È„µ…µµ…°üˆ°l‰¥Í ˆ°€‰5…µµ…°ˆ°€‰I•ÁÑ¥±”ˆ°€‰µÁ¡¥‰¥…¸‰t°€Åt°(€€€€€€€l‰!½Üµ…¹ä±•Ì‘½•Ì„ÍÁ¥‘•È¡…Ù”üˆ°l‰M¥àˆ°€‰¥¡Ðˆ°€‰Q•¸ˆ°€‰QÝ•±Ù”‰t°€Åt°(€€€€€€€l‰]¡…Ð¥Ì„É½ÕÀ½˜±¥½¹Ì…±±•üˆ°l‰ÁÉ¥‘”ˆ°€‰Í¡½½°ˆ°€‰½±½¹äˆ°€‰™±½¬‰t°€Át(€€€€€t°(€€€€€5•‘¥Õ´èl(€€€€€€€l‰]¡…ÐÑåÁ”½˜µ…µµ…°¥Ì„­…¹…É½¼üˆ°l‰5…ÉÍÕÁ¥…°ˆ°€‰AÉ¥µ…Ñ”ˆ°€‰I½‘•¹Ðˆ°€‰•Ñ…•…¸‰t°€Át°(€€€€€€€l‰]¡¥ …¹¥µ…°¥ÌÑ¡”™…ÍÑ•ÍÐ½¸±…¹üˆ°l‰¡••Ñ… ˆ°€‰1¥½¸ˆ°€‰=ÍÑÉ¥ ˆ°€‰É•å¡½Õ¹‰t°€Át°(€€€€€€€l‰]¡¥ ½É…¸¡•±ÁÌµ½ÍÐ‰¥É‘Ì­••ÀÑ¡•¥È‰½‘ä±¥¡Ð™½È™±¥¡Ðüˆ°l‰!½±±½Ü‰½¹•Ìˆ°€‰!•…ÙäÑ••Ñ ˆ°€‰Q¡¥¬Í¡•±°ˆ°€‰M½±¥¡½É¹Ì‰t°€Át(€€€€€t°(€€€€€!…Éèl(€€€€€€€l‰]¡¥ ¥ÌÑ¡”±…É•ÍÐ±¥Ù¥¹œÁ•¹Õ¥¸ÍÁ•¥•Ìüˆ°l‰µÁ•É½ÈÁ•¹Õ¥¸ˆ°€‰-¥¹œÁ•¹Õ¥¸ˆ°€‰•¹Ñ½¼Á•¹Õ¥¸ˆ°€‰‘•±¥”Á•¹Õ¥¸‰t°€Át°(€€€€€€€l‰Q…É‘¥É…‘•Ì‰•±½¹œÑ¼Ý¡¥ Á¡å±Õ´üˆ°l‰Q…É‘¥É…‘„ˆ°€‰¹¹•±¥‘„ˆ°€‰5½±±ÕÍ„ˆ°€‰¹¥‘…É¥„‰t°€Át°(€€€€€€€l‰]¡¥ …¹¥µ…°¥ÌÑ¡”±½Í•ÍÐ±¥Ù¥¹œÉ•±…Ñ¥Ù”½˜Ñ¡”¥É…™™”üˆ°l‰=­…Á¤ˆ°€‰i•‰É„ˆ°€‰…µ•°ˆ°€‰5½½Í”‰t°€Át(€€€€€t(€€€ô°(€€€€‰½½€˜Õ±ÑÕÉ”ˆèì(€€€€€…Íäèl(€€€€€€€l‰]¡…Ð¥ÌÑ¡”µ…¥¸¥¹É•‘¥•¹Ð¥¸Õ……µ½±”üˆ°l‰Ù½…‘¼ˆ°€‰A½Ñ…Ñ¼ˆ°€‰ÕÕµ‰•Èˆ°€‰A•„‰t°€Át°(€€€€€€€l‰]¡¥ É…¥¸¥Ì•ÍÍ•¹Ñ¥…°Ñ¼µ½ÍÐÍÕÍ¡¤üˆ°l‰I¥”ˆ°€‰]¡•…Ðˆ°€‰=…ÑÌˆ°€‰Iå”‰t°€Át°(€€€€€€€l‰5½éé…É•±±„¥ÌÑÉ…‘¥Ñ¥½¹…±±ä…ÍÍ½¥…Ñ•Ý¥Ñ Ý¡¥ ½Õ¹ÑÉäüˆ°l‰%Ñ…±äˆ°€‰5•á¥¼ˆ°€‰%¹‘¥„ˆ°€‰9½ÉÝ…ä‰t°€Át(€€€€€t°(€€€€€5•‘¥Õ´èl(€€€€€€€l‰Q½™Ô¥Ìµ…¥¹±äµ…‘”™É½´Ý¡…Ðüˆ°l‰M½å‰•…¹Ìˆ°€‰I¥”™±½ÕÈˆ°€‰A½Ñ…Ñ½•Ìˆ°€‰±µ½¹‘Ì‰t°€Át°(€€€€€€€l‰Qé…Ñé¥­¤ÑÉ…‘¥Ñ¥½¹…±±ä½µ‰¥¹•Ìå½ÕÉÐÝ¥Ñ Ý¡…Ðüˆ°l‰ÕÕµ‰•Èˆ°€‰AÕµÁ­¥¸ˆ°€‰½É¸ˆ°€‰ÁÁ±”‰t°€Át°(€€€€€€€l‰QÉ…‘¥Ñ¥½¹…°½ÕÍ½ÕÌ¥Ì½µµ½¹±äµ…‘”™É½´Ý¡…Ðüˆ°l‰M•µ½±¥¹„ˆ°€‰	Õ­Ý¡•…Ðˆ°€‰A½Ñ…Ñ¼ÍÑ…É ˆ°€‰É½Õ¹‰•…¹Ì‰t°€Át(€€€€€t°(€€€€€!…Éèl(€€€€€€€l‰M…™™É½¸½µ•Ì™É½´Ý¡¥ Á…ÉÐ½˜„É½ÕÌ™±½Ý•Èüˆ°l‰MÑ¥µ…Ìˆ°€‰I½½ÑÌˆ°€‰1•…Ù•Ìˆ°€‰A•Ñ…±Ì½¹±ä‰t°€Át°(€€€€€€€l‰±…ÍÍ¥ŒÉ½Õà½µ‰¥¹•Ì™±½ÕÈÝ¥Ñ Ý¡…Ðüˆ°l‰…Ðˆ°€‰Y¥¹•…Èˆ°€‰ÉÕ¥Ð©Õ¥”ˆ°€‰M…±ÐÝ…Ñ•È‰t°€Át°(€€€€€€€l‰]¡…Ð‘½•Ì½¹™¥ÐÑÉ…‘¥Ñ¥½¹…±±ä‘•ÍÉ¥‰”üˆ°l‰M±½Ü½½­¥¹œ¥¸™…Ðˆ°€‰±…Í ™É••é¥¹œˆ°€‰ÉäÉ½…ÍÑ¥¹œÝ¥Ñ¡½ÕÐ½¥°ˆ°€‰I…Ü™•Éµ•¹Ñ…Ñ¥½¸‰t°€Át(€€€€€t(€€€ô°(€€€5•á¥¼èì(€€€€€…Íäèl(€€€€€€€l‰]¡…Ð…¹¥µ…°…ÁÁ•…ÉÌ½¸5•á¥¼Ì½…Ð½˜…ÉµÌüˆ°l‰¸•…±”ˆ°€‰©…Õ…Èˆ°€‰Ý¡…±”ˆ°€‰¡½ÉÍ”‰t°€Át°(€€€€€€€l‰]¡¥ ‰½‘ä½˜Ý…Ñ•È±¥•Ì•…ÍÐ½˜5•á¥¼üˆ°l‰Õ±˜½˜5•á¥¼ˆ°€‰I•M•„ˆ°€‰	…±Ñ¥ŒM•„ˆ°€‰É…‰¥…¸M•„‰t°€Át°(€€€€€€€l‰5…É¥…¡¤µÕÍ¥Œ¥ÌÍÑÉ½¹±ä…ÍÍ½¥…Ñ•Ý¥Ñ Ý¡¥ 5•á¥…¸ÍÑ…Ñ”üˆ°l‰)…±¥Í¼ˆ°€‰M½¹½É„ˆ°€‰Q…‰…Í¼ˆ°€‰…µÁ•¡”‰t°€Át(€€€€€t°(€€€€€5•‘¥Õ´èl(€€€€€€€l‰!½Üµ…¹ä™•‘•É…°•¹Ñ¥Ñ¥•Ì‘½•Ì5•á¥¼¡…Ù”üˆ°lˆÈÐˆ°€ˆÌÀˆ°€ˆÌÈˆ°€ˆÌØ‰t°€Ét°(€€€€€€€l‰Q¡”	…ÑÑ±”½˜AÕ•‰±„¥ÌÉ•µ•µ‰•É•½¸Ý¡¥ ‘…Ñ”üˆ°l‰5…ä€Ôˆ°€‰M•ÁÑ•µ‰•È€ÄØˆ°€‰9½Ù•µ‰•È€Èˆ°€‰••µ‰•È€ÄÈ‰t°€Át°(€€€€€€€l‰Q•ÅÕ¥±„¥ÌÑÉ…‘¥Ñ¥½¹…±±äÁÉ½‘Õ•™É½´Ý¡¥ Á±…¹Ðüˆ°l‰	±Õ”……Ù”ˆ°€‰MÕ…È…¹”ˆ°€‰……¼ˆ°€‰5…¥é”‰t°€Át(€€€€€t°(€€€€€!…Éèl(€€€€€€€l‰5•á¥¼Ì€ÄäÄÜ½¹ÍÑ¥ÑÕÑ¥½¸Ý…ÌÁÉ½µÕ±…Ñ•¥¸Ý¡¥ ¥Ñäüˆ°l‰EÕ•É•Ñ…É¼ˆ°€‰5•É¥‘„ˆ°€‰Q¥©Õ…¹„ˆ°€‰=…á…„‰t°€Át°(€€€€€€€l‰A½Á½…Ñ•Á•Ñ°¥ÌÝ¡…ÐÑåÁ”½˜¹…ÑÕÉ…°™•…ÑÕÉ”üˆ°l‰Y½±…¹¼ˆ°€‰I¥Ù•Èˆ°€‰…Ù”ˆ°€‰•Í•ÉÐ‰t°€Át°(€€€€€€€l‰Q¡”5…å„¥Ñä½˜Uáµ…°¥Ì¥¸Ý¡¥ ÍÑ…Ñ”üˆ°l‰eÕ…Ñ…¸ˆ°€‰¡¥¡Õ…¡Õ„ˆ°€‰Õ•ÉÉ•É¼ˆ°€‰M¥¹…±½„‰t°€Át(€€€€€t(€€€ô°(€€€€‰A•ÉÍ½¹…°Õ¸…ÑÌˆèì(€€€€€…Íäèl(€€€€€€€l‰]¡¥ ÍÉ••¸¹½ÜÍ¡½ÝÌÑ¡”ÕÉÉ•¹Ð1•Ù•°µ½ÍÐ±•…É±äüˆ°l‰A•Ð€¼!½µ”ˆ°€‰M…Ù”€¼1½…ˆ°€‰]•…Ñ¡•Èˆ°€‰5ÕÍ¥Œ‰t°€Át°(€€€€€€€l‰]¡¥ …É”ÍÑ…Ð¡…Ì¥ÑÌ½Ý¸¹•ÜÍ¡½À…Ñ•½Éäüˆ°l‰±•…¸ˆ°€‰±…¥´½‘”ˆ°€‰1•Ù•°ˆ°€‰!¥ M½É”‰t°€Át°(€€€€€€€l‰]¡…Ð…ÁÁ•…ÉÌ‰•Í¥‘”Ñ¡”MÑÉ½¹œ±…µ”Ñ¥Ñ±”üˆ°l‰ÕÉÉ•¹Ðµ‰•Èˆ°€‰Ý•…Ñ¡•ÈÝ…É¹¥¹œˆ°€‰±…¥´½‘”ˆ°€‰ÅÕ¥è…¹ÍÝ•È‰t°€Át(€€€€€t°(€€€€€5•‘¥Õ´èl(€€€€€€€l‰]¡…Ð‰½¹ÕÌ‘½•Ì…¸•ÅÕ¥ÁÁ•…¹¥µ…Ñ•…•ÍÍ½Éä¥Ù”üˆ°lˆ¬Ì”µ‰•Èˆ°€ˆ¬ÔÀ”I•ÍÐˆ°€‰½Õ‰±”1•Ù•°ˆ°€‰É•”ÅÕ¥è‰•ÑÌ‰t°€Át°(€€€€€€€l‰!½Ü½™Ñ•¸…¸½¹”…Ñ•½Éä…¹‘¥™™¥Õ±Ñä‰”Á±…å•¥¸EÕ¥èEÕ••¸üˆ°l‰=¹”Á•È‘…äˆ°€‰=¹”Á•ÈÝ••¬ˆ°€‰]¥Ñ¡½ÕÐ„±¥µ¥Ðˆ°€‰=¹±ä½¹”•Ù•È‰t°€Át°(€€€€€€€l‰]¡¥ ™½ÕÈÍÑ…ÑÌ‰Õ¥±Ñ¡”…É”I•Ý…ÉµÕ±Ñ¥Á±¥•Èüˆ°l‰!Õ¹Éä°)½ä°I•ÍÐ°±•…¸ˆ°€‰1½Ù”°a@°1•Ù•°°µ‰•Èˆ°€‰5ÕÍ¥Œ°]•…Ñ¡•È°Õ•°°Q¥µ”ˆ°€‰M½É”°	•Ð°EÕ¥è°MÑ…µÀ‰t°€Át(€€€€€t°(€€€€€!…Éèl(€€€€€€€l‰]¡…Ð‘•Ñ•Éµ¥¹•ÌÑ¡”‘…¥±äEÕ¥èEÕ••¸µ‰•È±¥µ¥Ðüˆ°l‰ÕÉÉ•¹Ð1•Ù•°ˆ°€‰ÕÉÉ•¹ÐI•ÍÐˆ°€‰9Õµ‰•È½˜Í¡½À¥Ñ•µÌˆ°€‰Ñ¥Ù”µÕÍ¥Œ‰t°€Át°(€€€€€€€l‰]¡…Ð¥ÌÑ¡”µ…á¥µÕ´…É”I•Ý…ÉµÕ±Ñ¥Á±¥•ÈÝ¡•¸…±°™½ÕÈ…É”ÍÑ…ÑÌ…É”™Õ±°üˆ°l‰àÄ¸ÈÔˆ°€‰àÄ¸ÀÔˆ°€‰àÈ¸ÀÀˆ°€‰àÌ¸ÀÀ‰t°€Át°(€€€€€€€l‰]¡…Ð¥ÌÉ•ÅÕ¥É•™½ÈÑ¡”‘…¹•Èµ™É•”]¡…¬µ„µ±½Ü‰½¹ÕÌüˆ°l‰Ð±•…ÍÐ€Ô¡¥ÑÌ…¹¹¼Ý…Ñ•È½ÈÍ­Õ±°ˆ°€‰=¹±ä½¹”Í­Õ±°ˆ°€‰Í½É”½˜•á…Ñ±äé•É¼ˆ°€‰Q¡É•”Ý…Ñ•È‘É½ÁÌ‰t°€Át(€€€€€t(€€€ô(€ôì((€=‰©•Ð¹•¹ÑÉ¥•Ì¡•áÑÉ…EÕ¥éEÕ•ÍÑ¥½¹Ì¤¹™½É…  ¡m…Ñ•½Éä°‘¥™™¥Õ±ÑåÉ½ÕÁÍt¤€ôøì(€€€=‰©•Ð¹•¹ÑÉ¥•Ì¡‘¥™™¥Õ±ÑåÉ½ÕÁÌ¤¹™½É…  ¡m‘¥™™¥Õ±Ñä°ÅÕ•ÍÑ¥½¹Ít¤€ôøì(€€€€€ÅÕ¥éEÕ•ÍÑ¥½¹Ím…Ñ•½Éåum‘¥™™¥Õ±Ñåt¹ÁÕÍ  ¸¸¹ÅÕ•ÍÑ¥½¹Ì¤ì(€€€ô¤ì(€ô¤ì((€=‰©•Ð¹Ù…±Õ•Ì¡ÅÕ¥éEÕ•ÍÑ¥½¹Ì¤¹™½É…  ¡‘¥™™¥Õ±ÑåÉ½ÕÁÌ¤€ôøì(€€€=‰©•Ð¹­•åÌ¡‘¥™™¥Õ±ÑåÉ½ÕÁÌ¤¹™½É…  ¡‘¥™™¥Õ±Ñä¤€ôøì(€€€€€‘¥™™¥Õ±ÑåÉ½ÕÁÍm‘¥™™¥Õ±Ñåt€ô‘¥™™¥Õ±ÑåÉ½ÕÁÍm‘¥™™¥Õ±Ñåt¹µ…À ¡mÅÕ•ÍÑ¥½¸°…¹ÍÝ•ÉÌ°½ÉÉ•Ñt¤€ôø€¡ì(€€€€€€€ÅÕ•ÍÑ¥½¸°(€€€€€€€…¹ÍÝ•ÉÌ°(€€€€€€€½ÉÉ•Ð°(€€€€€€€‘¥™™¥Õ±Ñä(€€€€€ô¤¤ì(€€€ô¤ì(€ô¤ì((€Ý¥¹‘½Ü¹115%Q}5}=9%€ôì(€€€Í…Ù•Y•ÉÍ¥½¸è€à°(€€€ÍÑ½É…•-•äè€‰½½µµ½½µµ¤µ±±…µ¥Ñ„µØÄˆ°(€€€‰…­ÕÁ-¥¹è€‰µ¤µ±±…µ¥Ñ„µÍ…Ù”ˆ°(€€€ÕÉÉ•¹äèì(€€€€€¹…µ”è€‰µ‰•Èˆ°(€€€€€¥½¹A…Ñ è€‰…ÍÍ•ÑÌ½µ‰•È¹Á¹œˆ(€€€ô°(€€€ÍÑ…ÑÌèì(€€€€€­•åÌèl‰¡Õ¹•Èˆ°€‰©½äˆ°€‰•¹•Éäˆ°€‰±•…¹±¥¹•ÍÌˆ°€‰±½Ù”‰t°(€€€€€µ…¥¸èl‰¡Õ¹•Èˆ°€‰©½äˆ°€‰•¹•Éä‰t°(€€€€€‰…Í•5…àè€ÄÀÀ°(€€€€€µ¥¹¥µÕ´è€À°(€€€€€…Ý…­••…åA•É5¥¹ÕÑ”èì¡Õ¹•Èè€À¸ÌÈ°©½äè€À¸ÈÐ°•¹•Éäè€À¸Àà°±•…¹±¥¹•ÍÌè€À¸ÄÔ°±½Ù”è€À¸ÄÈô°(€€€€€Í±••Á¥¹•…åA•É5¥¹ÕÑ”èì¡Õ¹•Èè€À¸ÀÌ°©½äè€À¸ÀÄ°±•…¹±¥¹•ÍÌè€À¸ÀÈ°±½Ù”è€À¸ÀÄô°(€€€€€Í±••ÁI•ÍÑA•É5¥¹ÕÑ”è€ÌÀ°(€€€€€Í±••ÁaÁA•É5¥¹ÕÑ”è€Ô°(€€€€€µ…á=™™±¥¹•5¥¹ÕÑ•Ìè€ÜÈÀ(€€€ô°(€€€…É•	½¹ÕÌèì(€€€€€ÍÑ…Ñ-•åÌèl‰¡Õ¹•Èˆ°€‰©½äˆ°€‰•¹•Éäˆ°€‰±•…¹±¥¹•ÍÌ‰t°(€€€€€µ…á¥µÕµ5Õ±Ñ¥Á±¥•Èè€Ä¸ÈÔ(€€€ô°(€€€…Ñ¥½¹Ìèì(€€€€€™••èìÍÑ…ÑÌèì¡Õ¹•Èè€Äàô°áÀè€Ì°•µ‰•ÉÌè€Äô°(€€€€€Á±…äèìÍÑ…ÑÌèì©½äè€ÄÈ°¡Õ¹•Èè€´È°•¹•Éäè€´Ä°±•…¹±¥¹•ÍÌè€´Èô°áÀè€Ð°•µ‰•ÉÌè€Èô°(€€€€€Á•ÐèìÍÑ…ÑÌèì©½äè€Ô°±½Ù”è€Üô°áÀè€È°•µ‰•ÉÌè€Ä°½½±‘½Ý¹5Ìè€àÀÀÀ°É•ÍÑÉ…¥¹½½±‘½Ý¹5Ìè€ØÀÀÀÀô°(€€€€€±•…¸èìÍÑ…ÑÌèì±•…¹±¥¹•ÍÌè€ÈÔô°áÀè€Ì°•µ‰•ÉÌè€Äô(€€€ô°(€€€±•Ù•°èì(€€€€€áÁ	…Í”è€ÈÐ°(€€€€€áÁA•É1•Ù•°è€ÄÈ°(€€€€€µ…áMÑ…ÑA•É1•Ù•°è€Ä°(€€€€€µ¥±•ÍÑ½¹•áÑÉ…5…àè€Ð°(€€€€€•µ‰•É5Õ±Ñ¥Á±¥•ÉMÑ•Á1•Ù•±Ìè€ÄÀ°(€€€€€•µ‰•É5Õ±Ñ¥Á±¥•ÉMÑ•Àè€À¸ÀÔ°(€€€€€±•Ù•±UÁµ‰•É	…Í”è€ÄÀ°(€€€€€±•Ù•±UÁµ‰•ÉA•É1•Ù•°è€È(€€€ô°(€€€±½Ù•	½¹ÕÌèì(€€€€€Ñ¡É•Í¡½±‘Ìèl(€€€€€€€ìµ¥¹¥µÕµA•É•¹Ðè€ÄÀÀ°µÕ±Ñ¥Á±¥•Èè€Ä¸Èô°(€€€€€€€ìµ¥¹¥µÕµA•É•¹Ðè€àÀ°µÕ±Ñ¥Á±¥•Èè€Ä¸ÄÔô°(€€€€€€€ìµ¥¹¥µÕµA•É•¹Ðè€ØÀ°µÕ±Ñ¥Á±¥•Èè€Ä¸Äô°(€€€€€€€ìµ¥¹¥µÕµA•É•¹Ðè€ÐÀ°µÕ±Ñ¥Á±¥•Èè€Ä¸ÀØô°(€€€€€€€ìµ¥¹¥µÕµA•É•¹Ðè€ÈÀ°µÕ±Ñ¥Á±¥•Èè€Ä¸ÀÌô°(€€€€€€€ìµ¥¹¥µÕµA•É•¹Ðè€À°µÕ±Ñ¥Á±¥•Èè€Äô(€€€€€t(€€€ô°(€€€‘…¥±äèì(€€€€€•µ‰•ÉI•Ý…Éè€ÔÀ°(€€€€€áÁI•Ý…Éè€Ô°(€€€€€ÍÑ…µÁÍI•ÅÕ¥É•è€Ü°(€€€€€Ý••­±åµ‰•ÉI•Ý…Éè€ÈÀÀ°(€€€€€Ý••­±åÕÉ…Ñ¥½¹5¥¹ÕÑ•Ìè€ØÀ°(€€€€€Ý••­±åaÁ5Õ±Ñ¥Á±¥•Èè€È°(€€€€€Ý••­±å•…å5Õ±Ñ¥Á±¥•Èè€À¸Ð(€€€ô°(€€€‘…¥±å…É•5¥ÍÍ¥½¹Ìèì(€€€€€½Õ¹Ðè€Ì°(€€€€€Í•±•Ñ¥½¹Y•ÉÍ¥½¸è€È°(€€€€€‘…¥±å¥™™¥Õ±Ñ¥•Ìèl‰…Íäˆ°€‰5•‘¥Õ´ˆ°€‰!…É‰t°(€€€€€µ¥ÍÍ¥½¹Ìèl(€€€€€€€ì¥è€‰½éäµ‰É•…­™…ÍÐˆ°‘¥™™¥Õ±Ñäè€‰…Íäˆ°…Ñ¥½¹Ìèl‰™••‰t°Ñ…É•Ðè€È°¥½¸è€‰qÔÈØØÔˆ°Ñ¥Ñ±”è€‰½éä	É•…­™…ÍÐˆ°‘•ÍÉ¥ÁÑ¥½¸è€‰••å½ÕÈ±¥ÑÑ±”™±…µ”ÑÝ¥”¸ˆ°•µ‰•ÉI•Ý…Éè€ÐÀ°áÁI•Ý…Éè€Ôô°(€€€€€€€ì¥è€‰¡…ÁÁäµÁ±…åÑ¥µ”ˆ°‘¥™™¥Õ±Ñäè€‰…Íäˆ°…Ñ¥½¹Ìèl‰Á±…ä‰t°Ñ…É•Ðè€È°¥½¸è€‰qÔÈØÀÔˆ°Ñ¥Ñ±”è€‰!…ÁÁäA±…åÑ¥µ”ˆ°‘•ÍÉ¥ÁÑ¥½¸è€‰A±…äÑ½•Ñ¡•ÈÑÝ¥”¸ˆ°•µ‰•ÉI•Ý…Éè€ÔÀ°áÁI•Ý…Éè€Üô°(€€€€€€€ì¥è€‰±¥ÑÑ±”µÕ‘‘±•Ìˆ°‘¥™™¥Õ±Ñäè€‰…Íäˆ°…Ñ¥½¹Ìèl‰Á•Ð‰t°Ñ…É•Ðè€Ì°¥½¸è€‰qÔÈØØÄˆ°Ñ¥Ñ±”è€‰1¥ÑÑ±”Õ‘‘±•Ìˆ°‘•ÍÉ¥ÁÑ¥½¸è€‰¥Ù”Ñ¡É•”•¹Ñ±”Á•ÑÌ¸ˆ°•µ‰•ÉI•Ý…Éè€ÐÔ°áÁI•Ý…Éè€Øô°(€€€€€€€ì¥è€‰ÍÁ…É­±”µ‰…Ñ ˆ°‘¥™™¥Õ±Ñäè€‰…Íäˆ°…Ñ¥½¹Ìèl‰±•…¸‰t°Ñ…É•Ðè€Ä°¥½¸è€‰qÔÈÜÈØˆ°Ñ¥Ñ±”è€‰MÁ…É­±”	…Ñ ˆ°‘•ÍÉ¥ÁÑ¥½¸è€‰!•±Àå½ÕÈ±¥ÑÑ±”™±…µ”•Ð±•…¸¸ˆ°•µ‰•ÉI•Ý…Éè€ÌÔ°áÁI•Ý…Éè€Ôô°(€€€€€€€ì¥è€‰ÍÝ••Ðµ‘É•…µÌˆ°‘¥™™¥Õ±Ñäè€‰…Íäˆ°…Ñ¥½¹Ìèl‰Í±••À‰t°Ñ…É•Ðè€Ä°¥½¸è€‰qÔÈØÍ”ˆ°Ñ¥Ñ±”è€‰MÝ••ÐÉ•…µÌˆ°‘•ÍÉ¥ÁÑ¥½¸è€‰MÑ…ÉÐM±••À5½‘”½¹”¸ˆ°•µ‰•ÉI•Ý…Éè€ÌÔ°áÁI•Ý…Éè€Ôô°((€€€€€€€ì¥è€‰Ý…É´µ™•…ÍÐˆ°‘¥™™¥Õ±Ñäè€‰5•‘¥Õ´ˆ°…Ñ¥½¹Ìèl‰™••‰t°Ñ…É•Ðè€Ð°¥½¸è€‰qÔÈØØÔˆ°Ñ¥Ñ±”è€‰]…É´1¥ÑÑ±”•…ÍÐˆ°‘•ÍÉ¥ÁÑ¥½¸è€‰••å½ÕÈ±¥ÑÑ±”™±…µ”™½ÕÈÑ¥µ•Ì¸ˆ°•µ‰•ÉI•Ý…Éè€ØÔ°áÁI•Ý…Éè€äô°(€€€€€€€ì¥è€‰Á±…å™Õ°µ…™Ñ•É¹½½¸ˆ°‘¥™™¥Õ±Ñäè€‰5•‘¥Õ´ˆ°…Ñ¥½¹Ìèl‰Á±…ä‰t°Ñ…É•Ðè€Ð°¥½¸è€‰qÔÈØÀÔˆ°Ñ¥Ñ±”è€‰A±…å™Õ°™Ñ•É¹½½¸ˆ°‘•ÍÉ¥ÁÑ¥½¸è€‰A±…äÑ½•Ñ¡•È™½ÕÈÑ¥µ•Ì¸ˆ°•µ‰•ÉI•Ý…Éè€ÜÔ°áÁI•Ý…Éè€ÄÀô°(€€€€€€€ì¥è€‰Õ‘‘±”µ±½Õˆ°‘¥™™¥Õ±Ñäè€‰5•‘¥Õ´ˆ°…Ñ¥½¹Ìèl‰Á•Ð‰t°Ñ…É•Ðè€Ø°¥½¸è€‰qÔÈØØÄˆ°Ñ¥Ñ±”è€‰Õ‘‘±”±½Õˆ°‘•ÍÉ¥ÁÑ¥½¸è€‰¥Ù”Í¥à•¹Ñ±”Á•ÑÌ¸ˆ°•µ‰•ÉI•Ý…Éè€ÜÀ°áÁI•Ý…Éè€äô°(€€€€€€€ì¥è€‰‘½Õ‰±”µÍÁ…É­±”ˆ°‘¥™™¥Õ±Ñäè€‰5•‘¥Õ´ˆ°…Ñ¥½¹Ìèl‰±•…¸‰t°Ñ…É•Ðè€È°¥½¸è€‰qÔÈÜÈØˆ°Ñ¥Ñ±”è€‰½Õ‰±”MÁ…É­±”ˆ°‘•ÍÉ¥ÁÑ¥½¸è€‰!•±Àå½ÕÈ±¥ÑÑ±”™±…µ”•Ð±•…¸ÑÝ¥”¸ˆ°•µ‰•ÉI•Ý…Éè€ØÀ°áÁI•Ý…Éè€àô°(€€€€€€€ì¥è€‰±½Ù¥¹œµÉ½ÕÑ¥¹”ˆ°‘¥™™¥Õ±Ñäè€‰5•‘¥Õ´ˆ°…Ñ¥½¹Ìèl‰™••ˆ°€‰Á±…äˆ°€‰Á•Ðˆ°€‰±•…¸‰t°Ñ…É•Ðè€Ø°¥½¸è€‰qÔÈØÀÀˆ°Ñ¥Ñ±”è€‰1½Ù¥¹œI½ÕÑ¥¹”ˆ°‘•ÍÉ¥ÁÑ¥½¸è€‰½µÁ±•Ñ”Í¥à…Ý…­”…É”…Ñ¥½¹Ì¸ˆ°•µ‰•ÉI•Ý…Éè€àÀ°áÁI•Ý…Éè€ÄÀô°((€€€€€€€ì¥è€‰É…¹µ™•…ÍÐˆ°‘¥™™¥Õ±Ñäè€‰!…Éˆ°…Ñ¥½¹Ìèl‰™••‰t°Ñ…É•Ðè€Ü°¥½¸è€‰qÔÈØØÔˆ°Ñ¥Ñ±”è€‰É…¹±½Ü•…ÍÐˆ°‘•ÍÉ¥ÁÑ¥½¸è€‰••å½ÕÈ±¥ÑÑ±”™±…µ”Í•Ù•¸Ñ¥µ•Ì¸ˆ°•µ‰•ÉI•Ý…Éè€ÄÄÔ°áÁI•Ý…Éè€ÄÔô°(€€€€€€€ì¥è€‰©½äµµ…É…Ñ¡½¸ˆ°‘¥™™¥Õ±Ñäè€‰!…Éˆ°…Ñ¥½¹Ìèl‰Á±…ä‰t°Ñ…É•Ðè€Ø°¥½¸è€‰qÔÈØÀÔˆ°Ñ¥Ñ±”è€‰)½ä5…É…Ñ¡½¸ˆ°‘•ÍÉ¥ÁÑ¥½¸è€‰A±…äÑ½•Ñ¡•ÈÍ¥àÑ¥µ•Ì¸ˆ°•µ‰•ÉI•Ý…Éè€ÄÈÔ°áÁI•Ý…Éè€ÄÜô°(€€€€€€€ì¥è€‰¡•…ÉÑ™Õ°µ‘…äˆ°‘¥™™¥Õ±Ñäè€‰!…Éˆ°…Ñ¥½¹Ìèl‰Á•Ð‰t°Ñ…É•Ðè€ÄÀ°¥½¸è€‰qÔÈØØÄˆ°Ñ¥Ñ±”è€‰!•…ÉÑ™Õ°…äˆ°‘•ÍÉ¥ÁÑ¥½¸è€‰¥Ù”Ñ•¸•¹Ñ±”Á•ÑÌ¸ˆ°•µ‰•ÉI•Ý…Éè€ÄÈÀ°áÁI•Ý…Éè€ÄØô°(€€€€€€€ì¥è€‰É…‘¥…¹Ðµ±•…¸ˆ°‘¥™™¥Õ±Ñäè€‰!…Éˆ°…Ñ¥½¹Ìèl‰±•…¸‰t°Ñ…É•Ðè€Ð°¥½¸è€‰qÔÈÜÈØˆ°Ñ¥Ñ±”è€‰I…‘¥…¹Ð…¹±•…¸ˆ°‘•ÍÉ¥ÁÑ¥½¸è€‰!•±Àå½ÕÈ±¥ÑÑ±”™±…µ”•Ð±•…¸™½ÕÈÑ¥µ•Ì¸ˆ°•µ‰•ÉI•Ý…Éè€ÄÀÔ°áÁI•Ý…Éè€ÄÐô°(€€€€€€€ì¥è€‰…É”µµ…É…Ñ¡½¸ˆ°‘¥™™¥Õ±Ñäè€‰!…Éˆ°…Ñ¥½¹Ìèl‰™••ˆ°€‰Á±…äˆ°€‰Á•Ðˆ°€‰±•…¸‰t°Ñ…É•Ðè€ÄÈ°¥½¸è€‰qÔÈØÀÀˆ°Ñ¥Ñ±”è€‰Q¥¹ä…É”5…É…Ñ¡½¸ˆ°‘•ÍÉ¥ÁÑ¥½¸è€‰½µÁ±•Ñ”ÑÝ•±Ù”…Ý…­”…É”…Ñ¥½¹Ì¸ˆ°•µ‰•ÉI•Ý…Éè€ÄÌÔ°áÁI•Ý…Éè€Äàô(€€€€€t(€€€ô°(€€€…É…‘”èì(€€€€€Á±…å)½åI•Ý…Éè€Ø°(€€€€€…É•I•™ÕÍ…°èì(€€€€€€€Ñ¡É•Í¡½±‘A•É•¹Ðè€ÈÔ°(€€€€€€€¡…¹”è€À¸ÔÔ(€€€€€ô°(€€€€€Ý¡…¬èì(€€€€€€€‘ÕÉ…Ñ¥½¹M•½¹‘Ìè€Äà°(€€€€€€€¡¥¡M½É•	½¹ÕÌè€ÄÀÀ°(€€€€€€€µ…á	…Í•µ‰•Èè€ÌÀ°(€€€€€€€ÍÑÉ½¹M½É”è€ÄÈ°(€€€€€€€ÍÑÉ½¹aÀè€ÄÀ°(€€€€€€€±•…¹I½Õ¹‘µ‰•É	½¹ÕÌè€ÜÔ°(€€€€€€€±•…¹I½Õ¹‘aÁ	½¹ÕÌè€ÄÀ°(€€€€€€€±•…¹I½Õ¹‘5¥¹¥µÕµ!¥ÑÌè€Ô°(€€€€€€€Íåµ‰½±Ìèl(€€€€€€€€€ì¥è€‰™±…µ”ˆ°Íåµ‰½°è€‰qÕàÍ‘qÕ‘ÈÔˆ°Á½¥¹ÑÌè€Ä°Ý•¥¡Ðè€ØÔ°±…‰•°è€ˆ¬ÄÁ½¥¹Ðˆô°(€€€€€€€€€ì¥è€‰ÍÁ…É­±”ˆ°Íåµ‰½°è€‰qÔÈÜÈàˆ°Á½¥¹ÑÌè€Ô°Ý•¥¡Ðè€ÄÔ°±…‰•°è€‰	½¹ÕÌÁ½¥¹ÑÌˆô°(€€€€€€€€€ì¥è€‰Ý…Ñ•Èˆ°Íåµ‰½°è€‰qÕàÍ‘qÕ‘„Üˆ°Á½¥¹ÑÌè€´Ä°Ý•¥¡Ðè€ÄÔ°±…‰•°è€ˆ´ÄÁ½¥¹Ðˆô°(€€€€€€€€€ì¥è€‰Í­Õ±°ˆ°Íåµ‰½°è€‰qÕàÍ‘qÕ‘ŒàÀˆ°É•Í•ÑM½É”èÑÉÕ”°Ý•¥¡Ðè€Ô°±…‰•°è€‰1½Í”…±°Á½¥¹ÑÌˆô(€€€€€€€t(€€€€€ô°(€€€€€™±…ÁÁäèì(€€€€€€€¡¥¡M½É•	½¹ÕÌè€ÄÔÀ°(€€€€€€€Í½É”ÄÁµ‰•Èè€ÈÀ°(€€€€€€€Í½É”ÈÕµ‰•Èè€ÔÀ°(€€€€€€€Í½É”ÔÁaÀè€ÈÀ°(€€€€€€€ÍÁÉ¥Ñ•A…Ñ è€‰…ÍÍ•ÑÌ½™±…ÁÁäµ™±…µ”µÍÁÉ¥Ñ”¹Á¹œˆ°(€€€€€€€ÍÁÉ¥Ñ•]¥‘Ñ è€ÔÀ°(€€€€€€€ÍÁÉ¥Ñ•!•¥¡Ðè€ØÐ°(€€€€€€€¡¥Ñ‰½áI…‘¥ÕÌè€ÄÈ(€€€€€ô°(€€€€€Í¹…­”èì¡¥¡M½É•	½¹ÕÌè€ÄÔÀ°Í½É”ÄÁµ‰•Èè€ÌÀ°Í½É”ÈÕµ‰•Èè€àÀ°Í½É”ÔÁaÀè€ÈÔ°É¥‘M¥é”è€ÈÀ°Ñ¥­5Ìè€ÄÌÔ°ÝÉ…ÁÉ½Õ¹èÑÉÕ”ô°(€€€€€ÅÕ¥èèì(€€€€€€€É½Õ¹‘Ìè€Ô°(€€€€€€€©…­Á½Ñ	½¹ÕÌè€ÄÀÀ°(€€€€€€€Á•É™•Ñ	½¹ÕÌè€ÄÔÀ°(€€€€€€€Á•É™•ÑaÁ	½¹ÕÌè€ÄÔ°(€€€€€€€¡¥¡M½É•	½¹ÕÌè€ÄÀÀ°(€€€€€€€µ¥¹¥µÕµ	•Ðè€ÄÀ°(€€€€€€€‘•™…Õ±Ñ	•Ðè€ÔÀ°(€€€€€€€…±±½Ý9½	•ÐèÑÉÕ”°(€€€€€€€¹½	•Ñ	…Í•I•Ý…É‘Ìèì€Ìè€Ø°€Ðè€ÄÐ°€Ôè€Èàô°(€€€€€€€ÁÉ½É•ÍÍ¥½¸èì(€€€€€€€€€‰…Í•I•Ý…É‘	…Í¥Ìè€ÄÀÀÀ°(€€€€€€€€€Õ¹±¥µ¥Ñ•‘I•Ý…É‘	…Í¥Ìè€ÄÈÀÀÀ°(€€€€€€€€€Ñ¥•ÉÌèl(€€€€€€€€€€€ìµ…á1•Ù•°è€Ô°‘…¥±å9•Ñ…Àè€ÄÀÀÀô°(€€€€€€€€€€€ìµ…á1•Ù•°è€ÄÀ°‘…¥±å9•Ñ…Àè€ÈÀÀÀô°(€€€€€€€€€€€ìµ…á1•Ù•°è€ÈÀ°‘…¥±å9•Ñ…Àè€ÌÀÀÀô°(€€€€€€€€€€€ìµ…á1•Ù•°è€ÌÀ°‘…¥±å9•Ñ…Àè€ÐÀÀÀô°(€€€€€€€€€€€ìµ…á1•Ù•°è€ÐÀ°‘…¥±å9•Ñ…Àè€ÔÀÀÀô°(€€€€€€€€€€€ìµ…á1•Ù•°è€ÔÀ°‘…¥±å9•Ñ…Àè€ØÀÀÀô°(€€€€€€€€€€€ìµ…á1•Ù•°è€ØÀ°‘…¥±å9•Ñ…Àè€ÜÀÀÀô°(€€€€€€€€€€€ìµ…á1•Ù•°è€ÜÀ°‘…¥±å9•Ñ…Àè€àÀÀÀô°(€€€€€€€€€€€ìµ…á1•Ù•°è€àÀ°‘…¥±å9•Ñ…Àè€äÀÀÀô°(€€€€€€€€€€€ìµ…á1•Ù•°è€ää°‘…¥±å9•Ñ…Àè€ÄÀÀÀÀô°(€€€€€€€€€€€ìµ…á1•Ù•°è¹Õ±°°‘…¥±å9•Ñ…Àè¹Õ±°ô(€€€€€€€€€t(€€€€€€€ô°(€€€€€€€‘¥™™¥Õ±Ñ¥•Ìèì(€€€€€€€€€…ÍäèìµÕ±Ñ¥Á±¥•Èè€Ä¸Ô°‰•ÑM¡…É”è€À¸ÀÔ°‰½¹ÕÍM…±”è€À¸ÌÔô°(€€€€€€€€€5•‘¥Õ´èìµÕ±Ñ¥Á±¥•Èè€È°‰•ÑM¡…É”è€À¸Ä°‰½¹ÕÍM…±”è€À¸ØÔô°(€€€€€€€€€!…ÉèìµÕ±Ñ¥Á±¥•Èè€Ì°‰•ÑM¡…É”è€À¸È°‰½¹ÕÍM…±”è€Äô(€€€€€€€ô(€€€€€ô(€€€ô°(€€€Í¡½Á…Ñ•½É¥•Ìèl(€€€€€ì¥è€‰Á•Éµ…¹•¹Ðˆ°±…‰•°è€‰A•Éµ…¹•¹ÐUÁÉ…‘•Ìˆô°(€€€€€ì¥è€‰™½½ˆ°±…‰•°è€‰½½ˆô°(€€€€€ì¥è€‰©½äˆ°±…‰•°è€‰)½ä%Ñ•µÌˆô°(€€€€€ì¥è€‰±½Ù”ˆ°±…‰•°è€‰1½Ù”%Ñ•µÌˆô°(€€€€€ì¥è€‰É•ÍÐˆ°±…‰•°è€‰I•ÍÐ%Ñ•µÌˆô°(€€€€€ì¥è€‰±•…¸ˆ°±…‰•°è€‰±•…¸%Ñ•µÌˆô°(€€€€€ì¥è€‰½µ‰¼ˆ°±…‰•°è€‰½µ‰¼%Ñ•µÌˆô°(€€€€€ì¥è€‰‰½½ÍÐˆ°±…‰•°è€‰	½½ÍÑÌˆô°(€€€€€ì¥è€‰áÀˆ°±…‰•°è€‰a@	½½ÍÑÌˆô°(€€€€€ì¥è€‰½Íµ•Ñ¥Ìˆ°±…‰•°è€‰•ÍÍ½É¥•Ìˆô(€€€t°(€€€É•Ý…É‘…É‘Ìèì±…å½ÕÑY•ÉÍ¥½¸è€Èô°(€€€Í¡½Á%Ñ•µÌ°(€€€µ¥±•ÍÑ½¹•I•Ý…É‘Ì°(€€€ÅÕ¥éEÕ•ÍÑ¥½¹Ì°(€€€É•…Ñ¥Ù•¥Í±…¥µ•Èè€‰Q¡¥ÌÉ•Ý…É±•ÑÌå½Ô¡½½Í”Ñ¡”Ñ¡•µ”…¹•¹•É…°¥‘•„¸$Ý¥±°ÑÉäÑ¼™½±±½Üå½ÕÈÝ¥Í …Ì±½Í•±ä…ÌÁ½ÍÍ¥‰±”°‰ÕÐÍµ…±°‘¥™™•É•¹•Ì¥¸ÍÑå±”°‘•Ñ…¥±Ì°µ½Ù•µ•¹Ð°±åÉ¥Ì°Í½Õ¹°½È™¥¹…°É•ÍÕ±Ðµ…ä¡…ÁÁ•¸‰•…ÕÍ”É•…Ñ¥Ù”Ñ½½±Ì…¹¹½Ð…±Ý…åÌÉ•…Ñ”•Ù•ÉåÑ¡¥¹œ•á…Ñ±ä…Ì¥µ…¥¹•¸ˆ(€ôì)ô¤ ¤ì(

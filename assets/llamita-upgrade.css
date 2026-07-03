@@ -10,6 +10,49 @@ body {
   overflow-x: hidden;
 }
 
+.ember-amount {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.ember-symbol {
+  width: 1.35em;
+  height: 1.35em;
+  flex: 0 0 auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(211, 82, 22, 0.34));
+  animation: emberSymbolGlow 2.8s ease-in-out infinite;
+}
+
+.llamita-subnav-icon .ember-symbol,
+.llamita-shop-icon .ember-symbol {
+  width: 18px;
+  height: 18px;
+}
+
+.glow-shop-price .ember-symbol,
+.llamita-upgrade-balance .ember-symbol {
+  width: 19px;
+  height: 19px;
+}
+
+.shop-stat.is-ember .ember-symbol,
+.llamita-shop-balance .ember-symbol,
+.llamita-item-price .ember-symbol,
+.arcade-scoreline .ember-symbol,
+.quiz-bet-note .ember-symbol {
+  width: 15px;
+  height: 15px;
+}
+
+@keyframes emberSymbolGlow {
+  0%, 100% { transform: translateY(1px) scale(0.96); filter: drop-shadow(0 2px 3px rgba(211, 82, 22, 0.28)); }
+  50% { transform: translateY(-1px) scale(1.05); filter: drop-shadow(0 3px 7px rgba(255, 136, 31, 0.55)); }
+}
+
 .phone {
   grid-template-columns: minmax(0, 1fr);
 }
@@ -97,6 +140,47 @@ body {
   font-size: 9px;
   font-weight: 900;
   line-height: 1.25;
+}
+
+.llamita-care-bonus {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 5px 12px;
+  margin: 12px 0 4px;
+  padding: 10px 11px;
+  border: 1px solid rgba(217, 135, 58, 0.2);
+  border-radius: 8px;
+  background: linear-gradient(100deg, #fff6d8, #ffe8ed);
+  color: #6f3541;
+}
+
+.llamita-care-bonus-label {
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.llamita-care-bonus strong {
+  color: #a14d24;
+  font-size: 12px;
+}
+
+.llamita-care-bonus-breakdown {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 5px;
+}
+
+.llamita-care-bonus-breakdown span {
+  padding: 3px 4px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.62);
+  font-size: 8px;
+  font-weight: 800;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .llamita-subnav-button {
@@ -243,6 +327,44 @@ body {
   background: #fff2c9;
 }
 
+.shop-stat.is-clean {
+  background: #e8f7f4;
+}
+
+.llamita-level-display {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto auto;
+  align-items: center;
+  gap: 2px 14px;
+  padding: 11px 16px 12px;
+  border-bottom: 1px solid rgba(116, 61, 54, 0.11);
+  background: linear-gradient(100deg, #fff4dc, #ffe9ed);
+  color: #73404b;
+}
+
+.llamita-level-display > span:first-child {
+  font-size: 9px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.llamita-level-display strong {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  min-width: 52px;
+  color: #9a4929;
+  font-size: 30px;
+  line-height: 1;
+  text-align: right;
+}
+
+.llamita-level-display > span:last-child {
+  color: #80645f;
+  font-size: 10px;
+  font-weight: 800;
+}
+
 .llamita-shop-panel .llamita-shop {
   margin: 0;
 }
@@ -259,6 +381,32 @@ body {
 
 .llamita-shop-panel .llamita-shop-arrow {
   display: none;
+}
+
+.shop-category-scroll-shell {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr) 30px;
+  align-items: stretch;
+  gap: 5px;
+}
+
+.shop-category-arrow {
+  min-width: 30px;
+  margin-block: 12px;
+  border: 1px solid rgba(143, 76, 111, 0.13);
+  border-radius: 7px;
+  background: #fff4eb;
+  color: #9b4657;
+  font: inherit;
+  font-size: 23px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.shop-category-arrow:disabled {
+  color: #cbbab3;
+  cursor: default;
+  opacity: 0.5;
 }
 
 .llamita-shop-categories,
@@ -306,9 +454,10 @@ body {
 .glow-shop-card {
   min-height: 82px;
   display: grid;
-  grid-template-columns: 40px minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 10px;
+  grid-template-columns: 40px minmax(0, 1fr);
+  align-items: start;
+  column-gap: 10px;
+  row-gap: 7px;
   width: 100%;
   padding: 11px;
   border: 1px solid rgba(127, 69, 67, 0.13);
@@ -341,6 +490,11 @@ body {
   color: #9a4054;
   font-size: 17px;
   font-weight: 900;
+}
+
+.glow-shop-card > .glow-shop-card-icon {
+  grid-row: 1 / span 2;
+  align-self: center;
 }
 
 .glow-shop-card-copy,
@@ -391,9 +545,14 @@ body {
 }
 
 .glow-shop-price {
-  display: grid;
-  justify-items: end;
-  gap: 3px;
+  grid-column: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 7px;
+  width: 100%;
+  padding-top: 5px;
+  border-top: 1px solid rgba(127, 69, 67, 0.09);
   color: #9f5d19;
   font-size: 12px;
   font-weight: 900;
@@ -516,6 +675,28 @@ body {
   color: #27537d;
 }
 
+.llamita-boost-chip.is-accessory {
+  border-color: rgba(223, 128, 51, 0.26);
+  background: linear-gradient(90deg, #fff2c9, #ffe5ed);
+  color: #8b4a25;
+}
+
+.glow-shop-card[data-item-type="cosmetic"] .glow-shop-card-icon,
+.inventory-row.is-accessory .inventory-icon {
+  animation: accessoryTreasureFloat 2.6s ease-in-out infinite;
+}
+
+.inventory-row.is-accessory.is-active {
+  border-color: rgba(223, 128, 51, 0.34);
+  background: linear-gradient(100deg, #fffaf0, #fff1f5);
+  box-shadow: 0 8px 18px rgba(190, 93, 47, 0.1);
+}
+
+@keyframes accessoryTreasureFloat {
+  0%, 100% { transform: translateY(1px) rotate(-2deg); box-shadow: 0 3px 8px rgba(191, 91, 83, 0.12); }
+  50% { transform: translateY(-3px) rotate(2deg); box-shadow: 0 7px 14px rgba(230, 143, 63, 0.25); }
+}
+
 .llamita-effect-heading {
   margin-top: 3px;
   color: #755d58;
@@ -578,6 +759,74 @@ body {
   color: #6f5942;
   font-size: 11px;
   line-height: 1.5;
+}
+
+.daily-care-card {
+  display: grid;
+  gap: 11px;
+  padding-top: 17px;
+  border-top: 1px solid rgba(143, 76, 111, 0.14);
+}
+
+.daily-care-card-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.daily-care-card-spark {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  place-items: center;
+  border: 1px solid rgba(224, 161, 52, 0.35);
+  border-radius: 50%;
+  background: #fff6d9;
+  color: #d38825;
+  font-size: 18px;
+  box-ãm¢G§²ÚîÆ­yÞ-difficulty.is-hard {
+  background: #ffe2e2;
+  color: #a34855;
+}
+
+.daily-care-mission-copy strong {
+  color: #5f2838;
+  font-size: 11px;
+}
+
+.daily-care-mission-copy > span {
+  color: #806864;
+  font-size: 9px;
+  line-height: 1.4;
+}
+
+.daily-care-mission-copy small {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #a16a22;
+  font-size: 8px;
+  font-weight: 900;
+}
+
+.daily-care-mission-copy .ember-symbol {
+  width: 11px;
+  height: 11px;
+}
+
+.daily-care-mission-status {
+  padding: 4px 7px;
+  border-radius: 999px;
+  background: #f1e9e5;
+  color: #806864;
+  font-size: 8px;
+  font-weight: 900;
+}
+
+.daily-care-mission.is-claimed .daily-care-mission-status {
+  background: #dcefd8;
+  color: #47734c;
 }
 
 .daily-actions,
@@ -1010,6 +1259,17 @@ body {
   font-size: 17px;
 }
 
+.arcade-bonus-hint {
+  padding: 7px 8px;
+  border-left: 3px solid #e4a33b;
+  border-radius: 0 6px 6px 0;
+  background: #fff5d9;
+  color: #815223;
+  font-size: 9px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
 .whack-hole.is-flame {
   background: radial-gradient(circle, #fff6b3 0 25%, #ffc45a 26% 51%, #f6e8df 53%);
   color: #d64f28;
@@ -1134,6 +1394,21 @@ body {
   color: #af384d;
 }
 
+.quiz-daily-status {
+  padding: 7px 8px;
+  border-radius: 7px;
+  background: #edf7ef;
+  color: #497153;
+  font-size: 9px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.quiz-daily-status.is-complete {
+  background: #f5ebe8;
+  color: #8a5b52;
+}
+
 .quiz-answers {
   display: grid;
   gap: 7px;
@@ -1178,6 +1453,7 @@ body {
   font-size: 25px;
   text-shadow: 0 0 10px rgba(255, 128, 154, 0.7);
   transform: rotate(12deg);
+  animation: cosmeticRibbonFloat 2.5s ease-in-out infinite;
 }
 
 .llamita-habitat[data-cosmetic="golden-glasses"] .llamita-cosmetic-layer::before,
@@ -1212,6 +1488,11 @@ body {
   50% { opacity: 1; transform: translateX(-50%) translateY(-3px) scale(1.06); }
 }
 
+@keyframes cosmeticRibbonFloat {
+  0%, 100% { opacity: 0.72; transform: translateY(2px) rotate(9deg) scale(0.96); }
+  50% { opacity: 1; transform: translateY(-4px) rotate(15deg) scale(1.08); }
+}
+
 @media (min-width: 620px) {
   .llamita-shop-grid-upgrade,
   .inventory-list,
@@ -1230,6 +1511,14 @@ body {
   }
 
   .llamita-subnav-arrow {
+    display: none;
+  }
+
+  .shop-category-scroll-shell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .shop-category-arrow {
     display: none;
   }
 
@@ -1265,6 +1554,9 @@ body {
   .llamita-toast,
   .llamita-subnav-button,
   .glow-shop-card,
+  .ember-symbol,
+  .glow-shop-card[data-item-type="cosmetic"] .glow-shop-card-icon,
+  .inventory-row.is-accessory .inventory-icon,
   .llamita-cosmetic-layer::before,
   .llamita-cosmetic-layer::after {
     animation: none !important;
