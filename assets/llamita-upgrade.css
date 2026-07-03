@@ -785,7 +785,84 @@ body {
   background: #fff6d9;
   color: #d38825;
   font-size: 18px;
-  box-ãm¢G§²ÚîÆ­yÞ-difficulty.is-hard {
+  box-shadow: 0 5px 12px rgba(210, 133, 48, 0.12);
+}
+
+.daily-care-card-head span,
+.daily-care-card > p {
+  margin: 0;
+  color: #806864;
+  font-size: 9px;
+  line-height: 1.45;
+}
+
+.daily-care-card-head h4 {
+  margin: 2px 0 0;
+  color: #5f2838;
+  font-size: 15px;
+}
+
+.daily-care-mission-list {
+  display: grid;
+  gap: 7px;
+}
+
+.daily-care-mission {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 9px;
+  min-height: 64px;
+  padding: 9px;
+  border: 1px solid rgba(143, 76, 111, 0.13);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.daily-care-mission.is-complete {
+  border-color: rgba(220, 161, 50, 0.38);
+  background: #fff9e8;
+}
+
+.daily-care-mission.is-claimed {
+  border-color: rgba(104, 164, 113, 0.3);
+  background: #f0f8ed;
+}
+
+.daily-care-mission-icon {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border-radius: 50%;
+  background: #fff0eb;
+  color: #d15f71;
+  font-size: 16px;
+}
+
+.daily-care-mission-copy {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.daily-care-mission-difficulty {
+  width: max-content;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: #edf5e9;
+  color: #4e7753;
+  font-size: 7px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.daily-care-mission-difficulty.is-medium {
+  background: #fff0cf;
+  color: #8a621d;
+}
+
+.daily-care-mission-difficulty.is-hard {
   background: #ffe2e2;
   color: #a34855;
 }
